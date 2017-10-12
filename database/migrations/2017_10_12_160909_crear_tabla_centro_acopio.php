@@ -15,7 +15,17 @@ class CrearTablaCentroAcopio extends Migration
     {
         Schema::create('centro_acopios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('locacion_id');
+            $table->integer('estado_id');
+            $table->date('fecha_inicio');
+            $table->date('fecha_termino');
+            $table->text('objetivos');
+            $table->text('descripcion');
+
+
             $table->timestamps();
+            $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');
+            $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');
         });
     }
 

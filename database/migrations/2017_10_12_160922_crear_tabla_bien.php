@@ -15,7 +15,13 @@ class CrearTablaBien extends Migration
     {
         Schema::create('biens', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('centro_acopio_id');
+            $table->string('tipo', 30);
+            $table->string('cantidad', 30)->nullable();
+            $table->integer('rut');
+
+            $table->foreign('centro_acopio_id')->references('id')->on('centro_acopios')->onDelete('cascade');
+            $table->foreign('rut')->references('rut')->on('usuarios')->onDelete('cascade');
         });
     }
 
