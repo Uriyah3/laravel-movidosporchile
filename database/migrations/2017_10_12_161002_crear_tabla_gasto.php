@@ -15,7 +15,9 @@ class CrearTablaGasto extends Migration
     {
         Schema::create('gastos', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->timestamp('fecha');
+            $table->integer('monto');
+            $table->text('proposito');
         });
     }
 
