@@ -14,8 +14,13 @@ class CrearTablaComentarioEventoABeneficio extends Migration
     public function up()
     {
         Schema::create('comentario_evento_a_beneficio', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('comentario_id');
+            $table->integer('evento_a_beneficio_id');
+
+            $table->foreign('comentario_id')->references('id')->on('comentarios')->onDelete('cascade');
+            $table->foreign('evento_a_beneficio_id')->references('id')->on('evento_a_beneficios')->onDelete('cascade');
+
+            $table->primary(['comentario_id', 'evento_a_beneficio_id']); 
         });
     }
 

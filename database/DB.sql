@@ -151,9 +151,15 @@ CREATE TABLE estado (
 CREATE TABLE bien (
 	id serial,
 	centro_acopio_id int NOT NULL,
+	tipo_medida_id int NOT NULL,
 	tipo varchar(30) NOT NULL,
-	cantidad varchar(30) DEFAULT NULL,
+	cantidad integer NOT NULL,
 	rut	int DEFAULT NULL
+);
+
+CREATE TABLE tipo_medida (
+	id serial,
+	nombre varchar(10)
 );
 
 CREATE TABLE donacion (
@@ -270,6 +276,9 @@ ALTER TABLE estado
 ALTER TABLE bien
 	ADD PRIMARY KEY (id);
 
+ALTER TABLE tipo_bien
+	ADD PRIMARY KEY (id);
+
 ALTER TABLE donacion
 	ADD PRIMARY KEY (id);
 
@@ -281,9 +290,6 @@ ALTER TABLE gasto
 
 ALTER TABLE comentario
 	ADD PRIMARY KEY (id);
-
-ALTER TABLE rol_usuario ADD
-	CONSTRAINT rol_usuario_pkey PRIMARY KEY (rol_id, usuario_id)
 
 ALTER TABLE permiso_rol ADD
 	CONSTRAINT permiso_rol_pkey PRIMARY KEY (permiso_id, rol_id);
@@ -306,10 +312,6 @@ ALTER TABLE comentario_donacion ADD
 
 ALTER TABLE usuario
 	ADD FOREIGN KEY (rol_id) REFERENCES rol(id);
-
-ALTER TABLE rol_usuario 
-	ADD FOREIGN KEY (rol_id) REFERENCES rol(id),
-	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE permiso_rol
 	ADD FOREIGN KEY (permiso_id) REFERENCES permiso(id),
@@ -347,7 +349,8 @@ ALTER TABLE centro_acopio
 	ADD FOREIGN KEY (estado_id) REFERENCES estado(id);
 
 ALTER TABLE bien
-	ADD FOREIGN KEY (centro_acopio_id) REFERENCES centro_acopio(id);
+	ADD FOREIGN KEY (centro_acopio_id) REFERENCES centro_acopio(id),
+	ADD FOREIGN KEY (tipo_bien_id) REFERENCES tipo_bien(id);
 
 ALTER TABLE deposito
 	ADD FOREIGN KEY (donacion_id) REFERENCES donacion(id);
@@ -382,3 +385,7 @@ ALTER TABLE bien
 
 ALTER TABLE deposito
 	ADD FOREIGN KEY (rut) REFERENCES usuario(rut);
+
+-- Para borrar las tablas
+-- DROP SCHEMA public CASCADE;
+-- CREATE SCHEMA public;

@@ -14,8 +14,13 @@ class CrearTablaComentarioVoluntariado extends Migration
     public function up()
     {
         Schema::create('comentario_voluntariado', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('comentario_id');
+            $table->integer('voluntariado_id');
+
+            $table->foreign('comentario_id')->references('id')->on('comentarios')->onDelete('cascade');
+            $table->foreign('voluntariado_id')->references('id')->on('voluntariados')->onDelete('cascade');
+
+            $table->primary(['comentario_id', 'voluntariado_id']); 
         });
     }
 

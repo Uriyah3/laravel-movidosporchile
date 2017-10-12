@@ -14,8 +14,13 @@ class CrearTablaComentarioDonacion extends Migration
     public function up()
     {
         Schema::create('comentario_donacion', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('comentario_id');
+            $table->integer('donacion_id');
+
+            $table->foreign('comentario_id')->references('id')->on('comentarios')->onDelete('cascade');
+            $table->foreign('donacion_id')->references('id')->on('donacions')->onDelete('cascade');
+
+            $table->primary(['comentario_id', 'donacion_id']); 
         });
     }
 
