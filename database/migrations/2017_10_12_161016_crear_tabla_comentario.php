@@ -19,7 +19,7 @@ class CrearTablaComentario extends Migration
             $table->text('descripcion');
             $table->timestamps();
 
-            table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 
