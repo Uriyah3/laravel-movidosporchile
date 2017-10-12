@@ -17,7 +17,6 @@ class CrearTablaComuna extends Migration
             $table->increments('id');
             $table->integer('provincia_id');
             $table->string('nombre', 50);
-
             $table->foreign('provincia_id')->references('id')->on('provincias')->onDelete('cascade');
         });
     }

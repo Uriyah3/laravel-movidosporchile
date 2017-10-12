@@ -15,7 +15,7 @@ class CrearTablaActividadVoluntariado extends Migration
     {
         Schema::create('actividad_voluntariados', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nombre', 30);
         });
     }
 

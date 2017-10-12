@@ -15,7 +15,10 @@ class CrearTablaRnv extends Migration
     {
         Schema::create('rnvs', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('rut');
+            $table->boolean('disponible');
+
+            $table->foreign('rut')->references('rut')->on('usuarios')->onDelete('cascade');
         });
     }
 

@@ -19,6 +19,9 @@ class CrearTablaTipoCatastrofe extends Migration
         });
     }
 
+
+    
+
     /**
      * Reverse the migrations.
      *

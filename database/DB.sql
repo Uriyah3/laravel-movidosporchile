@@ -122,12 +122,12 @@ CREATE TABLE voluntario (
 	id serial,
 	voluntariado_id int NOT NULL,
 	finalizado boolean NOT NULL DEFAULT FALSE,
-	rut int DEFAULT NULL
+	rut int NOT NULL
 );
 
 CREATE TABLE rnv (
 	id serial,
-	rut int DEFAULT NULL,
+	rut int NOT NULL,
 	disponible boolean NOT NULL
 );
 
@@ -171,7 +171,7 @@ CREATE TABLE deposito (
 	id serial,
 	donacion_id int NOT NULL,
 	nombre varchar(50) NOT NULL,
-	rut int DEFAULT NULL,
+	rut int NOT NULL,
 	monto int NOT NULL
 );
 

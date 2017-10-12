@@ -15,9 +15,12 @@ class CrearTablaRegion extends Migration
     {
         Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nombre', 50);
         });
     }
+
+
+
 
     /**
      * Reverse the migrations.
