@@ -15,7 +15,13 @@ class CrearTablaDeposito extends Migration
     {
         Schema::create('depositos', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('donacion_id');
+            $table->string('nombre', 50);
+            $table->integer('rut');
+            $table->integer('monto');
+
+            $table->foreign('donacion_id')->references('id')->on('donacions')->onDelete('cascade');
+            $table->foreign('rut')->references('rut')->on('usuarios')->onDelete('cascade');
         });
     }
 
