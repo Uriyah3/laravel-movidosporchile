@@ -15,7 +15,17 @@ class CrearTablaUsuario extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('rol_id');
+            $table->string('username', 50);
+            $table->string('password', 255);
+            $table->integer('rut');
+            $table->string('nombre', 50);
+            $table->integer('telefono')->nullable();
+            $table->string('email', 120);
             $table->timestamps();
+
+            $table->unique('rut');
+            $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade');
         });
     }
 

@@ -1,4 +1,4 @@
-<?php
+<<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,7 +15,7 @@ class CrearTablaPermiso extends Migration
     {
         Schema::create('permisos', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('nombre', 120);
         });
     }
 

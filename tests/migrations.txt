@@ -1,7 +1,6 @@
 php artisan make:migration crear_tabla_rol --create=rols
 php artisan make:migration crear_tabla_usuario --create=usuarios
 php artisan make:migration crear_tabla_permiso --create=permisos
-php artisan make:migration crear_tabla_rol_usuario --create=rol_usuario
 php artisan make:migration crear_tabla_permiso_rol --create=permiso_rol
 php artisan make:migration crear_tabla_tipo_catastrofe --create=tipo_catastrofes
 php artisan make:migration crear_tabla_region --create=regions

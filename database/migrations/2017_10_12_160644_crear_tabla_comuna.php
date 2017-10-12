@@ -15,7 +15,10 @@ class CrearTablaComuna extends Migration
     {
         Schema::create('comunas', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('provincia_id');
+            $table->string('nombre', 50);
+
+            $table->foreign('provincia_id')->references('id')->on('provincias')->onDelete('cascade');
         });
     }
 

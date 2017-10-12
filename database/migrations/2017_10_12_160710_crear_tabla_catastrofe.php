@@ -15,7 +15,13 @@ class CrearTablaCatastrofe extends Migration
     {
         Schema::create('catastrofes', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('usuario_id');
+            $table->integer('tipo_catastrofe_id');
+            $table->integer('locacion_id');
+
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('tipo_catastrofe_id')->references('id')->on('tipo_catastrofes')->onDelete('cascade');
+            $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');
         });
     }
 

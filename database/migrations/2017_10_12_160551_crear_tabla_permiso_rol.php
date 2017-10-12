@@ -14,8 +14,13 @@ class CrearTablaPermisoRol extends Migration
     public function up()
     {
         Schema::create('permiso_rol', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->integer('permiso_id');
+            $table->integer('rol_id');
+
+            $table->foreign('permiso_id')->references('id')->on('permisos')->onDelete('cascade');
+            $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade');
+
+            $table->primary(['permiso_id', 'rol_id']); 
         });
     }
 
