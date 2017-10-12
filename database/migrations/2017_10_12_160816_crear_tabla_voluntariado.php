@@ -21,7 +21,7 @@ class CrearTablaVoluntariado extends Migration
             $table->date('fecha_termino');
             $table->integer('cantidad_voluntarios');
             $table->text('objetivos');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
 
             $table->timestamps();
             $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');

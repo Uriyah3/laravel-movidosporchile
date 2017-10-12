@@ -20,7 +20,7 @@ class CrearTablaCentroAcopio extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->text('objetivos');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
 
 
             $table->timestamps();

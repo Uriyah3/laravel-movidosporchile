@@ -20,7 +20,7 @@ class CrearTablaEventoABeneficio extends Migration
             $table->time('horario_inicio');
             $table->time('horario_termino');
             $table->text('objetivos');
-            $table->text('descripcion');
+            $table->text('descripcion')->nullable();
             $table->text('actividades');
             $table->timestamps();
             $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');

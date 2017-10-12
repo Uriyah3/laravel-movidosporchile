@@ -27,12 +27,12 @@ CREATE TABLE usuario (
 
 CREATE TABLE rol (
 	id serial,
-	nombre varchar(50)
+	nombre varchar(50) NOT NULL
 );
 
 CREATE TABLE permiso (
 	id serial,
-	nombre varchar(120)
+	nombre varchar(120) NOT NULL
 );
 
 CREATE TABLE permiso_rol (
@@ -49,31 +49,31 @@ CREATE TABLE catastrofe (
 
 CREATE TABLE tipo_catastrofe (
 	id serial,
-	nombre varchar(30)
+	nombre varchar(30) NOT NULL
 );
 
 CREATE TABLE comuna (
 	id serial,
 	provincia_id int NOT NULL,
-	nombre VARCHAR(50)
+	nombre VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE provincia (
 	id serial,
 	region_id int NOT NULL,
-	nombre VARCHAR(50)
+	nombre VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE region (
 	id serial,
-	nombre VARCHAR(50)
+	nombre VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE locacion (
 	id serial,
 	comuna_id int NOT NULL,
-	punto_gx float(10),
-	punto_gy float(10)
+	punto_gx float(10) NOT NULL,
+	punto_gy float(10) NOT NULL
 );
 
 CREATE TABLE evento_a_beneficio (
@@ -84,7 +84,7 @@ CREATE TABLE evento_a_beneficio (
 	horario_termino time NOT NULL,
 	objetivos text NOT NULL,
 	descripcion text,
-	actividades text,
+	actividades text NOT NULL,
 	created timestamp DEFAULT NULL,
 	modified timestamp DEFAULT NULL
 );
@@ -115,7 +115,7 @@ CREATE TABLE voluntariado (
 
 CREATE TABLE actividad_voluntariado (
 	id serial,
-	nombre varchar(30)
+	nombre varchar(30) NOT NULL
 );
 
 CREATE TABLE voluntario (
@@ -159,7 +159,7 @@ CREATE TABLE bien (
 
 CREATE TABLE tipo_medida (
 	id serial,
-	nombre varchar(10)
+	nombre varchar(10) NOT NULL
 );
 
 CREATE TABLE donacion (
