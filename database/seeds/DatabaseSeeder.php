@@ -11,8 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
- 
         $this->call([
 	        RolsTableSeeder::class,
 			UsuariosTableSeeder::class,
@@ -21,7 +19,6 @@ class DatabaseSeeder extends Seeder
 			RegionsTableSeeder::class,
 			ProviniciasTableSeeder::class,
 			ComunasTableSeeder::class,
-			LocacionsTableSeeder::class,
 			CatastrofesTableSeeder::class,
 			EventoABeneficiosTableSeeder::class,
 			TipoActividadsTableSeeder::class,

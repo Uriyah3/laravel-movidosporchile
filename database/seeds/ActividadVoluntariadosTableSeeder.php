@@ -11,6 +11,9 @@ class ActividadVoluntariadosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $actividades = ["actividad1", "actividad2", "actividad3"];
+        foreach ($actividades as $actividad) {
+        	factory(App\ActividadVoluntariado::class)->create(['nombre' => $actividad]);
+        }
     }
 }

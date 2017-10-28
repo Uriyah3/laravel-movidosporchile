@@ -11,6 +11,6 @@ class DepositosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Deposito::class, 10)->create();
     }
 }

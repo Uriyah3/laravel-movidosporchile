@@ -11,6 +11,6 @@ class CentroAcopiosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\CentroAcopio::class, 10)->create();
     }
 }

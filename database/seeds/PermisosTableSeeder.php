@@ -11,6 +11,9 @@ class PermisosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $permisos = ["permiso1", "permiso2"];
+        foreach ($permisos as $permiso) {
+        	factory(App\Permiso::class)->create(['nombre' => $permiso]);
+        }
     }
 }

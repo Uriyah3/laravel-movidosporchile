@@ -5,7 +5,6 @@ php artisan make:seed TipoCatastrofesTableSeeder
 php artisan make:seed RegionsTableSeeder
 php artisan make:seed ProviniciasTableSeeder
 php artisan make:seed ComunasTableSeeder
-php artisan make:seed LocacionsTableSeeder
 php artisan make:seed CatastrofesTableSeeder
 php artisan make:seed EventoABeneficiosTableSeeder
 php artisan make:seed TipoActividadsTableSeeder

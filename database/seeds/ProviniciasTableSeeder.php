@@ -11,6 +11,6 @@ class ProviniciasTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Provincia::class, 10)->create();
     }
 }

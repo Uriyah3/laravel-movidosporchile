@@ -11,6 +11,6 @@ class EventoABeneficiosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\EventoABeneficio::class, 10)->create();
     }
 }

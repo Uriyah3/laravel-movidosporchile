@@ -11,6 +11,6 @@ class CatastrofesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(App\Catastrofe::class, 10)->create();
     }
 }
