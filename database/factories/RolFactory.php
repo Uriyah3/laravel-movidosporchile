@@ -1,9 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-$categorias =("Jefe","Administrativo","Voluntario","Usuario","Usuario natural");
+
 $factory->define(App\Rol::class, function (Faker $faker) {
+	$categorias = ["Jefe","Administrativo","Voluntario","Usuario","Usuario natural"];
     return [
-        'nombre'-> array_rand($categorias,1),
+        'nombre'=> $faker->randomElement($array = $categorias),
     ];
 });

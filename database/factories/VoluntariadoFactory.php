@@ -4,12 +4,14 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Voluntariado::class, function (Faker $faker) {
     return [
-        'locacion_id' => 'locacion_id' => random_int(\DB::table('locacions')->min('id'), \DB::table('locacions')->max('id')),
-		'actividad_voluntariado_id' => 'locacion_id' => random_int(\DB::table('actividad_voluntariados')->min('id'), \DB::table('actividad_voluntariados')->max('id')),
-		'fecha_inicio' => $faker->past_date(end_date='-30d',tzinfo=None),
-        'fecha_termino' => $faker->future_date(end_date='+30d',tzinfo=None),
-		'cantidad_voluntarios'=> random_int(0,100000),
+        'locacion_id' => $factory->create('App\Locacion')->id,
+		'actividad_voluntariado_id' => App\ActividadVoluntariado::all()->random()->id,
+        'fecha_inicio' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
+        'fecha_termino' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
+		'cantidad_voluntarios'=> $faker->numberBetween($min = 1, $max = 10000),
 		'objetivos' => $faker->text(),
         'descripcion' => $faker->text(),
+        'created' =>  $faker->dateTimeThisYear(),
+        'modified' => $faker->dateTimeThisYear(),
     ];
 });
