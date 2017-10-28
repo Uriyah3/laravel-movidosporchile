@@ -164,7 +164,7 @@ CREATE TABLE tipo_medida (
 
 CREATE TABLE donacion (
 	id serial,
-	cuenta int NOT NULL,
+	cuenta bigint NOT NULL,
 	fecha_inicio date NOT NULL,
 	fecha_termino date NOT NULL,
 	objetivos text NOT NULL,
