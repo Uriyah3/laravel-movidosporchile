@@ -8,6 +8,6 @@ class Rnv extends Model
 {
     //
     public function voluntario(){
-    	return $this->belongsTo('App\Voluntario');
+    	return $this->hasOne('App\Voluntario', 'rut');
     }
 }

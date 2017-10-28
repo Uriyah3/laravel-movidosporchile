@@ -20,6 +20,6 @@ class EventoABeneficio extends Model
     }
 
     public function tipo_actividad(){
-        return $this->hasMany('App\TipoActividad');
+        return $this->belongsTo('App\TipoActividad');
     }
 }

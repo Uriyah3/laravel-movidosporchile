@@ -8,6 +8,6 @@ class TipoCatastrofe extends Model
 {
     //
     public function catastrofe(){
-    	return $this->belongsTo('App\Catastrofe');
+    	return $this->hasMany('App\Catastrofe');
     }
 }

@@ -36,7 +36,7 @@ class Usuario extends Model
     }
 
     public function registro_actividad(){
-    	return $this->hasOne('App\RegistroActividad');
+    	return $this->hasMany('App\RegistroActividad');
     }
 
     public function comentario(){

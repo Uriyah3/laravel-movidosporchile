@@ -8,6 +8,6 @@ class Estado extends Model
 {
     //
     public function centro_acopio(){
-    	return $this->belongsTo('App\CentroAcopio');
+    	return $this->hasMany('App\CentroAcopio');
     }
 }

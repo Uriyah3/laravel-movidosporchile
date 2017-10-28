@@ -16,6 +16,6 @@ class Catastrofe extends Model
     }
 
     public function tipo_catastrofe(){
-    	return $this->hasOne('App\TipoCatastrofe');
+    	return $this->belongsTo('App\TipoCatastrofe');
     }
 }

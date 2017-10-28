@@ -12,7 +12,7 @@ class Voluntario extends Model
     }
 
     public function rnv(){
-    	return $this->hasOne('App\Rnv');
+    	return $this->belongsTo('App\Rnv');
     }
 
 
