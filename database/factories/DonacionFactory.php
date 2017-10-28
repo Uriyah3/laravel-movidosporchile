@@ -9,7 +9,5 @@ $factory->define(App\Donacion::class, function (Faker $faker) {
         'fecha_termino' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
         'descripcion' => $faker->text(),
         'objetivos' => $faker->text(),
-        'created' =>  $faker->dateTimeThisYear(),
-        'modified' => $faker->dateTimeThisYear(),
     ];
 });
