@@ -7,6 +7,6 @@ $factory->define(App\Deposito::class, function (Faker $faker) {
         'donacion_id' => App\Donacion::all()->random()->id,
         'nombre' => $faker->name,
         'rut' => App\Usuario::all()->random()->rut,
-        'monto' =>  random_int(1, 2000000000),
+		'monto' =>  $faker->numberBetween($min = 1, $max = 2000000000),
     ];
 });
