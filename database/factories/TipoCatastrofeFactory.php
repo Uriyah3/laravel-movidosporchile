@@ -1,9 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-$catastrofes = ("Terremoto","Tsunami","Incendio","Crisis Humanitaria","Epidemias");
+
 $factory->define(App\TipoCatastrofe::class, function (Faker $faker) {
+	$catastrofes = ["Terremoto","Tsunami","Incendio","Crisis Humanitaria","Epidemias"];
     return [
-        'nombre' => array_rand($catastrofes,1);
+        'nombre' => $faker->randomElement($catastrofes),
     ];
 });
