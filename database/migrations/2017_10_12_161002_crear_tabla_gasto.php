@@ -15,9 +15,11 @@ class CrearTablaGasto extends Migration
     {
         Schema::create('gastos', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id');
             $table->timestamp('fecha');
             $table->integer('monto');
             $table->text('proposito');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

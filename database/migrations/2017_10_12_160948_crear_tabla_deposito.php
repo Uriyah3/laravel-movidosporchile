@@ -16,6 +16,7 @@ class CrearTablaDeposito extends Migration
         Schema::create('depositos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('donacion_id');
+            $table->timestamp('fecha');
             $table->string('nombre', 50);
             $table->integer('rut');
             $table->integer('monto');

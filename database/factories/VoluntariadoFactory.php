@@ -4,6 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Voluntariado::class, function (Faker $faker) {
     return [
+    	'usuario_id' => App\Usuario::all()->random()->id,
         'locacion_id' => factory(App\Locacion::class),
 		'actividad_voluntariado_id' => App\ActividadVoluntariado::all()->random()->id,
         'fecha_inicio' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),

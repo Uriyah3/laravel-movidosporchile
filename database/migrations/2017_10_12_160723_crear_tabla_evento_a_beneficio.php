@@ -15,6 +15,7 @@ class CrearTablaEventoABeneficio extends Migration
     {
         Schema::create('evento_a_beneficios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id');
             $table->integer('locacion_id');
             $table->date('fecha');
             $table->time('horario_inicio');
@@ -24,6 +25,7 @@ class CrearTablaEventoABeneficio extends Migration
             $table->text('actividades');
             $table->timestamps();
             $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

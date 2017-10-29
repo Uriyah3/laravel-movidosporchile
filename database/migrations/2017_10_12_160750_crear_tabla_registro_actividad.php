@@ -15,9 +15,11 @@ class CrearTablaRegistroActividad extends Migration
     {
         Schema::create('registro_actividads', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id');
             $table->integer('tipo_actividad_id');
             $table->timestamps();
             $table->foreign('tipo_actividad_id')->references('id')->on('tipo_actividads')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

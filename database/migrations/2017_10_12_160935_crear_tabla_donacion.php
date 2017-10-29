@@ -15,6 +15,7 @@ class CrearTablaDonacion extends Migration
     {
         Schema::create('donacions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id');
             $table->biginteger('cuenta');
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
@@ -22,6 +23,7 @@ class CrearTablaDonacion extends Migration
             $table->text('descripcion')->nullable();
 
             $table->timestamps();
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

@@ -182,6 +182,7 @@ CREATE TABLE donacion (
 CREATE TABLE deposito (
 	id serial,
 	donacion_id int NOT NULL,
+	fecha timestamp NOT NULL,
 	nombre varchar(50) NOT NULL,
 	rut int NOT NULL,
 	monto int NOT NULL
