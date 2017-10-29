@@ -21,4 +21,8 @@ class Bien extends Model
     public function tipo_medida(){
     	return $this->belongsTo('App\TipoMedida');
     }
+
+    public function rut() {
+        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+    }
 }

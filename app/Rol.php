@@ -15,10 +15,10 @@ class Rol extends Model
 	
     //
     public function usuario(){
-    	return $this->belongsTo('App\Usuario');
+    	return $this->hasMany('App\Usuario');
     }
 
     public function permiso(){
-    	return $this->hasMany('App\Permiso');
+    	return $this->belongsToMany('App\Permiso');
     }
 }

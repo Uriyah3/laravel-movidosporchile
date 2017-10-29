@@ -16,11 +16,11 @@ class Voluntariado extends Model
     }
 
     public function locacion(){
-    	return $this->hasOne('App\Locacion');
+    	return $this->belongsTo('App\Locacion');
     }
 
     public function comentario(){
-        return $this->hasMany('App\Comentario');
+        return $this->belongsToMany('App\Comentario');
     }
     
     public function actividad_voluntariado(){

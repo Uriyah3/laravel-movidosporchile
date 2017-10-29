@@ -20,7 +20,7 @@ class Catastrofe extends Model
     }
 
     public function locacion(){
-    	return $this->hasOne('App\Locacion');
+    	return $this->belongsTo('App\Locacion');
     }
 
     public function tipo_catastrofe(){

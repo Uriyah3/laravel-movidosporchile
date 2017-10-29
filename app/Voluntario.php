@@ -19,8 +19,11 @@ class Voluntario extends Model
     }
 
     public function rnv(){
-    	return $this->belongsTo('App\Rnv');
+    	return $this->belongsTo('App\Rnv', 'rut', 'rut');
     }
 
+    public function rut() {
+        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+    }
 
 }

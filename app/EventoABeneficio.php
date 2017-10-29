@@ -12,14 +12,10 @@ class EventoABeneficio extends Model
     }
 
     public function locacion(){
-    	return $this->hasOne('App\Locacion');
+    	return $this->belongsTo('App\Locacion');
     }
 
     public function comentario(){
-        return $this->hasMany('App\Comentario');
-    }
-
-    public function tipo_actividad(){
-        return $this->belongsTo('App\TipoActividad');
+        return $this->belongsToMany('App\Comentario');
     }
 }

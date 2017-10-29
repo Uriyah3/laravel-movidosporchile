@@ -16,6 +16,6 @@ class Donacion extends Model
     }
 
     public function comentario(){
-        return $this->hasMany('App\Comentario');
+        return $this->belongsToMany('App\Comentario');
     }
 }

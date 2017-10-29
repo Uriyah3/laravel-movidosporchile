@@ -12,18 +12,18 @@ class Comentario extends Model
     }
 
     public function centro_acopio(){
-    	return $this->belongsTo('App\CentroAcopio');
+    	return $this->belongsToMany('App\CentroAcopio', 'comentario_centro_acopio');
     }
 
     public function voluntariado(){
-    	return $this->belongsTo('App\Voluntariado');
+    	return $this->belongsToMany('App\Voluntariado');
     }
 
     public function evento_a_beneficio(){
-    	return $this->belongsTo('App\EventoABeneficio');
+    	return $this->belongsToMany('App\EventoABeneficio');
     }
 
     public function donacion(){
-    	return $this->belongsTo('App\Donacion');
+    	return $this->belongsToMany('App\Donacion');
     }
 }

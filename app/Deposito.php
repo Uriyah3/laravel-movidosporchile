@@ -17,4 +17,8 @@ class Deposito extends Model
     public function donacion(){
     	return $this->belongsTo('App\Donacion');
     }
+
+    public function rut() {
+        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+    }
 }

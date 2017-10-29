@@ -15,6 +15,10 @@ class Rnv extends Model
 	
     //
     public function voluntario(){
-    	return $this->hasOne('App\Voluntario', 'rut');
+    	return $this->hasOne('App\Voluntario', 'rut', 'rut');
+    }
+
+    public function rut() {
+        return $this->belongsTo('App\Usuario', 'rut', 'rut');
     }
 }

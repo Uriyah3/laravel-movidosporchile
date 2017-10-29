@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 	        RolsTableSeeder::class,
 			UsuariosTableSeeder::class,
 			PermisosTableSeeder::class,
+			PermisoRolTableSeeder::class,
 			TipoCatastrofesTableSeeder::class,
 			RegionsTableSeeder::class,
 			ProviniciasTableSeeder::class,
