@@ -1,9 +1,10 @@
 <?php
 
 use Faker\Generator as Faker;
-$actividades = ("Ayuda","Coordinaccion","Administracion");
+
 $factory->define(App\TipoActividad::class, function (Faker $faker) {
+	$actividades = ["Ayuda","Coordinaccion","Administracion"];
     return [
-        'nombre' =>array_rand($actividades,1);
+        'nombre' => $faker->randomElement($actividades),
     ];
 });

@@ -15,7 +15,7 @@ class CrearTablaDonacion extends Migration
     {
         Schema::create('donacions', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('cuenta');
+            $table->biginteger('cuenta');
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->text('objetivos');

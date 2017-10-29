@@ -6,6 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Catastrofe extends Model
 {
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+    protected $table = 'catastrofes';
+
     //
     public function usuario(){
     	return $this->belongsTo('App\Usuario');
@@ -16,6 +24,6 @@ class Catastrofe extends Model
     }
 
     public function tipo_catastrofe(){
-    	return $this->hasOne('App\TipoCatastrofe');
+    	return $this->belongsTo('App\TipoCatastrofe');
     }
 }

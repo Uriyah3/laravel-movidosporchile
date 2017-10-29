@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Provincia extends Model
 {
+	/**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+	
     //
 
     public function comuna(){
@@ -13,6 +20,6 @@ class Provincia extends Model
     }
 
     public function region(){
-    	return $this->hasOne('App\Region');
+    	return $this->belongsTo('App\Region');
     }
 }

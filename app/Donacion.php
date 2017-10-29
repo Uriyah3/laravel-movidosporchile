@@ -12,7 +12,7 @@ class Donacion extends Model
     }
 
     public function deposito(){
-    	return $this->hasOne('App\Deposito');
+    	return $this->hasMany('App\Deposito');
     }
 
     public function comentario(){

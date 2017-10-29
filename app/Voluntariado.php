@@ -22,12 +22,8 @@ class Voluntariado extends Model
     public function comentario(){
         return $this->hasMany('App\Comentario');
     }
-
-    public function comentario(){
-        return $this->hasMany('App\Comentario');
-    }
-
+    
     public function actividad_voluntariado(){
-        return $this->hasMany('App\ActividadVoluntariado');
+        return $this->belongsTo('App\ActividadVoluntariado');
     }
 }

@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rnv extends Model
 {
+	/**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+	
     //
     public function voluntario(){
-    	return $this->belongsTo('App\Voluntario');
+    	return $this->hasOne('App\Voluntario', 'rut');
     }
 }
