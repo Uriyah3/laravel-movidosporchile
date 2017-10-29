@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bien extends Model
 {
+
     //
     public function centro_acopio(){
     	return $this->belongsTo('App\CentroAcopio');
