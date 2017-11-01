@@ -95,7 +95,8 @@ CREATE TABLE registro_actividad (
 	id serial,
 	usuario_id int NOT NULL,
 	tipo_actividad_id int NOT NULL,
-	created timestamp NOT NULL
+	created_at timestamp NOT NULL,
+	modified_at timestamp NOT NULL
 );
 
 CREATE TABLE tipo_actividad (
@@ -284,7 +285,7 @@ ALTER TABLE estado
 ALTER TABLE bien
 	ADD PRIMARY KEY (id);
 
-ALTER TABLE tipo_bien
+ALTER TABLE tipo_medida
 	ADD PRIMARY KEY (id);
 
 ALTER TABLE donacion
@@ -363,7 +364,7 @@ ALTER TABLE centro_acopio
 
 ALTER TABLE bien
 	ADD FOREIGN KEY (centro_acopio_id) REFERENCES centro_acopio(id),
-	ADD FOREIGN KEY (tipo_bien_id) REFERENCES tipo_bien(id);
+	ADD FOREIGN KEY (tipo_medida_id) REFERENCES tipo_medida(id);
 
 ALTER TABLE donacion
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
