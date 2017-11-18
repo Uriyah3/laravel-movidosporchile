@@ -16,8 +16,9 @@ CREATE TABLE usuario (
 	id serial,
 	rol_id int NOT NULL,
 	username varchar(50) NOT NULL,
-	password varchar(255) NOT NULL,
+	password char(60) NOT NULL,
 	rut		int NOT NULL UNIQUE,
+	dv		char(1) NOT NULL,
 	nombre	varchar(50) NOT NULL,
 	telefono int,
 	email	varchar(120) NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE catastrofe (
 	usuario_id int NOT NULL,
 	tipo_catastrofe_id int NOT NULL,
 	locacion_id int NOT NULL,
-	descripcion text NOT NULL
+	fecha_catastrofe timestamp NOT NULL,
 );
 
 CREATE TABLE tipo_catastrofe (
@@ -73,22 +74,27 @@ CREATE TABLE region (
 CREATE TABLE locacion (
 	id serial,
 	comuna_id int NOT NULL,
-	punto_gx float(10) NOT NULL,
-	punto_gy float(10) NOT NULL
+	latitude float(10) NOT NULL,
+	longitude float(10) NOT NULL
+);
+
+CREATE TABLE medida (
+	id serial,
+	usuario_id int NOT NULL,
+	aprobada boolean NOT NULL DEFAULT FALSE;
+	objetivos text NOT NULL,
+	descripcion text,
+	created_at timestamp DEFAULT NULL,
+	modified_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE evento_a_beneficio (
 	id serial,
-	usuario_id int NOT NULL,
 	locacion_id int NOT NULL,
 	fecha date NOT NULL,
 	horario_inicio time NOT NULL,
 	horario_termino time NOT NULL,
-	objetivos text NOT NULL,
-	descripcion text,
-	actividades text NOT NULL,
-	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	actividades text NOT NULL
 );
 
 CREATE TABLE registro_actividad (
@@ -106,16 +112,11 @@ CREATE TABLE tipo_actividad (
 
 CREATE TABLE voluntariado (
 	id serial,
-	usuario_id int NOT NULL,
 	locacion_id int NOT NULL,
 	actividad_voluntariado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
 	fecha_termino date NOT NULL,
-	cantidad_voluntarios int NOT NULL,
-	objetivos text NOT NULL,
-	descripcion text,
-	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	cantidad_voluntarios int NOT NULL
 );
 
 CREATE TABLE actividad_voluntariado (
@@ -125,28 +126,28 @@ CREATE TABLE actividad_voluntariado (
 
 CREATE TABLE voluntario (
 	id serial,
+	usuario_id int NOT NULL,
 	voluntariado_id int NOT NULL,
 	finalizado boolean NOT NULL DEFAULT FALSE,
-	rut int NOT NULL
+	created_at timestamp NOT NULL,
+	modified_at timestamp NOT NULL
 );
 
 CREATE TABLE rnv (
 	id serial,
-	rut int NOT NULL,
+	rut		int NOT NULL UNIQUE,
+	dv		char(1) NOT NULL,
+	nombre	varchar(50) NOT NULL,
+	email	varchar(120) NOT NULL,
 	disponible boolean NOT NULL
 );
 
 CREATE TABLE centro_acopio (
 	id serial,
-	usuario_id int NOT NULL,
 	locacion_id int NOT NULL,
 	estado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
-	fecha_termino date NOT NULL,
-	objetivos text NOT NULL,
-	descripcion text,
-	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	fecha_termino date NOT NULL
 );
 
 CREATE TABLE estado (
@@ -156,36 +157,34 @@ CREATE TABLE estado (
 
 CREATE TABLE bien (
 	id serial,
+	usuario_id	int DEFAULT NULL
 	centro_acopio_id int NOT NULL,
-	tipo_medida_id int NOT NULL,
+	medicion_id int NOT NULL,
 	tipo varchar(30) NOT NULL,
 	cantidad integer NOT NULL,
-	rut	int DEFAULT NULL
 );
 
-CREATE TABLE tipo_medida (
+CREATE TABLE medicion (
 	id serial,
 	nombre varchar(10) NOT NULL
 );
 
 CREATE TABLE donacion (
 	id serial,
-	usuario_id int NOT NULL,
-	cuenta bigint NOT NULL,
+	titular varchar(60) NOT NULL,
+	rut_destinatario varchar(12) NOT NULL,
+	nombre_banco varchar(40) NOT NULL,
+	tipo_cuenta varchar(20) NOT NULL,
+	cuenta varchar(30) NOT NULL,
 	fecha_inicio date NOT NULL,
-	fecha_termino date NOT NULL,
-	objetivos text NOT NULL,
-	descripcion text,
-	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	fecha_termino date NOT NULL
 );
 
 CREATE TABLE deposito (
 	id serial,
+	usuario_id int NOT NULL,
 	donacion_id int NOT NULL,
 	fecha timestamp NOT NULL,
-	nombre varchar(50) NOT NULL,
-	rut int NOT NULL,
 	monto int NOT NULL
 );
 
@@ -302,19 +301,19 @@ ALTER TABLE comentario
 
 ALTER TABLE permiso_rol ADD
 	CONSTRAINT permiso_rol_pkey PRIMARY KEY (permiso_id, rol_id);
-	
+
 ALTER TABLE comentario_voluntariado ADD
 	CONSTRAINT comentario_voluntariado_pkey PRIMARY KEY (comentario_id, voluntariado_id);
-	
+
 ALTER TABLE comentario_evento_a_beneficio ADD
 	CONSTRAINT comentario_evento_a_beneficio_pkey PRIMARY KEY (comentario_id, evento_a_beneficio_id);
-	
+
 ALTER TABLE comentario_centro_acopio ADD
 	CONSTRAINT comentario_centro_acopio_pkey PRIMARY KEY (comentario_id, centro_acopio_id);
-	
+
 ALTER TABLE comentario_donacion ADD
 	CONSTRAINT comentario_donacion_pkey PRIMARY KEY (comentario_id, donacion_id);
-	
+
 --
 -- Definicion de llaves foraneas
 --
@@ -395,16 +394,16 @@ ALTER TABLE comentario_donacion
 	ADD FOREIGN KEY (donacion_id) REFERENCES donacion(id);
 
 ALTER TABLE voluntario
-	ADD FOREIGN KEY (rut) REFERENCES usuario(rut);
+	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE rnv
-	ADD FOREIGN KEY (rut) REFERENCES usuario(rut);
+	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE bien
-	ADD FOREIGN KEY (rut) REFERENCES usuario(rut);
+	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE deposito
-	ADD FOREIGN KEY (rut) REFERENCES usuario(rut);
+	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 -- Para borrar las tablas
 -- DROP SCHEMA public CASCADE;
