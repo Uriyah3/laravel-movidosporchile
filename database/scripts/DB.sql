@@ -22,6 +22,7 @@ CREATE TABLE usuario (
 	nombre	varchar(50) NOT NULL,
 	telefono int,
 	email	varchar(120) NOT NULL,
+	active boolean NOT NULL,
 	created_at timestamp DEFAULT NULL,
 	modified_at timestamp DEFAULT NULL
 );
@@ -46,7 +47,8 @@ CREATE TABLE catastrofe (
 	usuario_id int NOT NULL,
 	tipo_catastrofe_id int NOT NULL,
 	locacion_id int NOT NULL,
-	fecha_catastrofe timestamp NOT NULL,
+	descripcion text NOT NULL,
+	fecha_catastrofe datetime NOT NULL
 );
 
 CREATE TABLE tipo_catastrofe (
@@ -90,6 +92,7 @@ CREATE TABLE medida (
 
 CREATE TABLE evento_a_beneficio (
 	id serial,
+	medida_id int NOT NULL,
 	locacion_id int NOT NULL,
 	fecha date NOT NULL,
 	horario_inicio time NOT NULL,
@@ -112,6 +115,7 @@ CREATE TABLE tipo_actividad (
 
 CREATE TABLE voluntariado (
 	id serial,
+	medida_id int NOT NULL,
 	locacion_id int NOT NULL,
 	actividad_voluntariado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
@@ -139,11 +143,14 @@ CREATE TABLE rnv (
 	dv		char(1) NOT NULL,
 	nombre	varchar(50) NOT NULL,
 	email	varchar(120) NOT NULL,
-	disponible boolean NOT NULL
+	disponible boolean NOT NULL,
+	created_at timestamp NOT NULL,
+	modified_at timestamp NOT NULL
 );
 
 CREATE TABLE centro_acopio (
 	id serial,
+	medida_id int NOT NULL,
 	locacion_id int NOT NULL,
 	estado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
@@ -171,6 +178,7 @@ CREATE TABLE medicion (
 
 CREATE TABLE donacion (
 	id serial,
+	medida_id int NOT NULL,
 	titular varchar(60) NOT NULL,
 	rut_destinatario varchar(12) NOT NULL,
 	nombre_banco varchar(40) NOT NULL,
@@ -198,30 +206,11 @@ CREATE TABLE gasto (
 
 CREATE TABLE comentario (
 	id serial,
+	medida_id int NOT NULL,
 	usuario_id int NOT NULL,
 	descripcion text NOT NULL,
 	created_at timestamp DEFAULT NULL,
 	modified_at timestamp DEFAULT NULL
-);
-
-CREATE TABLE comentario_voluntariado (
-	comentario_id int NOT NULL,
-	voluntariado_id int NOT NULL
-);
-
-CREATE TABLE comentario_evento_a_beneficio (
-	comentario_id int NOT NULL,
-	evento_a_beneficio_id int NOT NULL
-);
-
-CREATE TABLE comentario_centro_acopio (
-	comentario_id int NOT NULL,
-	centro_acopio_id int NOT NULL
-);
-
-CREATE TABLE comentario_donacion (
-	comentario_id int NOT NULL,
-	donacion_id int NOT NULL
 );
 
 --
@@ -302,18 +291,6 @@ ALTER TABLE comentario
 ALTER TABLE permiso_rol ADD
 	CONSTRAINT permiso_rol_pkey PRIMARY KEY (permiso_id, rol_id);
 
-ALTER TABLE comentario_voluntariado ADD
-	CONSTRAINT comentario_voluntariado_pkey PRIMARY KEY (comentario_id, voluntariado_id);
-
-ALTER TABLE comentario_evento_a_beneficio ADD
-	CONSTRAINT comentario_evento_a_beneficio_pkey PRIMARY KEY (comentario_id, evento_a_beneficio_id);
-
-ALTER TABLE comentario_centro_acopio ADD
-	CONSTRAINT comentario_centro_acopio_pkey PRIMARY KEY (comentario_id, centro_acopio_id);
-
-ALTER TABLE comentario_donacion ADD
-	CONSTRAINT comentario_donacion_pkey PRIMARY KEY (comentario_id, donacion_id);
-
 --
 -- Definicion de llaves foraneas
 --
@@ -342,6 +319,7 @@ ALTER TABLE locacion
 
 ALTER TABLE evento_a_beneficio
 	ADD FOREIGN KEY (locacion_id) REFERENCES locacion(id),
+	ADD FOREIGN KEY (medida_id) REFERENCES medida(id),
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE registro_actividad
@@ -351,6 +329,7 @@ ALTER TABLE registro_actividad
 ALTER TABLE voluntariado
 	ADD FOREIGN KEY (locacion_id) REFERENCES locacion(id),
 	ADD FOREIGN KEY (actividad_voluntariado_id) REFERENCES actividad_voluntariado(id),
+	ADD FOREIGN KEY (medida_id) REFERENCES medida(id),
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE voluntario
@@ -359,6 +338,7 @@ ALTER TABLE voluntario
 ALTER TABLE centro_acopio
 	ADD FOREIGN KEY (locacion_id) REFERENCES locacion(id),
 	ADD FOREIGN KEY (estado_id) REFERENCES estado(id),
+	ADD FOREIGN KEY (medida_id) REFERENCES medida(id),
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE bien
@@ -366,6 +346,7 @@ ALTER TABLE bien
 	ADD FOREIGN KEY (tipo_medida_id) REFERENCES tipo_medida(id);
 
 ALTER TABLE donacion
+	ADD FOREIGN KEY (medida_id) REFERENCES medida(id),
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE deposito
@@ -375,23 +356,8 @@ ALTER TABLE gasto
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
 
 ALTER TABLE comentario
+	ADD FOREIGN KEY (medida_id) REFERENCES medida(id),
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
-
-ALTER TABLE comentario_voluntariado
-	ADD FOREIGN KEY (comentario_id) REFERENCES comentario(id),
-	ADD FOREIGN KEY (voluntariado_id) REFERENCES voluntariado(id);
-
-ALTER TABLE comentario_evento_a_beneficio
-	ADD FOREIGN KEY (comentario_id) REFERENCES comentario(id),
-	ADD FOREIGN KEY (evento_a_beneficio_id) REFERENCES evento_a_beneficio(id);
-
-ALTER TABLE comentario_centro_acopio
-	ADD FOREIGN KEY (comentario_id) REFERENCES comentario(id),
-	ADD FOREIGN KEY (centro_acopio_id) REFERENCES centro_acopio(id);
-
-ALTER TABLE comentario_donacion
-	ADD FOREIGN KEY (comentario_id) REFERENCES comentario(id),
-	ADD FOREIGN KEY (donacion_id) REFERENCES donacion(id);
 
 ALTER TABLE voluntario
 	ADD FOREIGN KEY (usuario_id) REFERENCES usuario(id);
