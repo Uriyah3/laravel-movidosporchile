@@ -19,6 +19,7 @@ class CrearTablaCatastrofe extends Migration
             $table->integer('tipo_catastrofe_id');
             $table->integer('locacion_id');
             $table->text('descripcion');
+            $table->timestamp('fecha_catastrofe');
 
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
             $table->foreign('tipo_catastrofe_id')->references('id')->on('tipo_catastrofes')->onDelete('cascade');

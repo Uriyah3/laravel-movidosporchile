@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaTipoMedida extends Migration
+class CrearTablaMedicion extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CrearTablaTipoMedida extends Migration
      */
     public function up()
     {
-        Schema::create('tipo_medidas', function (Blueprint $table) {
+        Schema::create('medicions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 10);
         });
@@ -26,6 +26,6 @@ class CrearTablaTipoMedida extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipo_medidas');
+        Schema::dropIfExists('medicions');
     }
 }

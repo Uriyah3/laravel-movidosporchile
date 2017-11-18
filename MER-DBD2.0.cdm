@@ -3460,8 +3460,8 @@ LABL 0 Arial,8,N</a:FontList>
 </o:Entity>
 <o:Entity Id="o99">
 <a:ObjectID>2CC69DEA-1FC2-4683-B341-70727A25A67C</a:ObjectID>
-<a:Name>tipo_medida</a:Name>
-<a:Code>TIPO_MEDIDA</a:Code>
+<a:Name>medicion</a:Name>
+<a:Code>medicion</a:Code>
 <a:CreationDate>1507852040</a:CreationDate>
 <a:Creator>csa</a:Creator>
 <a:ModificationDate>1509659134</a:ModificationDate>
@@ -4523,8 +4523,8 @@ LABL 0 Arial,8,N</a:FontList>
 </o:DataItem>
 <o:DataItem Id="o221">
 <a:ObjectID>9682A9F8-7279-4042-95A1-95F6E03B6CE4</a:ObjectID>
-<a:Name>Tipo_medida_id</a:Name>
-<a:Code>TIPO_MEDIDA_ID</a:Code>
+<a:Name>medicion_id</a:Name>
+<a:Code>medicion_ID</a:Code>
 <a:CreationDate>1507851954</a:CreationDate>
 <a:Creator>csa</a:Creator>
 <a:ModificationDate>1507852035</a:ModificationDate>
@@ -4683,8 +4683,8 @@ LABL 0 Arial,8,N</a:FontList>
 </o:DataItem>
 <o:DataItem Id="o285">
 <a:ObjectID>75140C66-15B6-4598-ADA7-40DEDE9D8EC2</a:ObjectID>
-<a:Name>id_tipo_medida</a:Name>
-<a:Code>ID_TIPO_MEDIDA</a:Code>
+<a:Name>id_medicion</a:Name>
+<a:Code>ID_medicion</a:Code>
 <a:CreationDate>1507854664</a:CreationDate>
 <a:Creator>csa</a:Creator>
 <a:ModificationDate>1507854714</a:ModificationDate>

@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
 			RnvsTableSeeder::class,
 			EstadosTableSeeder::class,
 			CentroAcopiosTableSeeder::class,
-			TipoMedidasTableSeeder::class,
+			MedicionsTableSeeder::class,
 			BiensTableSeeder::class,
 			DonacionsTableSeeder::class,
 			DepositosTableSeeder::class,

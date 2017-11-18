@@ -15,7 +15,7 @@ php artisan make:seed VoluntariosTableSeeder
 php artisan make:seed RnvsTableSeeder
 php artisan make:seed EstadosTableSeeder
 php artisan make:seed CentroAcopiosTableSeeder
-php artisan make:seed TipoMedidasTableSeeder
+php artisan make:seed MedicionsTableSeeder
 php artisan make:seed BiensTableSeeder
 php artisan make:seed DonacionsTableSeeder
 php artisan make:seed DepositosTableSeeder

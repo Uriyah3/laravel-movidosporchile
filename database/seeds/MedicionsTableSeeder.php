@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class TipoMedidasTableSeeder extends Seeder
+class MedicionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class TipoMedidasTableSeeder extends Seeder
     {
         $medidas = ["medida1","medida2","medida3","medida4"];
         foreach ($medidas as $medida) {
-        	factory(App\TipoMedida::class)->create(['nombre' => $medida]);
+        	factory(App\Medicion::class)->create(['nombre' => $medida]);
         }
     }
 }

@@ -15,12 +15,13 @@ class CrearTablaVoluntario extends Migration
     {
         Schema::create('voluntarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('usuario_id');
             $table->integer('voluntariado_id');
             $table->boolean('finalizado')->default(FALSE);
-            $table->integer('rut');
+            $table->timestamps();
 
             $table->foreign('voluntariado_id')->references('id')->on('voluntariados')->onDelete('cascade');
-            $table->foreign('rut')->references('rut')->on('usuarios')->onDelete('cascade');
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
 

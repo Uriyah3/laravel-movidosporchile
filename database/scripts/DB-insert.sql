@@ -189,10 +189,10 @@ INSERT INTO centro_acopio VALUES (8, 7, 38, 3, '2017-03-22', '2018-02-18', 'Et e
 INSERT INTO centro_acopio VALUES (9, 10, 39, 3, '2016-11-12', '2017-11-05', 'Odio voluptatem laborum possimus nihil veritatis magnam est. Similique sed dicta magnam nam aspernatur similique et omnis.', 'Itaque molestiae qui velit est sunt. Vel laboriosam distinctio qui qui quasi inventore totam et. Beatae officia quos velit tenetur.', '2017-10-29 03:02:49', '2017-10-29 03:02:49');
 INSERT INTO centro_acopio VALUES (10, 6, 40, 2, '2017-01-30', '2018-06-30', 'Neque laudantium placeat iure quod aut rem quo. Ducimus quia enim eos suscipit totam reiciendis ab assumenda. Provident asperiores similique modi ad fugiat magnam. Quia aut id harum eum fuga quam.', 'Ea voluptatem minima earum. Impedit aspernatur quam sequi eveniet aut. Ut laboriosam omnis corrupti aut qui. Eligendi dolores sunt sequi saepe eligendi modi porro nemo.', '2017-10-29 03:02:49', '2017-10-29 03:02:49');
 
-INSERT INTO tipo_medida VALUES (1, 'medida1');
-INSERT INTO tipo_medida VALUES (2, 'medida2');
-INSERT INTO tipo_medida VALUES (3, 'medida3');
-INSERT INTO tipo_medida VALUES (4, 'medida4');
+INSERT INTO medicion VALUES (1, 'medida1');
+INSERT INTO medicion VALUES (2, 'medida2');
+INSERT INTO medicion VALUES (3, 'medida3');
+INSERT INTO medicion VALUES (4, 'medida4');
 
 INSERT INTO bien VALUES (1, 3, 3, '9bfD6w2XJRGZ1aKinFoeN8dgKZ24XU', 32, 347187132);
 INSERT INTO bien VALUES (2, 7, 4, 'okfnK7dEt5uz18Y4lnaoReo5Pu5CLd', 40, 196011752);

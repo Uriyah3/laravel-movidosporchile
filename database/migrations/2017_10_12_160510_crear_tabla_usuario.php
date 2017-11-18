@@ -17,7 +17,8 @@ class CrearTablaUsuario extends Migration
             $table->increments('id');
             $table->integer('rol_id');
             $table->string('username', 50);
-            $table->string('password', 255);
+            $table->string('password', 60);
+            $table->sting('dv', 1);
             $table->integer('rut');
             $table->string('nombre', 50);
             $table->integer('telefono')->nullable();

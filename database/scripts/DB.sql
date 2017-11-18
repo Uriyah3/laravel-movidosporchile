@@ -85,9 +85,7 @@ CREATE TABLE medida (
 	usuario_id int NOT NULL,
 	aprobada boolean NOT NULL DEFAULT FALSE;
 	objetivos text NOT NULL,
-	descripcion text,
-	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	descripcion text
 );
 
 CREATE TABLE evento_a_beneficio (
@@ -97,7 +95,9 @@ CREATE TABLE evento_a_beneficio (
 	fecha date NOT NULL,
 	horario_inicio time NOT NULL,
 	horario_termino time NOT NULL,
-	actividades text NOT NULL
+	actividades text NOT NULL,
+	created_at timestamp DEFAULT NULL,
+	modified_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE registro_actividad (
@@ -120,7 +120,9 @@ CREATE TABLE voluntariado (
 	actividad_voluntariado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
 	fecha_termino date NOT NULL,
-	cantidad_voluntarios int NOT NULL
+	cantidad_voluntarios int NOT NULL,
+	created_at timestamp DEFAULT NULL,
+	modified_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE actividad_voluntariado (
@@ -154,7 +156,9 @@ CREATE TABLE centro_acopio (
 	locacion_id int NOT NULL,
 	estado_id int NOT NULL,
 	fecha_inicio date NOT NULL,
-	fecha_termino date NOT NULL
+	fecha_termino date NOT NULL,
+	created_at timestamp DEFAULT NULL,
+	modified_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE estado (
@@ -185,7 +189,9 @@ CREATE TABLE donacion (
 	tipo_cuenta varchar(20) NOT NULL,
 	cuenta varchar(30) NOT NULL,
 	fecha_inicio date NOT NULL,
-	fecha_termino date NOT NULL
+	fecha_termino date NOT NULL,
+	created_at timestamp DEFAULT NULL,
+	modified_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE deposito (
