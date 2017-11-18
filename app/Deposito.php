@@ -12,13 +12,13 @@ class Deposito extends Model
      * @var bool
      */
     public $timestamps = false;
-	
+
     //
     public function donacion(){
     	return $this->belongsTo('App\Donacion');
     }
 
     public function rut() {
-        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+        return $this->belongsTo('App\Usuario');
     }
 }

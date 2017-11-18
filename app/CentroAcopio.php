@@ -7,10 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class CentroAcopio extends Model
 {
     //
-    public function usuario(){
-    	return $this->belongsTo('App\Usuario');
-    }
-
     public function bien(){
     	return $this->hasMany('App\Bien');
     }
@@ -21,9 +17,5 @@ class CentroAcopio extends Model
 
     public function locacion(){
         return $this->belongsTo('App\Locacion');
-    }
-
-    public function comentario(){
-        return $this->belongsToMany('App\Comentario', 'comentario_centro_acopio');
     }
 }

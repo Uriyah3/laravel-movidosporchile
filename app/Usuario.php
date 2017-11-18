@@ -16,19 +16,7 @@ class Usuario extends Model
     }
 
     public function centro_acopio(){
-    	return $this->hasMany('App\CentroAcopio');
-    }
-
-    public function donacion(){
-    	return $this->hasMany('App\Donacion');
-    }
-
-    public function voluntariado(){
-    	return $this->hasMany('App\Voluntariado');
-    }
-
-    public function evento_a_beneficio(){
-    	return $this->hasMany('App\EventoABeneficio');
+    	return $this->hasMany('App\Medida');
     }
 
     public function gasto(){
@@ -43,21 +31,16 @@ class Usuario extends Model
         return $this->hasMany('App\Comentario');
     }
 
-    //Relaciones del rut
     public function bien() {
-        return $this->hasMany('App\Bien', 'rut', 'rut');
+        return $this->hasMany('App\Bien');
     }
 
     public function voluntario() {
-        return $this->hasMany('App\Voluntario', 'rut', 'rut');
-    }
-
-    public function rnv() {
-        return $this->hasMany('App\Rnv', 'rut', 'rut');
+        return $this->hasMany('App\Voluntario');
     }
 
     public function deposito() {
-        return $this->hasMany('App\Deposito', 'rut', 'rut');
+        return $this->hasMany('App\Deposito');
     }
 
 }

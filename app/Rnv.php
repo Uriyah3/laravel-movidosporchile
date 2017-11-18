@@ -12,13 +12,5 @@ class Rnv extends Model
      * @var bool
      */
     public $timestamps = false;
-	
-    //
-    public function voluntario(){
-    	return $this->hasOne('App\Voluntario', 'rut', 'rut');
-    }
 
-    public function rut() {
-        return $this->belongsTo('App\Usuario', 'rut', 'rut');
-    }
 }

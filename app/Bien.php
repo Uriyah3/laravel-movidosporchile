@@ -22,7 +22,7 @@ class Bien extends Model
     	return $this->belongsTo('App\Medicion');
     }
 
-    public function rut() {
-        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+    public function usuario() {
+        return $this->belongsTo('App\Usuario');
     }
 }

@@ -8,9 +8,9 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
         'rol_id' =>  App\Rol::all()->random()->id,
         'username' =>$faker->unique()->userName,
         'password' => $password ?: $password = bcrypt('secret'),
-        'rut' => $faker->unique()->randomNumber($nbDigits = 9),
+        'rut' => $faker->unique()->numberBetween($min = 10000000, $max = 300000000),
         'nombre' => $faker->name,
-        'telefono' => $faker->randomNumber($nbDigits = 8),
+        'telefono' => $faker->numberBetween($min = 10000000, $max = 99999999),
         'email' => $faker->safeEmail,
     ];
 });
