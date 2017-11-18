@@ -16,8 +16,8 @@ class CrearTablaLocacion extends Migration
         Schema::create('locacions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('comuna_id');
-            $table->float('punto_gx', 10, 10);
-            $table->float('punto_gy', 10, 10);
+            $table->float('latitude', 10, 10);
+            $table->float('longtitude', 10, 10);
             $table->foreign('comuna_id')->references('id')->on('comunas')->onDelete('cascade');
         });
     }

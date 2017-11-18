@@ -18,8 +18,8 @@ class Bien extends Model
     	return $this->belongsTo('App\CentroAcopio');
     }
 
-    public function tipo_medida(){
-    	return $this->belongsTo('App\TipoMedida');
+    public function medicion(){
+    	return $this->belongsTo('App\Medicion');
     }
 
     public function rut() {

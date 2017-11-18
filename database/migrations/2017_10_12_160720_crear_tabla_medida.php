@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaGasto extends Migration
+class CrearTablaMedida extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CrearTablaGasto extends Migration
      */
     public function up()
     {
-        Schema::create('gastos', function (Blueprint $table) {
+        Schema::create('medidas', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id');
-            $table->timestamp('fecha')->useCurrent();
-            $table->integer('monto');
-            $table->text('proposito');
+            $table->boolean('aprobada')->default(false);
+            $table->text('objetivos');
+            $table->text('descripcion')->nullable();
+            $table->timestamps();
+
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });
     }
@@ -30,6 +32,6 @@ class CrearTablaGasto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gastos');
+        Schema::dropIfExists('medidas');
     }
 }
