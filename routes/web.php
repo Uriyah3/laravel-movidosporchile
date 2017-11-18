@@ -1,5 +1,9 @@
 <?php
 
+Route::get('/', function () {
+	return view('index');
+})
+
 Route::post('/catastrofes', 'CatastrofeController@store');
 Route::get('/catastrofes', 'CatastrofeController@index');
 Route::get('/catastrofes/create', 'CatastrofeController@create');
