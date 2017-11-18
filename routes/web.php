@@ -1,16 +1,50 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::post('/catastrofes', 'CatastrofeController@store');
+Route::get('/catastrofes', 'CatastrofeController@index');
+Route::get('/catastrofes/create', 'CatastrofeController@create');
+Route::get('/catastrofes/{id}', 'CatastrofeController@show');
+Route::delete('/catastrofes/{id}', 'CatastrofeController@delete');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::post('/medidas', 'MedidaController@store');
+Route::get('/medidas', 'MedidaController@index');
+Route::get('/medidas/create', 'MedidaController@create');
+Route::get('/medidas/{id}', 'MedidaController@show');
+Route::get('/medidas/{id}', 'MedidaController@edit');
+Route::delete('/medidas/{id}', 'MedidaController@delete');
+
+
+Route::post('/actividades', 'RegistroActividadController@store');
+Route::get('/actividades', 'RegistroActividadController@index');
+
+
+Route::post('/voluntarios', 'VoluntarioController@store');
+Route::get('/voluntarios', 'VoluntarioController@index');
+Route::get('/voluntarios/{id}', 'VoluntarioController@edit');
+Route::get('/voluntarios/{id}', 'VoluntarioController@show');
+Route::patch('/voluntarios/{id}', 'VoluntarioController@update');
+Route::delete('/voluntarios/{id}', 'VoluntarioController@delete');
+
+
+Route::post('/bienes', 'BienController@store');
+Route::get('/bienes', 'BienController@index');
+
+
+Route::post('/depositos', 'DepositoController@store');
+Route::get('/depositos', 'DepositoController@index');
+Route::get('/depositos/create', 'DepositoController@create');
+
+
+Route::post('/gastos', 'GastofeController@store');
+Route::get('/gastos', 'GastoController@index');
+Route::get('/gastos/create', 'GastoController@create');
+Route::get('/gastos/{id}', 'GastoController@show');
+
+
+Route::post('/comentarios', 'ComentarioController@store');
+Route::get('/comentarios', 'ComentarioController@index');
+Route::get('/comentarios/{id}', 'ComentarioController@edit');
+Route::get('/comentarios/create', 'ComentarioController@create');
+Route::patch('/comentarios/{id}', 'ComentarioController@update');
+Route::delete('/comentarios/{id}', 'ComentarioController@delete');
