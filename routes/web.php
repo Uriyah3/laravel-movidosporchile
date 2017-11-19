@@ -2,7 +2,7 @@
 
 Route::get('/', function () {
 	return view('index');
-})
+});
 
 Route::post('/catastrofes', 'CatastrofeController@store');
 Route::get('/catastrofes', 'CatastrofeController@index');

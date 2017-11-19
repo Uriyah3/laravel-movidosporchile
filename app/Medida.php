@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Voluntariado extends Model
+class Medida extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -19,6 +19,6 @@ class Voluntariado extends Model
     }
 
     public function comentario(){
-        return $this->hasToMany('App\Comentario');
+        return $this->hasMany('App\Comentario');
     }
 }

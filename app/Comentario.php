@@ -11,7 +11,7 @@ class Comentario extends Model
     	return $this->belongsTo('App\Usuario');
     }
 
-     public function usuario(){
+     public function medida(){
         return $this->belongsTo('App\Medida');
     }
 }

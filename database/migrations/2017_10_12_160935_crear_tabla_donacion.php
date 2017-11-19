@@ -16,7 +16,6 @@ class CrearTablaDonacion extends Migration
         Schema::create('donacions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('medida_id');
-            $table->integer('usuario_id');
             $table->string('titular', 60);
             $table->string('rut_destinatario', 12);
             $table->string('nombre_banco', 40);
@@ -24,9 +23,9 @@ class CrearTablaDonacion extends Migration
             $table->string('cuenta', 30);
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
+            $table->timestamps();
 
-            $table->foreign('medicion_id')->references('id')->on('medicions')->onDelete('cascade');
-            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('medida_id')->references('id')->on('medidas')->onDelete('cascade');
         });
     }
 

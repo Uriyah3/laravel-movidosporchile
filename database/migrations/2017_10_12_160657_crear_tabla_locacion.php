@@ -17,7 +17,7 @@ class CrearTablaLocacion extends Migration
             $table->increments('id');
             $table->integer('comuna_id');
             $table->float('latitude', 10, 10);
-            $table->float('longtitude', 10, 10);
+            $table->float('longitude', 10, 10);
             $table->foreign('comuna_id')->references('id')->on('comunas')->onDelete('cascade');
         });
     }
