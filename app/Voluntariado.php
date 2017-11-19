@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Voluntariado extends Model
 {
     //
-    public function usuario(){
-    	return $this->belongsTo('App\Usuario');
+    public function medida(){
+        return $this->belongsTo('App\Medida');
     }
 
     public function voluntario(){
@@ -19,10 +19,6 @@ class Voluntariado extends Model
     	return $this->belongsTo('App\Locacion');
     }
 
-    public function comentario(){
-        return $this->belongsToMany('App\Comentario');
-    }
-    
     public function actividad_voluntariado(){
         return $this->belongsTo('App\ActividadVoluntariado');
     }

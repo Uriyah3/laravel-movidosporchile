@@ -11,24 +11,16 @@ class Usuario extends Model
     	return $this->belongsTo('App\Rol');
     }
 
-    public function catastrofe(){
-    	return $this->hasMany('App\Catastrofe');
-    }
-
-    public function centro_acopio(){
-    	return $this->hasMany('App\Medida');
-    }
-
-    public function gasto(){
-    	return $this->hasMany('App\Gasto');
-    }
-
     public function registro_actividad(){
     	return $this->hasMany('App\RegistroActividad');
     }
 
     public function comentario(){
         return $this->hasMany('App\Comentario');
+    }
+
+    public function catastrofe(){
+        return $this->hasMany('App\Catastrofe');
     }
 
     public function bien() {
@@ -43,4 +35,7 @@ class Usuario extends Model
         return $this->hasMany('App\Deposito');
     }
 
+    public function gasto(){
+        return $this->hasMany('App\Gasto');
+    }
 }

@@ -12,18 +12,14 @@ class Voluntario extends Model
      * @var bool
      */
     public $timestamps = false;
-	
+
     //
     public function voluntariado(){
     	return $this->belongsTo('App\Voluntariado');
     }
 
-    public function rnv(){
-    	return $this->belongsTo('App\Rnv', 'rut', 'rut');
-    }
-
-    public function rut() {
-        return $this->belongsTo('App\Usuario', 'rut', 'rut');
+    public function usuario() {
+        return $this->belongsTo('App\Usuario');
     }
 
 }

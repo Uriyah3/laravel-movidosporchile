@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class CentroAcopio extends Model
 {
     //
+    public function medida(){
+        return $this->belongsTo('App\Medida');
+    }
+
     public function bien(){
     	return $this->hasMany('App\Bien');
     }
