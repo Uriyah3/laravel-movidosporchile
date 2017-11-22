@@ -52,3 +52,6 @@ Route::get('/comentarios/{id}', 'ComentarioController@edit');
 Route::get('/comentarios/create', 'ComentarioController@create');
 Route::patch('/comentarios/{id}', 'ComentarioController@update');
 Route::delete('/comentarios/{id}', 'ComentarioController@delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
