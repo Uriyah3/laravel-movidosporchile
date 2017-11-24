@@ -20,11 +20,9 @@
 
     <div class="container-fluid">
       <div class="row">
-<<<<<<< HEAD
-=======
        
        <aside>
->>>>>>> 213d999b7d77655ed3d28af5c782256513336278
+
 
          @yield('sidebar')
 

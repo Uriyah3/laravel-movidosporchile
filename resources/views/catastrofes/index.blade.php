@@ -1,6 +1,7 @@
 @extends('layouts.master')
+
  @section('sidebar')
-    @include('sidebar.catastrofessinindex')
+    @include('layouts.sidebar')
 @endsection
 
 @section('content')
