@@ -9,31 +9,31 @@ class CatastrofeController extends Controller
 	
     public function index()
     {
-    	return view('catastrofesindex');
+    	return view('catastrofes.index');
     }
 
 
     public function store()
     {
-    	return view('catastrofesstore');
+    	return view('catastrofes.store');
     }
 
 
     public function create()
     {
-    	return view('catastrofescreate');
+    	return view('catastrofes.create');
     }
 
 
     public function show($id)	
     {
-    	return view('catastrofesshow');
+    	return view('catastrofes.show');
     }
 
 
     public function delete($id)
     {
-    	return view('catastrofesdelete');
+    	return view('catastrofes.delete');
     }
 
 }

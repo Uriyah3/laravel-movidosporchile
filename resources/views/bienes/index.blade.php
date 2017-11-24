@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-	@include('layouts.sidebar');
 	<head>
-		<title>Perfil</title>
+		<title>Idex Bienes</title>
 	</head>
 	<body>
-		<h1>Datos</h1>
+		<h1>Bienes</h1>
 		
 	</body>
 @endsection

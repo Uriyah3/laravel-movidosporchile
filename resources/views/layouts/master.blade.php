@@ -20,7 +20,6 @@
 
     <div class="container-fluid">
       <div class="row">
-        @include('layouts.sidebar');
 
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
           @yield('content');

@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-	@include('layouts.sidebar');
 	<head>
-		<title>Perfil</title>
+		<title>Eventos a beneficio</title>
 	</head>
 	<body>
-		<h1>Datos</h1>
-		
+		<h1>Eventos a Beneficio</h1>
+
 	</body>
 @endsection

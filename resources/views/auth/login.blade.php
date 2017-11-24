@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 @extends('layouts.master')
-=======
-@extends('layouts.app')
->>>>>>> 9386961f03843a9a97a49fd8863f669f0ee56e15
 
 @section('content')
 <div class="container">
@@ -47,7 +43,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Recordarme
                                     </label>
                                 </div>
                             </div>
@@ -56,11 +52,11 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Login
+                                    Ingresar
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
+                                    Olvidaste tu contraseña?
                                 </a>
                             </div>
                         </div>
@@ -71,3 +67,4 @@
     </div>
 </div>
 @endsection
+
