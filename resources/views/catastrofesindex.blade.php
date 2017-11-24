@@ -1,4 +1,7 @@
 @extends('layouts.master')
+ @section('sidebar')
+    @include('sidebar.catastrofessinindex')
+@endsection
 
 @section('content')
 	<head>
