@@ -1,0 +1,14 @@
+.sesion{
+	float: left;
+	width: 500px;
+	height: 500px;
+}
+
+
+body{
+	background: url(../imagenes/fondo4.jpg);
+	background-repeat: no-repeat; 
+	background-attachment: fixed; 
+	background-position: center;
+}
+

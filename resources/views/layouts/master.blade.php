@@ -15,8 +15,11 @@
     <link href="/css/dashboard.css" rel="stylesheet">
   </head>
 
+
   <body>
+
     @include('layouts.navbar')
+
 
     <div class="container-fluid">
       <div class="row">

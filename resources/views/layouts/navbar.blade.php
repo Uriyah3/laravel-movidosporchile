@@ -1,8 +1,8 @@
-<header>
+<header> 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
     <div class="logo">
-     <img src="imagenes/logo.png">
+      <img src="imagenes/logo.png">
     </div>
 
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,3 +31,4 @@
     </div>
   </nav>
 </header>
+
