@@ -1,6 +1,10 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">MovidosxChile</a>
+
+    <div class="logo">
+     <img src="imagenes/logo.png">
+    </div>
+
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +15,10 @@
           <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Configuración</a>
+          <a class="nav-link" href="perfil">Organización</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="perfil">Perfil</a>
+          <a class="nav-link" href="perfil">Catástrofe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contactos">Contacto</a>
