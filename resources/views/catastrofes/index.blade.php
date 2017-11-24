@@ -20,14 +20,14 @@
 				<th>Fecha catastrofe</th>
 			</tr>
 			</thead>	
-			<tbody>
+		<tbody>
 		@foreach($catastrofes as $catastrofe)
 		<p>
 			<tr>
-                  <td>{{ $catastrofe.tipo_catastrofe.nombre }}</td>
-                  <td>{{$catastrofe.locacion.comuna.nombre}}</td>
-                  <td>{{$catastrofe.descripcion}}</td>
-                  <td>{{$catastrofe.fecha_catastrofe}}</td>
+                  <td>{{ $catastrofe->tipo_catastrofe->nombre }}</td>
+                  <td>{{$catastrofe->locacion->comuna->nombre}}</td>
+                  <td>{{$catastrofe->descripcion}}</td>
+                  <td>{{$catastrofe->fecha_catastrofe}}</td>
                   
             </tr>
 
@@ -36,8 +36,10 @@
 
 		@endforeach
 
+		</body>
+	</table>
+</div>
 
-		<!--<h1>Catastrofes identificadas</h1>
-		-->
-	</body>
+		
+	
 @endsection
