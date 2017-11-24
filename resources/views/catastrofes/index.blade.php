@@ -39,7 +39,7 @@
 		</body>
 	</table>
 </div>
-
+{{$catastrofes->links()}}
 		
 	
 @endsection

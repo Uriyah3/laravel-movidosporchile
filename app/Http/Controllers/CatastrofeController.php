@@ -16,7 +16,7 @@ class CatastrofeController extends Controller
     //mostrar todas las catastrofes
     public function index()
     {
-        $catastrofes = Catastrofe::with('tipo_catastrofe', 'locacion.comuna')->orderBy('fecha_catastrofe', 'desc')->paginate(15)->all();
+        $catastrofes = Catastrofe::with('tipo_catastrofe', 'locacion.comuna')->orderBy('fecha_catastrofe', 'desc')->paginate(5);
 
     	return view('catastrofes.index',compact('catastrofes'));
     }
