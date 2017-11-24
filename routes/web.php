@@ -8,6 +8,9 @@ Route::get('/', function () {
 Route::get('/contactos', 'ContactoController@index');
 Route::get('/perfil', 'UsuarioController@index');
 
+Route::get('/organizacion', function (){
+	return view('organizacionIndex');
+});
 
 
 

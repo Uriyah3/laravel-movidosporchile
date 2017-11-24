@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-@include('layouts.sidebar')
 	<head>
 		<title>Catastrofes</title>
 	</head>
