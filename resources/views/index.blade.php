@@ -1,8 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.master-sidebarless')
 
 
 <head>
-   
+
      <link rel="shortcut icon" type="image/x-icon" href="imagenes/icono.png">
      <link rel="stylesheet" type="text/css" href="css/index.css"> 
 
@@ -12,10 +12,6 @@
 
 <body>
 
-
-
-        <br />
-        <br />
 
         <div class="sesion">
           @include('auth.login')

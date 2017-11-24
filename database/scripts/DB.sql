@@ -22,9 +22,9 @@ CREATE TABLE usuario (
 	nombre	varchar(50) NOT NULL,
 	telefono int,
 	email	varchar(120) NOT NULL,
-	active boolean NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	modified_at timestamp DEFAULT NULL,
+	deleted_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE rol (
@@ -83,7 +83,7 @@ CREATE TABLE locacion (
 CREATE TABLE medida (
 	id serial,
 	usuario_id int NOT NULL,
-	aprobada boolean NOT NULL DEFAULT FALSE;
+	aprobada boolean NOT NULL DEFAULT FALSE,
 	objetivos text NOT NULL,
 	descripcion text
 );
@@ -168,11 +168,11 @@ CREATE TABLE estado (
 
 CREATE TABLE bien (
 	id serial,
-	usuario_id	int DEFAULT NULL
+	usuario_id	int DEFAULT NULL,
 	centro_acopio_id int NOT NULL,
 	medicion_id int NOT NULL,
 	tipo varchar(30) NOT NULL,
-	cantidad integer NOT NULL,
+	cantidad integer NOT NULL
 );
 
 CREATE TABLE medicion (

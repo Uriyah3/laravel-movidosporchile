@@ -1,10 +1,11 @@
+
 <header> 
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+
 
     <div class="logo">
       <img src="imagenes/logo.png">
     </div>
-
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -15,10 +16,10 @@
           <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="perfil">Organización</a>
+          <a class="nav-link" href="organizacion">Organización</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="perfil">Catástrofe</a>
+          <a class="nav-link" href="catastrofes">Catástrofe</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contactos">Contacto</a>

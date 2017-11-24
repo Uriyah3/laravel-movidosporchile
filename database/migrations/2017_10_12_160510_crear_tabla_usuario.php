@@ -23,8 +23,8 @@ class CrearTablaUsuario extends Migration
             $table->string('nombre', 50);
             $table->integer('telefono')->nullable();
             $table->string('email', 120);
-            $table->boolean('active')->default(true);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->unique('rut');
             $table->foreign('rol_id')->references('id')->on('rols')->onDelete('cascade');
