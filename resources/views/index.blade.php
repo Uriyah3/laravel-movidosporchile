@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('sidebar')
+    @include('layouts.sidebar')
+@endsection
+
 @section('content')
 <h1>Contenido</h1>
 <section class="row text-center placeholders">

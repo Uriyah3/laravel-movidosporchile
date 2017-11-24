@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class CatastrofeController extends Controller
 {
-	
+
     public function index()
     {
     	return view('catastrofes.index');
@@ -25,7 +25,7 @@ class CatastrofeController extends Controller
     }
 
 
-    public function show($id)	
+    public function show($id)
     {
     	return view('catastrofes.show');
     }

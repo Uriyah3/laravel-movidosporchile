@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MedidaController extends Controller
 {
-    
+
 	public function store()
 	{
 		return view('medidas.store');
@@ -34,6 +34,11 @@ class MedidaController extends Controller
 	public function edit($id)
 	{
 		return view('medidas.edit');
+	}
+
+	public function update($id)
+	{
+		return view('medidas.update');
 	}
 
 

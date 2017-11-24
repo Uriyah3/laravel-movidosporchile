@@ -1,10 +1,6 @@
 @extends('layouts.master')
- @section('sidebar')
-    @include('sidebar.catastrofessinindex')
-@endsection
 
 @section('content')
-@include('layouts.sidebar');
 	<head>
 		<title>Catastrofes</title>
 	</head>

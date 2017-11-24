@@ -23,6 +23,7 @@ Route::get('/medidas', 'MedidaController@index');
 Route::get('/medidas/create', 'MedidaController@create');
 Route::get('/medidas/{id}', 'MedidaController@show');
 Route::get('/medidas/{id}', 'MedidaController@edit');
+Route::patch('/medidas/{id}', 'MedidaController@update');
 Route::delete('/medidas/{id}', 'MedidaController@delete');
 
 
@@ -39,6 +40,7 @@ Route::delete('/voluntarios/{id}', 'VoluntarioController@delete');
 
 
 Route::post('/bienes', 'BienController@store');
+Route::get('/bienes/create', 'BienController@create');
 Route::get('/bienes', 'BienController@index');
 
 
@@ -47,7 +49,7 @@ Route::get('/depositos', 'DepositoController@index');
 Route::get('/depositos/create', 'DepositoController@create');
 
 
-Route::post('/gastos', 'GastofeController@store');
+Route::post('/gastos', 'GastoController@store');
 Route::get('/gastos', 'GastoController@index');
 Route::get('/gastos/create', 'GastoController@create');
 Route::get('/gastos/{id}', 'GastoController@show');

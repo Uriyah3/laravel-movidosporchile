@@ -16,13 +16,22 @@
   </head>
 
   <body>
-    @include('layouts.navbar');
+    @include('layouts.navbar')
 
     <div class="container-fluid">
       <div class="row">
+<<<<<<< HEAD
+=======
+       
+       <aside>
+>>>>>>> 213d999b7d77655ed3d28af5c782256513336278
 
+         @yield('sidebar')
+
+       </aside>
+        
         <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
-          @yield('content');
+          @yield('content')
         </main>
       </div>
     </div>
