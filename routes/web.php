@@ -40,6 +40,7 @@ Route::delete('/voluntarios/{id}', 'VoluntarioController@delete');
 
 
 Route::post('/bienes', 'BienController@store');
+Route::get('/bienes/create', 'BienController@create');
 Route::get('/bienes', 'BienController@index');
 
 
@@ -48,7 +49,7 @@ Route::get('/depositos', 'DepositoController@index');
 Route::get('/depositos/create', 'DepositoController@create');
 
 
-Route::post('/gastos', 'GastofeController@store');
+Route::post('/gastos', 'GastoController@store');
 Route::get('/gastos', 'GastoController@index');
 Route::get('/gastos/create', 'GastoController@create');
 Route::get('/gastos/{id}', 'GastoController@show');
