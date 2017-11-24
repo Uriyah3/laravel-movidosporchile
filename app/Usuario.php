@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Usuario extends Model
 {
+    use SoftDeletes;
+
     //
 	public function rol(){
     	return $this->belongsTo('App\Rol');

@@ -22,9 +22,9 @@ CREATE TABLE usuario (
 	nombre	varchar(50) NOT NULL,
 	telefono int,
 	email	varchar(120) NOT NULL,
-	active boolean NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	modified_at timestamp DEFAULT NULL,
+	deleted_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE rol (

@@ -1,5 +1,5 @@
-@extends('layouts.master')
- 
+@extends('layouts.master-sidebarless')
+
 
  @section('sidebar')
     @include('layouts.sidebar')
