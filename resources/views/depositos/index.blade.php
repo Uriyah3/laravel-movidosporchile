@@ -1,5 +1,12 @@
 @extends('layouts.master')
 
-@section('content')
-	<h1>Depositos</h1>
+@include('layouts.sidebar')
 @endsection
+
+	<head>
+		<title>Catastrofes</title>>
+	</head>>
+
+	<body>
+		<h1>Catastrofes identificadas</h1>>
+	</body>>

@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 	<head>
 		<title>Perfil</title>
 	</head>

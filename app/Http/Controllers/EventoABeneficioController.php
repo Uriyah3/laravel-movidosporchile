@@ -8,7 +8,7 @@ class EventoABeneficioController extends Controller
 {
         public function index()
     {
-    	return view('Eventoindex');
+    	return view('evento.index');
     }
 
 }

@@ -7,9 +7,5 @@
 	<body>
 		<h1>Lista de catastrofes</h1>
 		
-		<title>Catastrofes</title>
-	</head>
-	<body>
-		<h1>Catastrofes identificadas</h1>
 	</body>
 @endsection
