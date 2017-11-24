@@ -6,9 +6,11 @@
 
 @section('content')
 	<head>
-		<title>Catastrofes</title>
+		<title>Donaciones MovidosxChile</title>
 	</head>
 	<body>
-		<h1>Catastrofes identificadas</h1>
+		<h1>Donaciones</h1>
+		<br>
+		
 	</body>
 @endsection
