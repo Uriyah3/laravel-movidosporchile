@@ -2,5 +2,5 @@
 
 
 @section('content')
-	<h1>Medidas</h1>
+	<h1>ORganizacion</h1>
 @endsection
