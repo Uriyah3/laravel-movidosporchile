@@ -21,7 +21,7 @@
     <div class="container-fluid">
       <div class="row">
 
-        <main>
+        <main class="col-md-10 offset-md-1">
           @yield('content')
         </main>
       </div>
