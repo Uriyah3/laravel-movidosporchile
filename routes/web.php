@@ -23,6 +23,7 @@ Route::get('/medidas', 'MedidaController@index');
 Route::get('/medidas/create', 'MedidaController@create');
 Route::get('/medidas/{id}', 'MedidaController@show');
 Route::get('/medidas/{id}', 'MedidaController@edit');
+Route::patch('/medidas/{id}', 'MedidaController@update');
 Route::delete('/medidas/{id}', 'MedidaController@delete');
 
 
