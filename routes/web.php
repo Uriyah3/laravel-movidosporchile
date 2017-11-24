@@ -2,9 +2,16 @@
 
 Route::get('/', function () {
 	return view('index');
-})
+});
 
-Route::post('/catastrofes', 'CatastrofeController@store');
+
+Route::get('/contactos', 'ContactoController@index');
+Route::get('/perfil', 'UsuarioController@index');
+
+
+
+
+Route::post('/catastrofes/store', 'CatastrofeController@store');
 Route::get('/catastrofes', 'CatastrofeController@index');
 Route::get('/catastrofes/create', 'CatastrofeController@create');
 Route::get('/catastrofes/{id}', 'CatastrofeController@show');
@@ -52,3 +59,6 @@ Route::get('/comentarios/{id}', 'ComentarioController@edit');
 Route::get('/comentarios/create', 'ComentarioController@create');
 Route::patch('/comentarios/{id}', 'ComentarioController@update');
 Route::delete('/comentarios/{id}', 'ComentarioController@delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
