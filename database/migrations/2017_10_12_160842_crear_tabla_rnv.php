@@ -18,11 +18,9 @@ class CrearTablaRnv extends Migration
             $table->integer('rut');
             $table->string('dv', 1);
             $table->string('nombre', 50);
-            $table->string('email', 120)
+            $table->string('email', 120);
             $table->boolean('disponible');
             $table->timestamps();
-
-            $table->foreign('rut')->references('rut')->on('usuarios')->onDelete('cascade');
         });
     }
 

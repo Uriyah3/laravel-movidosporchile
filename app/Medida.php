@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Voluntariado extends Model
+class Medida extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -14,11 +14,27 @@ class Voluntariado extends Model
     public $timestamps = false;
 
     //
-    public function usuario(){
+    public function usuario() {
     	return $this->belongsTo('App\Usuario');
     }
 
-    public function comentario(){
-        return $this->hasToMany('App\Comentario');
+    public function comentario() {
+        return $this->hasMany('App\Comentario');
+    }
+
+    public function centro_acopio(){
+        return $this->hasMany('App\CentroAcopio');
+    }
+
+    public function donacion(){
+        return $this->hasMany('App\Donacion');
+    }
+
+    public function evento_a_beneficio() {
+        return $this->hasMany('App\EventoABeneficio');
+    }
+
+    public function voluntariado(){
+        return $this->hasMany('App\Voluntariado');
     }
 }

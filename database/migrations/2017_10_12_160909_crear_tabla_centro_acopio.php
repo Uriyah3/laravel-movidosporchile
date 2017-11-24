@@ -20,6 +20,7 @@ class CrearTablaCentroAcopio extends Migration
             $table->integer('estado_id');
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
+            $table->timestamps();
 
             $table->foreign('locacion_id')->references('id')->on('locacions')->onDelete('cascade');
             $table->foreign('estado_id')->references('id')->on('estados')->onDelete('cascade');

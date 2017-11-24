@@ -16,10 +16,12 @@ class CrearTablaComentario extends Migration
         Schema::create('comentarios', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id');
+            $table->integer('medida_id');
             $table->text('descripcion');
             $table->timestamps();
 
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->foreign('medida_id')->references('id')->on('medidas')->onDelete('cascade');
         });
     }
 

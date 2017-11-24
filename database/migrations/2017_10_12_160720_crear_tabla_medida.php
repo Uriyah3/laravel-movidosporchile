@@ -19,7 +19,6 @@ class CrearTablaMedida extends Migration
             $table->boolean('aprobada')->default(false);
             $table->text('objetivos');
             $table->text('descripcion')->nullable();
-            $table->timestamps();
 
             $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
         });

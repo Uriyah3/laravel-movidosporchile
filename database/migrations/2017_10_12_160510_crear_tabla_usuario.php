@@ -18,11 +18,12 @@ class CrearTablaUsuario extends Migration
             $table->integer('rol_id');
             $table->string('username', 50);
             $table->string('password', 60);
-            $table->sting('dv', 1);
+            $table->string('dv', 1);
             $table->integer('rut');
             $table->string('nombre', 50);
             $table->integer('telefono')->nullable();
             $table->string('email', 120);
+            $table->boolean('active')->default(true);
             $table->timestamps();
 
             $table->unique('rut');

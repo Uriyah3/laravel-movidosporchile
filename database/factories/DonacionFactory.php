@@ -7,7 +7,7 @@ $factory->define(App\Donacion::class, function (Faker $faker) {
     	'medida_id' => factory(App\Medida::class),
     	'titular' => $faker->name,
 		'rut_destinatario' => $faker->numberBetween($min = 10000000, $max = 300000000),
-		'nombre_banco' => $faker->bank,
+		'nombre_banco' => $faker->name,
 		'tipo_cuenta' => $faker->text($maxNbChars = 20) ,
         'cuenta' => $faker->bankAccountNumber,
         'fecha_inicio' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
