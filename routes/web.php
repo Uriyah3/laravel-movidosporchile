@@ -59,7 +59,8 @@ Route::get('/gastos/{id}', 'GastoController@show');
 
 
 Route::get('/donaciones', 'DonacionController@index');
-Route::get('/donacionesBienes', 'DonacionController@indexbienes');
+
+
 
 
 Route::get('/evento', 'EventoABeneficioController@index');

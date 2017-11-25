@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
  @section('sidebar')
+<<<<<<< HEAD
   <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
 
     <br />
@@ -20,7 +21,11 @@
   </ul>
 
 </nav>
+=======
+    @include('layouts.sidebarUsuario')
+>>>>>>> 6c56b690a0028dfba6b27bc598e5f1ac42da4afc
 @endsection
+
 
 @section('content')
 	<h1>Medidas</h1>
