@@ -17,7 +17,7 @@
           <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="organizacion">Organización</a>
+          <a class="nav-link" href="organizacion">¿Quiénes somos?</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="catastrofes">Catástrofe</a>
@@ -26,21 +26,12 @@
           <a class="nav-link" href="contactos">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Donación Bienes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contactos">Donación Dinero</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contactos">Evento Beneficio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contactos">Voluntariado</a>
+          <a class="nav-link" href="contactos">Medidas de ayuda</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input class="form-control mr-sm-2" type="text" placeholder="Ingrese búsqueda" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
       </form>
     </div>
   </nav>
