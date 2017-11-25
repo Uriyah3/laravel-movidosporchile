@@ -29,7 +29,7 @@
                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" placeholder="Nombre y apellido" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -39,11 +39,27 @@
                             </div>
                         </div>
 
+
+                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nombre de usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" placeholder="Nombre usuario" name="username" value="{{ old('username') }}" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                <input id="email" type="email" class="form-control" placeholder="movidosxchile@correo.cl" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -57,7 +73,7 @@
                             <label for="name" class="col-md-4 control-label">Rut</label>
 
                             <div class="col-md-6">
-                                <input id="rut" type="text" class="form-control" name="Rut" value="{{ old('name') }}" required autofocus>
+                                <input id="rut" type="text" class="form-control" placeholder="1111111-1" name="Rut" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('rut'))
                                     <span class="help-block">
@@ -67,25 +83,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Nombre de usuario</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Telefono</label>
+                            <label for="name" class="col-md-4 control-label">Teléfono celular</label>
 
                             <div class="col-md-6">
-                                <input id="Telefono" type="text" class="form-control" name="Telefono" value="{{ old('telefono') }}" required autofocus>
+                                <input id="Telefono" type="text" class="form-control" placeholder="900000000" name="Telefono" value="{{ old('telefono') }}" required autofocus>
 
                             </div>
                         </div>
@@ -94,7 +97,7 @@
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" placeholder="******" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -108,7 +111,7 @@
                             <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input id="password-confirm" type="password" class="form-control" placeholder="******" name="password_confirmation" required>
                             </div>
                         </div>
 

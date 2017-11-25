@@ -2,27 +2,23 @@
 
  @section('sidebar')
     <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Elementos<span class="sr-only">(current)</span></a>
-    </li>
 
+      <br />
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
       <a class="nav-link" href="voluntarios">Voluntariado</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="donaciones">Donaciones Dinero</a>
+      <a class="nav-link" href="donaciones">Donaciones de Dinero</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="donacionesBienes">Donaciones Biens</a>
+      <a class="nav-link" href="donacionesBienes">Donaciones de Bienes</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="evento">Eventos a beneficio</a>
+      <a class="nav-link" href="evento">Eventos a Beneficio</a>
     </li>
   </ul>
-    </li>
-  </ul>
+
 </nav>
 @endsection
 

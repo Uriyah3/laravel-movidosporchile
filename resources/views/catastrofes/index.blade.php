@@ -1,9 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.master-sidebarless')
 
 @section('content')
 	<head>
 		<title>Catastrofes</title>
 	</head>
+
+<br />
+<br />
+
 	<body>
 		<h1>Catastrofes identificadas</h1>
 <div class="table-responsive">
