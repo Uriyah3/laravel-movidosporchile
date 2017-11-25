@@ -1,12 +1,17 @@
 @extends('layouts.master')
+
 @section('sidebar')
     @include('layouts.sidebar')
 @endsection
 
+
+@section('content')
 	<head>
 		<title>Catastrofes</title>>
-	</head>>
+	</head>
 
 	<body>
 		<h1>Catastrofes identificadas</h1>>
-	</body>>
+	</body>
+
+@endsection
