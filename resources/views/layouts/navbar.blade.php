@@ -20,10 +20,10 @@
           <a class="nav-link" href="organizacion">¿Quiénes somos?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="catastrofes">Catástrofe</a>
+          <a class="nav-link" href="contactos">Contáctanos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Contacto</a>
+          <a class="nav-link" href="catastrofes">Catástrofes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="medidas">Medidas de ayuda</a>

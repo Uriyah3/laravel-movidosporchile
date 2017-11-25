@@ -1,15 +1,18 @@
-@extends('layouts.master')
+@extends('layouts.master-sidebarless')
 
-@section('sidebar')
-    @include('layouts.sidebar')
-@endsection
+
 
 @section('content')
 	<head>
 		<title>Perfil</title>
 	</head>
 	<body>
-		<h1>Datos</h1>
+		<br />
+		<br />
 		
+		<h1>Datos de usuario</h1>
+		
+
+		<h2> Registro de Actividades </h2>
 	</body>
 @endsection

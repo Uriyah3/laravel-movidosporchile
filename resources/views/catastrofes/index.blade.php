@@ -9,7 +9,7 @@
 <br />
 
 	<body>
-		<h1>Catastrofes identificadas</h1>
+		<h1>Catástrofes identificadas</h1>
 <div class="table-responsive">
             <table class="table table-striped">
              <thead>
@@ -41,10 +41,7 @@
 </div>
 {{$catastrofes->links()}}
 
-<h2>Nueva Catastrofe identificada</h2>
 
-
-		
 	</body>
 
 @endsection
