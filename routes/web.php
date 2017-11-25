@@ -58,6 +58,12 @@ Route::get('/gastos/create', 'GastoController@create');
 Route::get('/gastos/{id}', 'GastoController@show');
 
 
+Route::get('/donaciones', 'DonacionController@index');
+Route::get('/donacionesBienes', 'DonacionController@indexbienes');
+
+
+Route::get('/evento', 'EventoABeneficioController@index');
+
 Route::post('/comentarios', 'ComentarioController@store');
 Route::get('/comentarios', 'ComentarioController@index');
 Route::get('/comentarios/{id}', 'ComentarioController@edit');

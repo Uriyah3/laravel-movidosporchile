@@ -26,16 +26,16 @@
           <a class="nav-link" href="contactos">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Donación Bienes</a>
+          <a class="nav-link" href="donacionesBienes">Donación Bienes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Donación Dinero</a>
+          <a class="nav-link" href="donaciones">Donación Dinero</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Evento Beneficio</a>
+          <a class="nav-link" href="evento">Evento Beneficio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Voluntariado</a>
+          <a class="nav-link" href="voluntarios">Voluntariado</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">

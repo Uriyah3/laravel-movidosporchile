@@ -10,4 +10,9 @@ class DonacionController extends Controller
     {
     	return view('donaciones.index');
     }
+
+    public function indexbienes()
+    {
+    	return view('donaciones.bienes');
+    }
 }
