@@ -35,7 +35,7 @@ Route::get('/actividades', 'RegistroActividadController@index');
 
 
 Route::post('/voluntarios', 'VoluntarioController@store');
-Route::get('/voluntarios', 'VoluntarioController@index');
+Route::get('/voluntarios', 'VoluntarioController@indexLog');
 Route::get('/voluntarios/{id}', 'VoluntarioController@edit');
 Route::get('/voluntarios/{id}', 'VoluntarioController@show');
 Route::patch('/voluntarios/{id}', 'VoluntarioController@update');

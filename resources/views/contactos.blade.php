@@ -20,8 +20,6 @@
 		  <input type="text" name="Apellido" value placeholder=" farkas"><br>
 		  Mail:<br>
 		  <input type="email" name="email"  value placeholder="juanido.peres@gmail.com"><br>
-		  Apellido:<br>
-		  <input type="email" name="monto"  value placeholder="1000000" ><br><br>
 		  <textarea name="message" style="width:400px; height:200px;"></textarea>
 		  <br>
 		  <input type="submit">

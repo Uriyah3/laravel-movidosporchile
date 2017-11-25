@@ -19,6 +19,11 @@ class VoluntarioController extends Controller
     }
 
 
+    public function indexLog()
+    {
+        return view('voluntarios.indexLog');
+    }
+
     public function edit($id)
     {
     	return view('voluntarios.edit');

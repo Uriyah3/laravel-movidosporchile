@@ -26,7 +26,7 @@
           <a class="nav-link" href="contactos">Contacto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Medidas de ayuda</a>
+          <a class="nav-link" href="medidas">Medidas de ayuda</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">

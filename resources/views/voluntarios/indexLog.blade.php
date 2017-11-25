@@ -27,5 +27,5 @@
 @endsection
 
 @section('content')
-	<h1>Medidas</h1>
+	<h1>Voluntarios</h1>
 @endsection
