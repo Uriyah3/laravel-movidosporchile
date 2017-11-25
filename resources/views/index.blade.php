@@ -31,11 +31,11 @@
       <br />
 
         <div class="sesion">
-          <input type="button" value="Iniciar Sesión" class="inicio" onclick = "location='www.google.com'"/>
+          <input type="button" value="Iniciar Sesión" class="inicio" onclick = "location='/login'"/>
         </div>
 
         <div class="sesion">
-          <input type="button" value="Registrarse" class="reg" onclick = "location='www.google.com'"/>
+          <input type="button" value="Registrarse" class="reg" onclick = "location='/register'"/>
         </div>
 
 

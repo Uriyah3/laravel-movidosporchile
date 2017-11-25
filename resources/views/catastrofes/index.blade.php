@@ -9,12 +9,7 @@
 		<title>Catastrofes</title>
 	</head>
 	<body>
-<<<<<<< HEAD
 		<h1>Catastrofes identificadas</h1>
-		
-	</body>
-=======
-<h2>Catastrofes identificadas</h2>
 <div class="table-responsive">
             <table class="table table-striped">
              <thead>
@@ -45,7 +40,11 @@
 	</table>
 </div>
 {{$catastrofes->links()}}
+
+<h2>Nueva Catastrofe identificada</h2>
+
+
 		
-	
->>>>>>> 30993e0c4d72b95025bb3a7a557169c0dcd4eb1f
+	</body>
+
 @endsection

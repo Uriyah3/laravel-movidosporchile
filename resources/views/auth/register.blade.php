@@ -53,6 +53,43 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Rut</label>
+
+                            <div class="col-md-6">
+                                <input id="rut" type="text" class="form-control" name="Rut" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('rut'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('rut') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Nombre de usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+
+                                @if ($errors->has('username'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Telefono</label>
+
+                            <div class="col-md-6">
+                                <input id="Telefono" type="text" class="form-control" name="Telefono" value="{{ old('telefono') }}" required autofocus>
+
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 

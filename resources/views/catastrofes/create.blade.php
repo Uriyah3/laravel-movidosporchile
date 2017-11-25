@@ -38,8 +38,8 @@
 		  </select><br /><br />
 		  Fecha:<br>
 		  <input type="date" name="fecha" ><br><br>
-		  <input type="submit">
-		 
+		  Hora:<br>
+		  <input type="time" name="hora" ><br><br>
 		  <input type="submit">
 		</form>
 	</body>

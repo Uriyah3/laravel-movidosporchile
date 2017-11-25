@@ -19,6 +19,7 @@ class DepositoController extends Controller
     }
 
 
+
     public function create()
     {
     	return view('depositos.create');
