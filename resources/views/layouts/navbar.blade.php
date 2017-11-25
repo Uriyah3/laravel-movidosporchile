@@ -1,5 +1,6 @@
 
 <header> 
+  
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
 
@@ -23,6 +24,18 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="contactos">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactos">Donación Bienes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactos">Donación Dinero</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactos">Evento Beneficio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contactos">Voluntariado</a>
         </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">

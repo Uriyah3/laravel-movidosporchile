@@ -1,12 +1,49 @@
 .sesion{
-	float: left;
-	width: 500px;
-	height: 500px;
+	position: relative;
+	display: inline-block;
+	left: 200px;
+	margin: 20px;
+}
+
+.reg{
+	background-color: #08298A;
+	border-radius: 8px;
+	padding: 10px 47px;
+	font-weight: bold;
+	color: white;
+	font-size: 20px;
+	border: 3px solid #08298A;
+}
+
+.inicio{
+	background-color: Transparent;
+	border: 5px solid red;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	border-radius: 8px;
+	padding: 8px 40px;
+}
+
+.titulo{
+	position: relative;
+	left: 100px;
+	font-weight: bold;
+	color: white;
+	font-size: 60px;
 }
 
 
+.texto{
+	position: relative;
+	left: 100px;
+	color: white;
+	font-size: 25px;
+	width: 500px;
+}
+
 body{
-	background: url(../imagenes/fondo4.jpg);
+	background: url(../imagenes/fondo9.jpg);
 	background-repeat: no-repeat; 
 	background-attachment: fixed; 
 	background-position: center;

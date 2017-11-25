@@ -1,9 +1,21 @@
+@extends('layouts.master-sidebarless')
 
+<head>
+     <link rel="shortcut icon" type="image/x-icon" href="imagenes/icono.png">
+     <link rel="stylesheet" type="text/css" href="css/loginReg.css"> 
+</head>
+
+@section('content')
+
+<br />
+<br />
+    <div class="titulo">
+<h1> Iniciar Sesión </h1>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Iniciar Sesión</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
@@ -65,3 +77,4 @@
     </div>
 </div>
 
+@endsection

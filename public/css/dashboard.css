@@ -29,7 +29,7 @@ h1 {
   z-index: 1000;
   padding: 20px 0;
   overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  overflow-y: auto; 
   border-right: 1px solid #eee;
 }
 
@@ -54,6 +54,7 @@ h1 {
  */
 
 /* Placeholders */
+
 .placeholders {
   padding-bottom: 3rem;
 }
@@ -62,4 +63,5 @@ h1 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+
 

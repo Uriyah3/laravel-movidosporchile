@@ -1,16 +1,17 @@
-@extends('layouts.master')
+<!--@extends('layouts.master')-->
+@extends('layouts.master-sidebarless')
 
 
- @section('sidebar')
-    @include('layouts.sidebar')
-@endsection
+ 
 
 @section('content')
 	<head>
 		<title>Contacto</title>
 	</head>
 	<body>
-		<h1>Contactos</h1>
+		<br />
+		<br />
+		<h1>Contacto</h1>
 
 		<form action="/contactos" method="POST">
 		  Nombre:<br>

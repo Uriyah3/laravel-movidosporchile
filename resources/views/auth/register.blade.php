@@ -1,3 +1,19 @@
+@extends('layouts.master-sidebarless')
+
+<head>
+
+     <link rel="shortcut icon" type="image/x-icon" href="imagenes/icono.png">
+     <link rel="stylesheet" type="text/css" href="css/loginReg.css"> 
+
+</head>
+
+@section('content')
+
+<br />
+<br />
+<div class="titulo">
+    <h1> Registrarse </h1>
+</div>
 
 <div class="container">
     <div class="row">
@@ -72,3 +88,4 @@
         </div>
     </div>
 </div>
+@endsection
