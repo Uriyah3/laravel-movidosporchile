@@ -1,10 +1,7 @@
 @extends('layouts.master-sidebarless')
 
 @section('content')
-	<head>
-		<title>Perfil</title>
-	</head>
-
+	
 	
 	<h1>Datos de usuario</h1>
 
@@ -20,7 +17,7 @@
 				
 			</tr>
 			</thead>	
-		<body>
+		<tbody>
 			
 		@foreach($registroActividades as $registroActividade)
 		<p>
@@ -35,11 +32,11 @@
 		</p>
 
 		@endforeach
-	</body>
+	</tbody>
 </table>
 
 </div>
  {{$registroActividades->links()}}
 
-	</body>
+	
 @endsection
