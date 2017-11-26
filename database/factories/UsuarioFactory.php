@@ -13,6 +13,6 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
         'nombre' => $faker->name,
         'telefono' => $faker->numberBetween($min = 10000000, $max = 99999999),
         'email' => $faker->safeEmail,
-        'deleted_at' => $faker->optional($weight = 0.95)->dateTime(),
+        'deleted_at' => $faker->optional($weight = 0.2)->dateTime(),
     ];
 });
