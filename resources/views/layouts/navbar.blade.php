@@ -29,7 +29,10 @@
       @if(Auth::check())
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="{{ url('/logout') }}"
+          <a class="nav-link" href="actividades">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('/logout') }}"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
             Logout
