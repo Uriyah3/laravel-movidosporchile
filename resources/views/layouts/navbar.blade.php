@@ -2,7 +2,7 @@
 <header>
   <!-- Cambiar bg-* y navbar-* para poder cambiar color (a otra clase) -->
   <!-- Se debe usar !important al realizar el cambio de color -->
-  <nav class="navbar navbar-expand-md fixed-top bg-white navba-dark"  >
+  <nav class="navbar navbar-expand-md fixed-top bg-white navbar-light"  >
 
     <a class="navbar-brand logo" href="/">
       <img src="imagenes/logo.png"  height="40" alt="Movidos X Chile">
