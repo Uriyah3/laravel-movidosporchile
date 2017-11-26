@@ -21,15 +21,15 @@
           <form class="form-horizontal" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
 
-            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-              <label for="email" class="col-md-4 control-label">E-Mail</label>
+            <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
+              <label for="rut" class="col-md-4 control-label">Rut</label>
 
               <div class="col-md-6">
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                <input id="rut" type="text" class="form-control" name="rut" value="{{ old('rut') }}" placeholder="11111111-1" required autofocus>
 
-                @if ($errors->has('email'))
+                @if ($errors->has('rut'))
                 <span class="help-block">
-                  <strong>{{ $errors->first('email') }}</strong>
+                  <strong>{{ $errors->first('rut') }}</strong>
                 </span>
                 @endif
               </div>
@@ -39,7 +39,7 @@
               <label for="password" class="col-md-4 control-label">Contraseña</label>
 
               <div class="col-md-6">
-                <input id="password" type="password" class="form-control" name="password" required>
+                <input id="password" type="password" class="form-control" name="password" placeholder="*****" required>
 
                 @if ($errors->has('password'))
                 <span class="help-block">

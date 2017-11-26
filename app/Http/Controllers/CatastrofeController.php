@@ -33,7 +33,7 @@ class CatastrofeController extends Controller
             'fecha_catastrofe' => 'required'
         ]);
 
-       
+
         $catastrofe = Catastrofe::create(
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
 
