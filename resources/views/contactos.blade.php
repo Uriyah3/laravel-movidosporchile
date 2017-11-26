@@ -3,7 +3,7 @@
 
 
 @section('content')
-<h1>Contacto</h1>
+<h1 class="titulo">Contacto</h1>
 
 <form action="/contactos" method="POST">
 	<div class="form-row">

@@ -1,14 +1,3 @@
-.def{
-	width: 50%;
-	text-align : justify;
-}
-
-.im{
-	position: absolute;
-	top: 90px; 
-	left: 650px;
-}
-
 body{
 	background: url(../imagenes/fondo1.png);
 	background-repeat: no-repeat; 
@@ -16,14 +5,13 @@ body{
 	background-position: center;
 }
 
-.titulo{
-	color: #1F618D;
+thead{
+	background: #B2BABB  ;
+	text-align: center;
 }
 
-
-thead{
-	background: #B2BABB;
-	text-align: center;
+.titulo{
+	color: #1F618D;
 }
 
 .subtitulo{

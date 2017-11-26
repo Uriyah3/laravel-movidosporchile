@@ -1,11 +1,19 @@
 @extends('layouts.master')
+<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
 
 @section('content')
-<h2>Voluntariados</h2>
+<h1 class="titulo">Voluntariados</h1>
+
+<p>
+	Movidos x Chile solicita la ayuda de una cantidad de personas para realizar una serie de trabajos, los cuales se encuentran detallados a continuación, con su respectivo progreso.
+</p>
+
+<br />
+
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>

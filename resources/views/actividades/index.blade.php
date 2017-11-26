@@ -1,21 +1,21 @@
 @extends('layouts.master-sidebarless')
+<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
 
 @section('content')
 	
-	
-	<h1>Datos de usuario</h1>
+	<h1 class="titulo">Datos de usuario</h1>
 
 	<div class="table-responsive">
             <table class="table table-striped">
              <thead>
              <tr>
 				
-				<th>Nombre usuario</th>
+				<th>Nombre Usuario</th>
 				<th>Rut	</th>
 				<th>Nombre</th>
-				<th>Telefono</th>
-				<th>Email</th>
-				<th>Fecha creación</th>
+				<th>Teléfono</th>
+				<th>E-mail</th>
+				<th>Fecha Creación</th>
 				
 			</tr>
 			</thead>	
@@ -43,17 +43,18 @@
 
 </div>
  
+<br />
+<br />
 
-
-		<h2> Registro de Actividades </h2>
+		<h2 class="subtitulo"> Registro de Actividades </h2>
 
 		<div class="table-responsive">
             <table class="table table-striped">
              <thead>
              <tr>
 				
-				<th>Tipo de actividad</th>
-				<th>Fecha creación</th>
+				<th>Tipo Actividad</th>
+				<th>Fecha Creación</th>
 				
 			</tr>
 			</thead>	

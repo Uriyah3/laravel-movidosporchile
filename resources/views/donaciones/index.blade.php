@@ -1,4 +1,5 @@
 @extends('layouts.master')
+<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
@@ -6,7 +7,7 @@
 
 @section('content')
 
-	<h1>Donaciones</h1>
+	<h1 class="Titulo">Donaciones Monetarias</h1>
 	<!--
 	<form action="/donacion.create">
 		  Monto:<br>
@@ -29,7 +30,9 @@
 			Correo: movidosxchile@mxc.cl
 	</p>
 
-<h2>Aportes monetarios</h2>
+	<br />
+
+<h2 class="titulo">Aportes monetarios</h2>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
@@ -37,7 +40,7 @@
 				<th>Titular</th>
 				<th>Nombre Banco</th>
 				<th>Fecha Inicio</th>
-				<th>Fecha Termino</th>
+				<th>Fecha Término</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>

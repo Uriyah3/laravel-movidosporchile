@@ -8,6 +8,7 @@
 	position: absolute;
 	bottom: 810px;
 	left: 610px;
+	border-radius: 10%;
 }
 
 
@@ -19,6 +20,10 @@
 	text-align : justify;
 }
 
+.imvoluntario{
+	border-radius: 10%;
+}
+
 .evento{
 	width: 50%;
 	text-align : justify;
@@ -28,6 +33,7 @@
 	position: absolute;
 	bottom: 290px;
 	left: 610px;
+	border-radius: 10%;
 }
 
 .dinero{
@@ -38,9 +44,21 @@
 	text-align : justify;
 }
 
+.imdinero{
+	border-radius: 10%;
+}
+
 body{
 	background: url(../imagenes/fondo1.png);
 	background-repeat: no-repeat; 
 	background-attachment: fixed; 
 	background-position: center;
+}
+
+.titulo{
+	color: #1F618D;
+}
+
+.subtitulo{
+	color: #2E86C1;
 }
