@@ -4,18 +4,48 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\RegistroActividad;
+use App\Usuario;
+use App\TipoActividad;
+
 class RegistroActividadController extends Controller
 {
+
+
     
+
+	//mostrar todo el registro de actividades
+	public function index()
+	{
+		$registroActividades = RegistroActividad::with('tipo_actividad','usuario')->orderBy('created_at','desc')->paginate(7);
+
+		return view('actividades.index',compact('registroActividades'));
+	}
+
+
+	//almacenar nuevo registro de actividad
 	public function store()
 	{
+		$user = Auth::user();
+
+        $this->validate(request(), [
+            'tipo_actividad_id' => 'required',
+            'usuario_id' => 'required',
+            'create_at' => 'required',
+            'modified_at' => 'requiered'
+        ]);
+
+       
+        $registroActividades = RegistroActividad::create(
+            request(['usuario_id','tipo_actividad_id','created_at','modified_at']));
+
+        if($registroActividades-> save()){
+            return view('actividades.index');
+        }
+
 		return view('actividades.store');
 	}
 
-
-	public function index()
-	{
-		return view('actividades.index');
-	}
 
 }

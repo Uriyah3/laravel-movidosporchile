@@ -4,13 +4,12 @@
 	<head>
 		<title>Catastrofes</title>
 	</head>
+	
 
-<br />
-<br />
+<br>
 
-	<body>
 		<h1>Catástrofes identificadas</h1>
-<div class="table-responsive">
+			<div class="table-responsive">
             <table class="table table-striped">
              <thead>
              <tr>
@@ -20,7 +19,7 @@
 				<th>Fecha catastrofe</th>
 			</tr>
 			</thead>	
-		<tbody>
+		<body>
 		@foreach($catastrofes as $catastrofe)
 		<p>
 			<tr>

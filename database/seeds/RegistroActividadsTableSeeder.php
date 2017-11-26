@@ -11,6 +11,6 @@ class RegistroActividadsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\RegistroActividad::class, 5)->create();
+        factory(App\RegistroActividad::class, 15)->create();
     }
 }

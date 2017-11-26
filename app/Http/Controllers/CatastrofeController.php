@@ -71,7 +71,7 @@ class CatastrofeController extends Controller
     {
         Catastrofe::destroy($id);
 
-        $request->session()->flash('status','Catastrofe eliminada.');
+        $request->session()->flash('status','Catástrofe eliminada.');
 
     	return view('catastrofes.delete');
     }
