@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
-
 @section('sidebar')
-    @include('layouts.sidebarUsuario')
+@include('layouts.sidebarUsuario')
 @endsection
 
 @section('content')
-	
+
 	<h1>Donaciones</h1>
 	<!--
 	<form action="/donacion.create">
@@ -27,10 +26,33 @@
 			Cta corriente: 11475498 <br />
 			Banco: BCI <br />
 			Rut: 81 496.800-6 <br />
-			Correo: movidosxchile@mxc.cl 
+			Correo: movidosxchile@mxc.cl
 	</p>
-	
-	<br />
-	<br />
-	
+
+<h2>Aportes monetarios</h2>
+<div class="table-responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Titular</th>
+				<th>Nombre Banco</th>
+				<th>Fecha Inicio</th>
+				<th>Fecha Termino</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach($donaciones as $donacion)
+			<tr>
+				<td>{{ $donacion->titular }}</td>
+				<td>{{ $donacion->nombre_banco }}</td>
+				<td>{{ $donacion->fecha_inicio }}</td>
+				<td>{{ $donacion->fecha_termino }}</td>
+				<td>Información Participar</td>
+			</tr>
+			@endforeach
+		</tbody>
+	</table>
+</div>
+{{$donaciones->links()}}
 @endsection

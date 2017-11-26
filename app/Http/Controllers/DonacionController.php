@@ -14,7 +14,9 @@ class DonacionController extends Controller
      */
     public function index()
     {
-        //
+        $donaciones = Donacion::aprobado()->simplePaginate(10);
+
+        return view('donaciones.index', compact('donaciones'));
     }
 
     /**

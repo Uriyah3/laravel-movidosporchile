@@ -14,7 +14,9 @@ class CentroAcopioController extends Controller
      */
     public function index()
     {
-        //
+        $centrosDeAcopio = CentroAcopio::aprobado()->simplePaginate(10);
+
+        return view('centros_de_acopio.index', compact('centrosDeAcopio'));
     }
 
     /**
