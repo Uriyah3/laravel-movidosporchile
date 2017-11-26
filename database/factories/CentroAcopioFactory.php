@@ -9,5 +9,6 @@ $factory->define(App\CentroAcopio::class, function (Faker $faker) {
         'estado_id' => App\Estado::all()->random()->id,
         'fecha_inicio' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
         'fecha_termino' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
+        'created_at' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
     ];
 });

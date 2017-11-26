@@ -11,6 +11,6 @@ class VoluntariosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Voluntario::class, 10)->create();
+        factory(App\Voluntario::class, 50)->create();
     }
 }

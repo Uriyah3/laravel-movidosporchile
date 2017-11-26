@@ -12,6 +12,7 @@ class Medida extends Model
      * @var bool
      */
     public $timestamps = false;
+    protected $fillable = ['usuario_id', 'aprobada', 'objetivos', 'descripcion'];
 
     //
     public function usuario() {

@@ -24,26 +24,21 @@ class CatastrofeController extends Controller
     //almacenar nueva catastrofe
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
-        $request['usuario_id'] = $user['id'];
-
         $this->validate(request(), [
             'tipo_catastrofe_id' => 'required',
-            'locacion_id' => 'required',
             'descripcion' => 'required',
             'fecha_catastrofe' => 'required'
         ]);
 
+        $user = Auth::user();
+        $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
+        $request['usuario_id'] = $user['id'];
 
         $catastrofe = Catastrofe::create(
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
 
-
-        
-        if($catastrofe-> save()){
+        if($catastrofe->save()){
             return redirect( url('catastrofes') );
-            //return view('catastrofes.index');
         }
 
     	return redirect( url('catastrofes/create') );

@@ -9,6 +9,6 @@ $factory->define(App\Voluntariado::class, function (Faker $faker) {
 		'actividad_voluntariado_id' => App\ActividadVoluntariado::all()->random()->id,
         'fecha_inicio' => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'now'),
         'fecha_termino' => $faker->dateTimeBetween($startDate = 'now', $endDate = '+1 years'),
-		'cantidad_voluntarios'=> $faker->numberBetween($min = 1, $max = 10000),
+		'cantidad_voluntarios'=> $faker->numberBetween($min = 1, $max = 100),
     ];
 });
