@@ -26,8 +26,8 @@
           <a class="nav-link" href="{{ url('medidas') }}">Medidas de ayuda</a>
         </li>
       </ul>
-      @if(Auth::check())
       <ul class="navbar-nav">
+        @if(Auth::check())
         <li class="nav-item">
           <a class="nav-link" href="{{ url('actividades') }}">Perfil</a>
         </li>
@@ -44,11 +44,11 @@
             {{ csrf_field() }}
           </form>
         </li>
+        @endif
         <li class="nav-item">
           <a class="nav-link" href="gastos">Gastos generados</a>
         </li>
       </ul>
-      @endif
     </div>
   </nav>
 </header>
