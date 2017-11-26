@@ -2,7 +2,6 @@
 <link rel="stylesheet" type="text/css" href="css/medida.css">
 
 @section('sidebar')
-<<<<<<< HEAD
     @include('layouts.sidebarUsuario')
 @endsection
 
@@ -68,36 +67,7 @@
     <br />
 
 
-=======
-  @include('layouts.sidebarUsuario')
+
 @endsection
 
 
-@section('content')
-<h2>Medidas de ayuda</h2>
-<div class="table-responsive">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Objetivos</th>
-				<th>Descripcion</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($medidas as $medida)
-			<p>
-				<tr>
-					<td>{{ $medida->id }}</td>
-					<td>{{ $medida->objetivos }}</td>
-					<td>{{ $medida->descripcion }}</td>
-				</tr>
-			</p>
-			@endforeach
-
-		</tbody>
-	</table>
-</div>
-{{ $medidas->links() }}
->>>>>>> 3c28f85c9e873dd4eeda6ac1b7e12e7dae8a834e
-@endsection
