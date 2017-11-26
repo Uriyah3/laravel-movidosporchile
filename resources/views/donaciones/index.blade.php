@@ -32,7 +32,7 @@
 
 	<br />
 
-<h2 class="titulo">Aportes monetarios</h2>
+<h2 class="subtitulo">Aportes monetarios</h2>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>
