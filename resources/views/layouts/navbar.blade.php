@@ -13,16 +13,16 @@
 
     <div class="collapse navbar-collapse nav-pills nav-fill">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
+        <li class="nav-item {{ Request::segment(1) === 'organizacion' ? 'active' : null }}">
           <a class="nav-link" href="{{ url('organizacion') }}">¿Quiénes somos?</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::segment(1) === 'contactos' ? 'active' : null }}">
           <a class="nav-link" href="{{ url('contactos') }}">Contáctanos</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::segment(1) === 'catastrofes' ? 'active' : null }}">
           <a class="nav-link" href="{{ url('catastrofes') }}">Catástrofes</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::segment(1) === 'medidas' ? 'active' : null }}">
           <a class="nav-link" href="{{ url('medidas') }}">Medidas de ayuda</a>
         </li>
       </ul>

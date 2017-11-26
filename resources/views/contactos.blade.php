@@ -1,31 +1,38 @@
-<!--@extends('layouts.master')-->
 @extends('layouts.master-sidebarless')
 
 
- 
-
 @section('content')
-	<head>
-		<title>Contacto</title>
-	</head>
-	<body>
-		<br />
-		<br />
-		<h1>Contacto</h1>
+<h1>Contacto</h1>
 
-		<form action="/contactos" method="POST">
-		  Nombre:<br>
-		  <input type="text" name="Nombre"  value placeholder="leonardo"><br>
-		  Apellido:<br>
-		  <input type="text" name="Apellido" value placeholder=" farkas"><br>
-		  Mail:<br>
-		  <input type="email" name="email"  value placeholder="juanido.peres@gmail.com"><br>
-		  <textarea name="message" style="width:400px; height:200px;"></textarea>
-		  <br>
-		  <input type="submit">
-		</form>
-		<br>
-		
+<form action="/contactos" method="POST">
+	<div class="form-row">
+		<div class="col">
+			<div class="form-group">
+				<label for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="leonardo">
+			</div>
+		</div>
+		<div class="col">
+			<div class="form-group">
+				<label for="apellido">Apellido:</label>
+				<input type="text" class="form-control" id="apellido" name="apellido" placeholder=" farkas">
+			</div>
+		</div>
+	</div>
 
-	</body>
+	<div class="form-group">
+		<label for="email">Email:</label>
+		<input type="email" class="form-control" id="email" name="email" placeholder="juanido.peres@gmail.com">
+	</div>
+
+	<div class="form-group">
+		<label for="message">Mensaje:</label>
+		<textarea class="form-control" rows="5" id="message" name="message"></textarea>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+
+</form>
 @endsection
