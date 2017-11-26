@@ -12,7 +12,8 @@ class Locacion extends Model
      * @var bool
      */
     public $timestamps = false;
-    
+    public $guarded = [];
+
     //
     public function catastrofe(){
     	return $this->hasOne('App\Catastrofe');

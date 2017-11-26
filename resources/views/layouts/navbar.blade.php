@@ -1,41 +1,54 @@
 
-<header> 
-  
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<header>
+  <!-- Cambiar bg-* y navbar-* para poder cambiar color (a otra clase) -->
+  <!-- Se debe usar !important al realizar el cambio de color -->
+  <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
 
-
-    <div class="logo">
-      <img src="imagenes/logo.png">
-    </div>
+    <a class="navbar-brand logo" href="/">
+      <img src="imagenes/logo.png"  height="40" alt="Movidos X Chile">
+    </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <div class="collapse navbar-collapse nav-pills nav-fill">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('organizacion') }}">¿Quiénes somos?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="organizacion">¿Quiénes somos?</a>
+          <a class="nav-link" href="{{ url('contactos') }}">Contáctanos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Contáctanos</a>
+          <a class="nav-link" href="{{ url('catastrofes') }}">Catástrofes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="catastrofes">Catástrofes</a>
+          <a class="nav-link" href="{{ url('medidas') }}">Medidas de ayuda</a>
+        </li>
+      </ul>
+      @if(Auth::check())
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url('actividades') }}">Perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="medidas">Medidas de ayuda</a>
+          <a class="nav-link" href="{{ url('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+            Logout
+          </a>
+          <form id="logout-form"
+            action="{{ url('logout') }}"
+            method="POST"
+            style="display: none;">
+            {{ csrf_field() }}
+          </form>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="gastos">Gastos generados</a>
         </li>
       </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Ingrese búsqueda" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-      </form>
+      @endif
     </div>
   </nav>
 </header>

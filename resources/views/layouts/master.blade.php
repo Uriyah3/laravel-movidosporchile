@@ -24,15 +24,15 @@
 
     <div class="container-fluid">
       <div class="row">
-       
+
        <aside>
 
 
          @yield('sidebar')
 
        </aside>
-        
-        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+
+        <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-5">
           @yield('content')
         </main>
       </div>

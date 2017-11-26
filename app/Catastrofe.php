@@ -13,6 +13,7 @@ class Catastrofe extends Model
      */
     public $timestamps = false;
     protected $table = 'catastrofes';
+    public $guarded = [];
 
     //
     public function usuario(){
