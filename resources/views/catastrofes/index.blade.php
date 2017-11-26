@@ -36,17 +36,12 @@
 </div>
 
 <div class="table-responsive">
-<<<<<<< HEAD
+
   <table class="table table-striped">
   	<thead>
    		<tr>
 				<th>Tipo Catástrofe</th>
-=======
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Tipo catastrofe</th>
->>>>>>> 3c28f85c9e873dd4eeda6ac1b7e12e7dae8a834e
+
 				<th>Comuna</th>
 				<th>Descripcion</th>
 				<th>Fecha Catástrofe</th>

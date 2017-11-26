@@ -8,7 +8,7 @@ use Auth;
 use App\RegistroActividad;
 use App\Usuario;
 use App\TipoActividad;
-
+ 
 
 class RegistroActividadController extends Controller
 {
