@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Medida;
 
 class MedidaController extends Controller
 {
@@ -15,7 +16,9 @@ class MedidaController extends Controller
 
 	public function index()
 	{
-		return view('medidas.index');
+		$medidas = Medida::with('centro_acopio', 'donacion', 'evento_a_beneficio', 'voluntariado')->where('aprobada', '=', true)->simplePaginate(10);
+
+		return view('medidas.index', compact('medidas'));
 	}
 
 

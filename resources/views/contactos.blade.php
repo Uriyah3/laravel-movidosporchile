@@ -1,24 +1,39 @@
 @extends('layouts.master-sidebarless')
 <link rel="stylesheet" type="text/css" href="css/contacto.css">
 
+
 @section('content')
+<h1>Contacto</h1>
 
-		<br />
-		<br />
-		<h1>¿Tienes alguna queja o sugerencia?. Contáctanos</h1>
+<form action="/contactos" method="POST">
+	<div class="form-row">
+		<div class="col">
+			<div class="form-group">
+				<label for="nombre">Nombre:</label>
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="leonardo">
+			</div>
+		</div>
+		<div class="col">
+			<div class="form-group">
+				<label for="apellido">Apellido:</label>
+				<input type="text" class="form-control" id="apellido" name="apellido" placeholder=" farkas">
+			</div>
+		</div>
+	</div>
 
-		<form action="/contactos" method="POST">
-		  Nombre:<br>
-		  <input type="text" class="caja" name="Nombre"  value placeholder="Nombre"><br>
-		  Apellido:<br>
-		  <input type="text" class="caja" name="Apellido" value placeholder="Apellido"><br>
-		  Mail:<br>
-		  <input type="email" class="caja" name="email"  value placeholder="movidosxchile@chile.cl"><br>
-		  <br />
-		  <textarea name="message" class="caja" style="width:500px; height:200px;"></textarea>
-		  <br>
-		  <input type="submit" class="enviar">
-		</form>
-		<br>
-	
+	<div class="form-group">
+		<label for="email">Email:</label>
+		<input type="email" class="form-control" id="email" name="email" placeholder="juanido.peres@gmail.com">
+	</div>
+
+	<div class="form-group">
+		<label for="message">Mensaje:</label>
+		<textarea class="form-control" rows="5" id="message" name="message"></textarea>
+	</div>
+
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</div>
+
+</form>
 @endsection

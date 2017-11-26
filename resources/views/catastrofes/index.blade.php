@@ -36,26 +36,33 @@
 </div>
 
 <div class="table-responsive">
+<<<<<<< HEAD
   <table class="table table-striped">
   	<thead>
    		<tr>
 				<th>Tipo Catástrofe</th>
+=======
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Tipo catastrofe</th>
+>>>>>>> 3c28f85c9e873dd4eeda6ac1b7e12e7dae8a834e
 				<th>Comuna</th>
 				<th>Descripcion</th>
 				<th>Fecha Catástrofe</th>
 			</tr>
 		</thead>
 		<tbody>
-		@foreach($catastrofes as $catastrofe)
+			@foreach($catastrofes as $catastrofe)
 			<p>
 				<tr>
-	        <td>{{ $catastrofe->tipo_catastrofe->nombre }}</td>
-	        <td>{{$catastrofe->locacion->comuna->nombre}}</td>
-	        <td>{{$catastrofe->descripcion}}</td>
-	        <td>{{$catastrofe->fecha_catastrofe}}</td>
-	    	</tr>
+					<td>{{ $catastrofe->tipo_catastrofe->nombre }}</td>
+					<td>{{$catastrofe->locacion->comuna->nombre}}</td>
+					<td>{{$catastrofe->descripcion}}</td>
+					<td>{{$catastrofe->fecha_catastrofe}}</td>
+				</tr>
 			</p>
-		@endforeach
+			@endforeach
 
 		</tbody>
 	</table>

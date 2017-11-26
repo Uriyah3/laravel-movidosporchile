@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Voluntariado extends Model
 {
+    protected $guarded = [];
+
+
+    public function scopeAprobado($query){
+        return $query->whereHas('medida', function ($innerQuery) {
+            $innerQuery->where('aprobada', '=', true);
+        });
+    }
+
     //
     public function medida(){
         return $this->belongsTo('App\Medida');

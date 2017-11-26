@@ -29,7 +29,7 @@ h1 {
   z-index: 1000;
   padding: 20px 0;
   overflow-x: hidden;
-  overflow-y: auto; 
+  overflow-y: auto;
   border-right: 1px solid #eee;
 }
 
@@ -39,6 +39,7 @@ h1 {
 
 .sidebar .nav-item {
   width: 100%;
+  border-bottom: 1px solid #eee;
 }
 
 .sidebar .nav-item + .nav-item {
@@ -47,6 +48,35 @@ h1 {
 
 .sidebar .nav-link {
   border-radius: 0;
+}
+
+.sidebar .nav-item .nav-link {
+  color: rgba(45, 45, 45, 0.7);
+}
+
+.sidebar .nav-item .nav-link:hover {
+  background-color: #fff;
+  color: rgba(25, 25, 25, 0.8);
+}
+
+.sidebar .nav-item.active .nav-link:hover {
+  background-color: #bbb;
+  color: rgba(25, 25, 25, 0.9);
+}
+
+.sidebar .nav-item .nav-link:active {
+  background-color: #eee;
+  color: rgba(25, 25, 25, 1);
+}
+
+.sidebar .nav-item.active .nav-link:active {
+  background-color: #ddd;
+  color: rgba(25, 25, 25, 1);
+}
+
+.sidebar .nav-item.active .nav-link {
+  background-color: #ccc;
+  color: rgba(12, 12, 12, 0.9);
 }
 
 /*
