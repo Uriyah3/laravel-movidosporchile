@@ -37,6 +37,8 @@ class CatastrofeController extends Controller
         $catastrofe = Catastrofe::create(
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
 
+
+        
         if($catastrofe-> save()){
             return view('catastrofes.index');
         }

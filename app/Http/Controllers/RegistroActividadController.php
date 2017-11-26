@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use Auth;
 use App\RegistroActividad;
 use App\Usuario;
 use App\TipoActividad;
+
 
 class RegistroActividadController extends Controller
 {
@@ -15,12 +16,15 @@ class RegistroActividadController extends Controller
 
     
 
-	//mostrar todo el registro de actividades
+	//mostrar todo el registro de actividades del usuario activo
 	public function index()
 	{
-		$registroActividades = RegistroActividad::with('tipo_actividad','usuario')->orderBy('created_at','desc')->paginate(7);
+		
+		$registroActividades = RegistroActividad::where('usuario_id','=',Auth::id())->orderBy('created_at','desc')->paginate(7);
 
-		return view('actividades.index',compact('registroActividades'));
+		$usuarios = Usuario::where('id','=',Auth::id())->first();
+
+		return view('actividades.index',compact('registroActividades','usuarios'));
 	}
 
 
