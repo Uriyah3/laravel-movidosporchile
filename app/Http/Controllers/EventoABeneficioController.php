@@ -14,11 +14,9 @@ class EventoABeneficioController extends Controller
      */
     public function index()
     {
-        $voluntariados = Voluntariado::with('medida')->whereHas('medida', function ($query) {
-            $query->where('aprobada', '=', true);
-        })->get();
+        $eventoAbeneficios = EventoABeneficio::aprobado()->simplePaginate(10);
 
-        return view('voluntariados.index', compact('voluntariados'));
+        return view('eventos_a_beneficio.index', compact('eventoAbeneficios'));
     }
 
     /**

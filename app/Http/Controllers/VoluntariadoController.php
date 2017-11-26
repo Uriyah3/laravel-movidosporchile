@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Voluntariado;
 use App\Medida;
 use Illuminate\Http\Request;
@@ -60,13 +61,13 @@ class VoluntariadoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Voluntariado  $voluntariado
+     * @param  \App\Voluntariado ID $voluntariadoId
      * @return \Illuminate\Http\Response
      */
-    public function show(Voluntariado $voluntariado)
+    public function show($voluntariadoId)
     {
-        $medida = $voluntariado->medida()->first();
-        return view('voluntariados.show', compact('voluntariado', 'medida'));
+        $voluntariado = Voluntariado::where('id', $voluntariadoId)->withCount('voluntario')->first();
+        return view('voluntariados.show', compact('voluntariado'));
     }
 
     /**
@@ -77,7 +78,8 @@ class VoluntariadoController extends Controller
      */
     public function edit(Voluntariado $voluntariado)
     {
-        return view('voluntariados.edit', compact('voluntariado'));
+        $medida = $voluntariado->medida()->first();
+        return view('voluntariados.edit', compact('voluntariado', 'medida'));
     }
 
     /**
