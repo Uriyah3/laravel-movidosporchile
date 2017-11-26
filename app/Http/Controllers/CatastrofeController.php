@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Catastrofe;
+use App\Locacion;
 use App\Region;
-use App\Provincia;
-use App\Comuna;
 use App\TipoCatastrofe;
 
 class CatastrofeController extends Controller
@@ -22,9 +22,11 @@ class CatastrofeController extends Controller
     }
 
     //almacenar nueva catastrofe
-    public function store()
+    public function store(Request $request)
     {
         $user = Auth::user();
+        $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
+        $request['usuario_id'] = $user['id'];
 
         $this->validate(request(), [
             'tipo_catastrofe_id' => 'required',
@@ -38,10 +40,11 @@ class CatastrofeController extends Controller
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
 
         if($catastrofe-> save()){
-            return view('catastrofes.index');
+            return redirect( url('catastrofes') );
+            //return view('catastrofes.index');
         }
 
-    	return view('catastrofes.store');
+    	return redirect( url('catastrofes/create') );
     }
 
 
@@ -49,11 +52,9 @@ class CatastrofeController extends Controller
     public function create()
     {
         $regiones = Region::all();
-        $provincias = Provincia::all();
-        $comunas = Comuna::all();
         $tipoCatastrofes = TipoCatastrofe::all();
 
-    	return view('catastrofes.create', compact('comunas', 'tipoCatastrofe'));
+    	return view('catastrofes.create', compact('regiones', 'tipoCatastrofes'));
     }
 
 
