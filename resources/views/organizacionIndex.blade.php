@@ -3,7 +3,7 @@
 
 @section('content')
 	<head>
-		<link rel="stylesheet" type="text/css" href="css/Organizacion.css"> 
+		<link rel="stylesheet" type="text/css" href="css/organizacion.css"> 
 	</head>
 
 	<body>

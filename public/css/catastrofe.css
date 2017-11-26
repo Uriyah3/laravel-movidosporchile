@@ -1,5 +1,12 @@
-p{
-	text-align: center;
+.def{
+	width: 50%;
+	text-align : justify;
+}
+
+.im{
+	position: absolute;
+	top: 90px; 
+	left: 650px;
 }
 
 body{
@@ -8,3 +15,4 @@ body{
 	background-attachment: fixed; 
 	background-position: center;
 }
+

@@ -1,0 +1,46 @@
+.bien{
+	width: 50%;
+	text-align : justify;
+}
+
+
+.imbien{
+	position: absolute;
+	bottom: 780px;
+	left: 610px;
+}
+
+
+.voluntariado{
+	position: absolute;
+	bottom:580px;
+	left: 450px;
+	width: 50%;
+	text-align : justify;
+}
+
+.evento{
+	width: 50%;
+	text-align : justify;
+}
+
+.imevento{
+	position: absolute;
+	bottom: 290px;
+	left: 610px;
+}
+
+.dinero{
+	position: absolute;
+	bottom: 70px;
+	left: 450px;
+	width: 50%;
+	text-align : justify;
+}
+
+body{
+	background: url(../imagenes/fondo1.png);
+	background-repeat: no-repeat; 
+	background-attachment: fixed; 
+	background-position: center;
+}

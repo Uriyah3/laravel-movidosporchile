@@ -1,14 +1,8 @@
 @extends('layouts.master-sidebarless')
-
-
- 
+<link rel="stylesheet" type="text/css" href="css/contacto.css">
 
 @section('content')
-	<head>
-		<title>Contacto</title>
-		<link rel="stylesheet" type="text/css" href="css/contacto.css"> 
-	</head>
-	<body>
+
 		<br />
 		<br />
 		<h1>¿Tienes alguna queja o sugerencia?. Contáctanos</h1>
@@ -26,7 +20,5 @@
 		  <input type="submit" class="enviar">
 		</form>
 		<br>
-		
-
-	</body>
+	
 @endsection

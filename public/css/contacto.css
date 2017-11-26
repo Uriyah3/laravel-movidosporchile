@@ -12,3 +12,9 @@
 	border-radius: 4px;
 }
 
+body{
+	background: url(../imagenes/fondo1.png);
+	background-repeat: no-repeat; 
+	background-attachment: fixed; 
+	background-position: center;
+}

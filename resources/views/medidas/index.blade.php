@@ -1,32 +1,70 @@
 @extends('layouts.master')
+<link rel="stylesheet" type="text/css" href="css/medida.css">
 
- @section('sidebar')
-
-  <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-
-    <br />
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-      <a class="nav-link" href="voluntarios">Voluntariado</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="donaciones">Donaciones de Dinero</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="donacionesbienes">Donaciones de Bienes</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="evento">Eventos a beneficio</a>
-    </li>
-  </ul>
-
-</nav>
-
+@section('sidebar')
     @include('layouts.sidebarUsuario')
-
 @endsection
 
 
 @section('content')
-	<h1>Medidas</h1>
+	<h1>Medidas de ayuda</h1>
+
+  <p class="general">
+    Las diversas organizaciones que forman parte de Movidos x Chile, imparten una serie de medidas de ayudas para la comunidad damnificada. Estas medidas contemplan diferentes tipos de obras que se llevan a cabo para ayudar a una localidad en específico durante una catástrofe o situación de emergencia.
+  </p>
+
+  <br/ >
+  <br/ >
+
+    <div class="bien">
+      <h2> Donación de Bienes </h2>
+      <p>
+          Recolección de diversos elementos de ayuda para damnificados, contemplando tanto a personas como a animales. Los bienes a canalizar corresponden en general a agua en bidones, alimentos no perecibles, útiles de aseo, implementos de botiquín, medicamentos y antibióticos, vestuario y vajilla, pudiendo varias dependiendo de la catástrofes y las necesidades presentes.
+      </p>
+    </div>
+
+    <img class="imbien" src="imagenes/bien1.jpg">
+
+    <br />
+    <br />
+
+    <img class="imvoluntario" src="imagenes/voluntariado.jpg">
+
+    <div class="voluntariado">
+      <h2> Voluntariado </h2>
+      <p>
+          Trabajo por un periodo determinado realizado por un conjunto de personas de forma libre y desinterasada, con el fin de ayudar a los damnificados por las catástrofes.
+      </p>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="evento">
+      <h2> Eventos a Beneficios </h2>
+      <p>
+          Suceso a realizar en una fecha específica, que cuenta con una serie de actividades con el objetivo de recaudar fondos para ayudar a los damnificados por las catástrofes.
+      </p>
+    </div>
+
+    <img class="imevento" src="imagenes/evento1.jpg">
+
+    <br />
+    <br />
+    <br />
+
+    <div class="dinero">
+      <h2> Donación de Dinero </h2>
+      <p>
+          Recaudación de dinero mediante transferencias bancarias, cuyo monto es destinado a la ayuda de los damnificados por las catástrofes, ya sea de forma directa o invirtiendo en diversos eventos determinados.
+      </p>
+    </div>
+
+    <img class="imdinero" src="imagenes/transferencia1.jpg">
+    <br />
+    <br />
+    <br />
+
+
 @endsection
