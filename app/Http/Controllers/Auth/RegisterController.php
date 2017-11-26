@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Usuario;
+use App\Rol;
 use App\Http\Controllers\Controller;
+use App\Rules\RutValidator;
+use App\Rules\RutUnique;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -27,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/catastrofes';
 
     /**
      * Create a new controller instance.
@@ -48,9 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'username' => 'required|string|max:60',
             'password' => 'required|string|min:6|confirmed',
+            'nombre' => 'required|string|max:50',
+            'rut' => ['required', new RutUnique, new RutValidator],
+            'email' => 'required|string|email|max:120|unique:usuarios',
         ]);
     }
 
@@ -62,10 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $rut = preg_replace('/[\.\-]/i', '', $data['rut']);
+        $dv = substr($rut, -1);
+        $rutNumeros = substr($rut, 0, strlen($rut) - 1);
+
+        return Usuario::create([
+            'rol_id' => Rol::where('nombre', '=', 'Usuario')->first()->id,
+            'username' => $data['username'],
             'password' => bcrypt($data['password']),
+            'rut' => $rutNumeros,
+            'dv' => $dv,
+            'nombre' => $data['nombre'],
+            'telefono' => $data['telefono'],
+            'email' => $data['email'],
         ]);
     }
 }

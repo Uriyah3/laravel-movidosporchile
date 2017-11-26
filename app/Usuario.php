@@ -2,14 +2,34 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Usuario extends Model
+class Usuario extends Authenticatable
 {
+    use Notifiable;
     use SoftDeletes;
 
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'rol_id', 'nombre', 'email', 'username', 'password', 'rut', 'dv', 'telefono',
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    // Relacions
 	public function rol(){
     	return $this->belongsTo('App\Rol');
     }
