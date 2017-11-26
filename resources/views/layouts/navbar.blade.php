@@ -14,31 +14,31 @@
     <div class="collapse navbar-collapse nav-pills nav-fill">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="organizacion">¿Quiénes somos?</a>
+          <a class="nav-link" href="{{ url('organizacion') }}">¿Quiénes somos?</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contactos">Contáctanos</a>
+          <a class="nav-link" href="{{ url('contactos') }}">Contáctanos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="catastrofes">Catástrofes</a>
+          <a class="nav-link" href="{{ url('catastrofes') }}">Catástrofes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="medidas">Medidas de ayuda</a>
+          <a class="nav-link" href="{{ url('medidas') }}">Medidas de ayuda</a>
         </li>
       </ul>
       @if(Auth::check())
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="actividades">Perfil</a>
+          <a class="nav-link" href="{{ url('actividades') }}">Perfil</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/logout') }}"
+          <a class="nav-link" href="{{ url('logout') }}"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
             Logout
           </a>
           <form id="logout-form"
-            action="{{ url('/logout') }}"
+            action="{{ url('logout') }}"
             method="POST"
             style="display: none;">
             {{ csrf_field() }}

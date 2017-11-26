@@ -14,7 +14,7 @@ Route::get('/organizacion', function (){
 
 
 
-Route::post('/catastrofes/store', 'CatastrofeController@store');
+Route::post('/catastrofes', 'CatastrofeController@store');
 Route::get('/catastrofes', 'CatastrofeController@index');
 Route::get('/catastrofes/create', 'CatastrofeController@create');
 Route::get('/catastrofes/{id}', 'CatastrofeController@show');
@@ -74,3 +74,7 @@ Route::delete('/comentarios/{id}', 'ComentarioController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('provincias/{id}', 'ProvinciaController@provincias');
+Route::get('comunas/{id}', 'ComunaController@comunas');
