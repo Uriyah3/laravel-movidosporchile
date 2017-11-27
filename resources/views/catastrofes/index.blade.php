@@ -45,7 +45,7 @@
 				<th>Comuna</th>
 				<th>Descripción</th>
 				<th>Fecha Catástrofe</th>
-			</tr>
+		</tr>
 		</thead>
 		<tbody>
 			@foreach($catastrofes as $catastrofe)

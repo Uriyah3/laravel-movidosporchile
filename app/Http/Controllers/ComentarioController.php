@@ -34,7 +34,7 @@ class ComentarioController extends Controller
     //mostrar todos los comentarios
     public function index()
     {
-        $comentario = Comentario:::with('medida', 'usuario','descripcion','created_at')->groupBy('medida')->paginate(5);
+        $comentario = Comentario::with('medida', 'usuario','descripcion','created_at')->groupBy('medida')->paginate(5);
 
     	return view('comentarios.index',compact('comentario'));
     }
