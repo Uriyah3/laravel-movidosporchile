@@ -85,17 +85,17 @@ thead{
 
 .rotar{
     border-radius: 30%;
-    background: #85C1E9  ;
+    background: #AED6F1;
     width: 500px;
     height: 350px;
     position: absolute;
-    bottom: 200px;
+    bottom: 600px;
     left: 650px;
 }
 
 .imemerg{
     position: absolute;
-    bottom: 420px;
+    bottom: 820px;
     left: 680px;
 }
 
@@ -108,6 +108,6 @@ thead{
 }
 
 .emergtex{
-    color: white;
+    color: #515A5A;
     text-align: center;
 }

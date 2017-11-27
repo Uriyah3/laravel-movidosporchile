@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Auth;
+use Auth; 
 use App\Catastrofe;
 use App\Locacion;
 use App\Region;

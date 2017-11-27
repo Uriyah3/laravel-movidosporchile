@@ -24,40 +24,23 @@
 	</p>
 
 	<br />
-	<p class="cuenta">
-			Nombre: Movidos x Chile <br />
-			Cta corriente: 11475498 <br />
-			Banco: BCI <br />
-			Rut: 81 496.800-6 <br />
-			Correo: movidosxchile@mxc.cl
-	</p>
 
-	<br />
+<dl>
+	<dt>Nombre</dt>
+	<dd>Movidos x Chile</dd>
 
-<h2 class="subtitulo">Aportes monetarios</h2>
-<div class="table-responsive">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Titular</th>
-				<th>Nombre Banco</th>
-				<th>Fecha Inicio</th>
-				<th>Fecha Término</th>
-				<th>Acciones</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach($donaciones as $donacion)
-			<tr>
-				<td>{{ $donacion->titular }}</td>
-				<td>{{ $donacion->nombre_banco }}</td>
-				<td>{{ $donacion->fecha_inicio }}</td>
-				<td>{{ $donacion->fecha_termino }}</td>
-				<td>Información Participar</td>
-			</tr>
-			@endforeach
-		</tbody>
-	</table>
-</div>
-{{$donaciones->links()}}
+	<dt>Cta corriente</dt>
+	<dd>11475498</dd>
+
+	<dt>Banco</dt>
+	<dd>BCI</dd>
+	
+	<dt>Rut</dt>
+	<dd>81 496.800-6 </dd>
+
+	<dt>E-mail</dt>
+	<dd>movidosxchile@mxc.cl</dd>
+</dl>
+
+
 @endsection

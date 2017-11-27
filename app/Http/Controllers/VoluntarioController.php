@@ -2,49 +2,104 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Voluntario;
+use App\Voluntariado;
 use Illuminate\Http\Request;
 
 class VoluntarioController extends Controller
 {
-    
-    public function store()
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \App\Voluntariado  $voluntariado
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Voluntariado $voluntariado)
     {
-    	return view('voluntarios.store');
+       $voluntarios = Voluntario::with('usuario','voluntariado')->orderBy('created_at','desc')->paginate(7);
+
+       return view('voluntarios.index',compact('voluntarios'));
     }
 
-
-    public function index()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @param  \App\Voluntariado  $voluntariado
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Voluntariado $voluntariado)
     {
-    	return view('voluntarios.index');
+        $voluntariado = Voluntariado::all();
+
+        return view('voluntario.create',compact('voluntariado'));
     }
 
-
-    public function indexLog()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Voluntariado  $voluntariado
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, Voluntariado $voluntariado)
     {
-        return view('voluntarios.indexLog');
+        $voluntario = new Voluntario;
+        $voluntario->usuario_id = Auth::id();
+        $voluntario->voluntariado_id = $voluntariado->id;
+        $voluntario->save();
+
+        return redirect( url('voluntariados') );
     }
 
-    public function edit($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Voluntariado  $voluntariado
+     * @param  \App\Voluntario  $voluntario
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Voluntariado $voluntariado, Voluntario $voluntario)
     {
-    	return view('voluntarios.edit');
+        //
     }
 
-
-    public function show($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Voluntariado  $voluntariado
+     * @param  \App\Voluntario  $voluntario
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Voluntariado $voluntariado, Voluntario $voluntario)
     {
-    	return view('voluntarios.show');
+        //
     }
 
-
-    public function update($id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Voluntariado  $voluntariado
+     * @param  \App\Voluntario  $voluntario
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Voluntariado $voluntariado, Voluntario $voluntario)
     {
-    	return view('voluntarios.update');
+        //
     }
 
-
-    public function delete($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Voluntariado  $voluntariado
+     * @param  \App\Voluntario  $voluntario
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Voluntariado $voluntariado, Voluntario $voluntario)
     {
-    	return view('voluntarios.delete');
-    }
+         $voluntario->delete();
+         return redirect( url('voluntariados') );
 
+    }
 }

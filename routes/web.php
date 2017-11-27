@@ -29,7 +29,8 @@ Route::resources([
 	'centros_de_acopio.comentarios' => 'ComentarioCentroAcopioController',
 	'donaciones.comentarios' => 'ComentarioDonacionController',
 	'eventos_a_beneficio.comentarios' => 'ComentarioEventoABeneficioController',
-	'voluntariados.comentarios' => 'ComentarioVoluntariadoController'
+	'voluntariados.comentarios' => 'ComentarioVoluntariadoController',
+	'voluntariados.voluntarios' => 'VoluntarioController'
 ]);
 
 /*
@@ -74,23 +75,23 @@ Route::patch('/voluntariados/{id}', 'VoluntariadoController@update');
 Route::delete('/voluntariados/{id}', 'VoluntariadoController@delete');
 */
 
-Route::post('/actividades', 'RegistroActividadController@store'); 
+Route::post('/actividades', 'RegistroActividadController@store');
 Route::get('/actividades', 'RegistroActividadController@index');
 
-
+/*
 Route::post('/voluntarios', 'VoluntarioController@store');
-Route::get('/voluntarios', 'VoluntarioController@indexLog');
+Route::get('/voluntarios', 'VoluntarioController@index');
 Route::get('/voluntarios/{id}', 'VoluntarioController@edit');
 Route::get('/voluntarios/{id}', 'VoluntarioController@show');
 Route::patch('/voluntarios/{id}', 'VoluntarioController@update');
 Route::delete('/voluntarios/{id}', 'VoluntarioController@delete');
-
+*/
 
 Route::post('/bienes', 'BienController@store');
 Route::get('/bienes/create', 'BienController@create');
 Route::get('/bienes', 'BienController@index');
 
- 
+
 Route::post('/depositos', 'DepositoController@store');
 Route::get('/depositos', 'DepositoController@index');
 Route::get('/depositos/create', 'DepositoController@create');
@@ -112,7 +113,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
- 
+
 Route::get('provincias/{id}', 'ProvinciaController@provincias');
 Route::get('comunas/{id}', 'ComunaController@comunas');
 Auth::routes();
@@ -127,6 +128,6 @@ Route::get('/enviar_tweet', function()
 {
     return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
 });
-  
+
 
 Route::get('/bloqueos', 'BloqueoController@index');
