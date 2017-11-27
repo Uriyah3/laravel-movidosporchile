@@ -1,14 +1,12 @@
 @extends('layouts.master-sidebarless')
 
-
 @section('style')
 {{ Html::style('css/catastrofe.css') }}
 @section('style')
 
-
 @section('content')
 
-<h1 class="titulo">Catástrofes Naturales</h1> 
+<h1 class="titulo">Catástrofes Naturales</h1>
 
 <div class="def">
 	<h2 class="subtitulo">¿Qué es una Catástrofe Natural?</h2>
@@ -57,14 +55,8 @@
 </div>
 
 <br />
-<br />
-<br />
-
-
 
 <h2 class="subtitulo">Últimas Catástrofes Identificadas</h2>
-
-</div>
 
 <div class="table-responsive">
 
@@ -75,19 +67,17 @@
 
 				<th>Comuna</th>
 				<th>Descripción</th>
-				<th>Fecha Catástrofe</th>
+				<th width="17%">Fecha Catástrofe</th>
 		</tr>
 		</thead>
 		<tbody>
 			@foreach($catastrofes as $catastrofe)
-			<p>
 				<tr>
 					<td>{{ $catastrofe->tipo_catastrofe->nombre }}</td>
 					<td>{{$catastrofe->locacion->comuna->nombre}}</td>
 					<td>{{$catastrofe->descripcion}}</td>
 					<td>{{$catastrofe->fecha_catastrofe}}</td>
 				</tr>
-			</p>
 			@endforeach
 
 		</tbody>
