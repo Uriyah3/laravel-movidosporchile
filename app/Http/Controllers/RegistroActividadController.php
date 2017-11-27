@@ -9,11 +9,11 @@ use App\RegistroActividad;
 use App\Usuario;
 use App\TipoActividad;
  
-
+ 
 class RegistroActividadController extends Controller
 {
 
-
+ 
     
 
 	//mostrar todo el registro de actividades del usuario activo

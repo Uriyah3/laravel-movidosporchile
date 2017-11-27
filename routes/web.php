@@ -90,7 +90,7 @@ Route::post('/bienes', 'BienController@store');
 Route::get('/bienes/create', 'BienController@create');
 Route::get('/bienes', 'BienController@index');
 
-
+ 
 Route::post('/depositos', 'DepositoController@store');
 Route::get('/depositos', 'DepositoController@index');
 Route::get('/depositos/create', 'DepositoController@create');
@@ -127,3 +127,6 @@ Route::get('/enviar_tweet', function()
 {
     return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
 });
+  
+
+Route::get('/bloqueos', 'BloqueoController@index');

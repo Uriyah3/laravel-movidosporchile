@@ -3,7 +3,7 @@
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
-@endsection
+@endsection 
 
 @section('content')
 <div class="row">

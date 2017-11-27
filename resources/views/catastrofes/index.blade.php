@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1 class="titulo">Catástrofes Naturales</h1>
+<h1 class="titulo">Catástrofes Naturales</h1> 
 
 <div class="def">
 	<h2 class="subtitulo">¿Qué es una Catástrofe Natural?</h2>

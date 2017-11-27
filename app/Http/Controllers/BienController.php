@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 use App\Bien;
 use Auth;
+use App\CentroAcopio;
+use App\Medicion;
+
 class BienController extends Controller
 {
 
 
 	public function create(){
 
-        $centroAcopio = centroAcopio::all();
+        $centroAcopio = CentroAcopio::all();
         $medicion = Medicion::all();
         $bien  = Bien::all();
 
 		return view('bienes.create',compact('centroAcopio','medicion','bien'));
 	}
 
-    //almacenar un nuevo bien
+    //almacenar un nuevo bien 
     public function store()
     {
         $user = Auth::user();
