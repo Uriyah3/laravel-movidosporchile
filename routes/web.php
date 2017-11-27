@@ -105,14 +105,14 @@ Route::get('/gastos/{id}', 'GastoController@show');
 Route::post('/comentarios', 'ComentarioController@store');
 Route::get('/medida/{id}/comentarios', 'ComentarioController@index');
 Route::get('/comentarios/{id}/edit', 'ComentarioController@edit');
-Route::get('/comentarios/create', 'ComentarioController@create');
+Route::get('/medida/{id}/comentarios/create', 'ComentarioController@create');
 Route::patch('/comentarios/{id}', 'ComentarioController@update');
 Route::delete('/comentarios/{id}', 'ComentarioController@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
+ 
 Route::get('provincias/{id}', 'ProvinciaController@provincias');
 Route::get('comunas/{id}', 'ComunaController@comunas');
 Auth::routes();

@@ -38,7 +38,7 @@ class DonacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         $this->validate(request(), [
             'objetivos' => 'required|string',

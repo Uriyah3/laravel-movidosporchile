@@ -10,27 +10,29 @@ use App\Usuario;
 
 
 class ComentarioController extends Controller
-
+ 
 {
 
     //mostrar un nuevo registro de comentario
-    public function store()
+    public function store(Request $request)
     {
-        $id = Auth::id();
+        
 
          $this->validate(request(), [
-            'medida_id' => 'required', 
-            'descripcion' => 'required',
-            'created_at' => 'required'
-        ]);
+             'medida_id' => 'required',
+            'descripcion' => 'required|string',
+            ]);
 
-         $comentario = Comentario::create(request(['medida_id','usuario_id','descripcion','created_at','modified_at']));
+         $user = Auth::user();
 
-         if($comentario-> save()){
-            return view('comentarios.store');
-        }
+         $request['usuario_id'] = $user['id'];
+         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
+         
+         Comentario::create(request(['medida_id','usuario_id','descripcion']));
 
-    	return view('comentarios.store');
+
+         return redirect( url('comentarios'));
+
     }
 
 
@@ -52,12 +54,13 @@ class ComentarioController extends Controller
     	return view('comentarios.edit',compact('comentario'));
     }
 
-    //mostrar el formulario para crear un nuevo comentaio
+    //mostrar el formulario para crear un nuevo comentario
     public function create()
     {
         $medidas = Medida::all();
-        $usuarios = Usuario::all();
-    	return view('comentarios.create',compact('medidas','usuarios'));
+        $user = Auth::user();
+
+    	return view('comentarios.create',compact('medidas','user'));
     }
 
    //actualizar un comentario en el almacenamiento

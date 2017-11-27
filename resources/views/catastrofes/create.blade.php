@@ -3,7 +3,7 @@
 @section('content')
 <h1>Añadir catástrofe</h1>
 <form action="/catastrofes" method="POST">
-	{{ csrf_field() }}
+	{{ csrf_field() }}  
 	@include('locaciones.create')
 
 	<div class="form-group">
