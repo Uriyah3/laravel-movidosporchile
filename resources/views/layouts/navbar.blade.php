@@ -27,24 +27,34 @@
         </li>
       </ul>
       <ul class="navbar-nav">
+
+
+
         @if(Auth::check())
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('actividades') }}">Perfil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-            Logout
-          </a>
-          <form id="logout-form"
-            action="{{ url('logout') }}"
-            method="POST"
-            style="display: none;">
-            {{ csrf_field() }}
-          </form>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('actividades') }}">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+              Logout
+            </a>
+            <form id="logout-form"
+              action="{{ url('logout') }}"
+              method="POST"
+              style="display: none;">
+              {{ csrf_field() }}
+            </form>
+          </li>
         @endif
+
+        @if(Auth::check() && Auth::user()->rol == "organizacion")
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/catastrofes/create') }}">Subir Catástrofe</a>
+          </li>
+        @endif
+
         <li class="nav-item">
           <a class="nav-link" href="gastos">Gastos generados</a>
         </li>

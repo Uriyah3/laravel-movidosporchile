@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Comentario;
+use App\Medida;
+use App\Usuario;
 
 class ComentarioController extends Controller
 {

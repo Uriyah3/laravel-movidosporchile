@@ -1,11 +1,28 @@
 .textarea {
   display : block;
-
   padding : 10px;
   margin  : 10px 0 0 -10px;
   width   : 340px;
   height  : 360px;
-
   resize  : none;
   overflow: auto;
+}
+
+.usuario{
+	border-radius: 3px;
+}
+
+.comentario{
+	border-radius: 3px;
+	width: 600px;
+	height: 300px;
+}
+
+.boton{
+	background-color: #2E86C1;
+	border-radius: 3px;
+	padding: 5px 10px;
+	font-weight: bold;
+	color: white;
+	font-size: 10px;
 }
