@@ -4,9 +4,7 @@
 
 @section('content')
 
-	@if(Auth::check())
  	<input type="text" class="usuario" placeholder="Nombre Usuario">
- 	@endif
 	<br />
 	<br />
 	<textarea class="comentario" placeholder="Ingrese su comentario" name="message"></textarea>

@@ -70,7 +70,7 @@ Route::patch('/voluntariados/{id}', 'VoluntariadoController@update');
 Route::delete('/voluntariados/{id}', 'VoluntariadoController@delete');
 */
 
-Route::post('/actividades', 'RegistroActividadController@store');
+Route::post('/actividades', 'RegistroActividadController@store'); 
 Route::get('/actividades', 'RegistroActividadController@index');
 
 
@@ -99,7 +99,7 @@ Route::get('/gastos/{id}', 'GastoController@show');
 
 
 Route::post('/comentarios', 'ComentarioController@store');
-Route::get('/comentarios', 'ComentarioController@index');
+Route::get('/medida/{id}/comentarios', 'ComentarioController@index');
 Route::get('/comentarios/{id}/edit', 'ComentarioController@edit');
 Route::get('/comentarios/create', 'ComentarioController@create');
 Route::patch('/comentarios/{id}', 'ComentarioController@update');
@@ -111,3 +111,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('provincias/{id}', 'ProvinciaController@provincias');
 Route::get('comunas/{id}', 'ComunaController@comunas');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/enviar_tweet', function()
+{
+    return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
+});

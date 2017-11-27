@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+	Thujohn\Twitter\TwitterServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,6 +228,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'form' => Illuminate\Html\FormFacade::class,
         'Html' => Illuminate\Html\HtmlFacade::class,
+	'Twitter' => 'Thujohn\Twitter\Facades\Twitter',
 
     ],
 

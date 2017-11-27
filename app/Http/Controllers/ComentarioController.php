@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
 use Auth;
 use App\Comentario;
 use App\Medida;
 use App\Usuario;
 
+
 class ComentarioController extends Controller
+
 {
 
     //mostrar un nuevo registro de comentario
@@ -18,7 +19,7 @@ class ComentarioController extends Controller
         $id = Auth::id();
 
          $this->validate(request(), [
-            'medida_id' => 'required',
+            'medida_id' => 'required', 
             'descripcion' => 'required',
             'created_at' => 'required'
         ]);
@@ -34,11 +35,12 @@ class ComentarioController extends Controller
 
 
     //mostrar todos los comentarios
-    public function index()
+    public function index($id)
     {
-        $comentario = Comentario::with('medida', 'usuario','descripcion','created_at')->groupBy('medida')->paginate(5);
+        
+        $comentarios = Comentario::where('medida_id','=',$id)->orderBy('created_at')->paginate(10);
 
-    	return view('comentarios.index',compact('comentario'));
+    	return view('comentarios.index',compact('comentarios'));
     }
 
 
