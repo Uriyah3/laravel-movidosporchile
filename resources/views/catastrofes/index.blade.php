@@ -60,7 +60,26 @@
 <br />
 <br />
 
+<div class="rotar"> 
+		<p class="emerg"><br />Teléfonos de <br />Emergencia<br /> </p>
 
+		<p class="emergtex">
+			130	CONAF: Incendios forestales.<br />
+			131	SAMU: Ambulancia.<br />
+			132	Bomberos.<br />
+			133	Carabineros: Emergencias policiales.<br />
+			134	Policía de investigaciones: Emergencias policiales.<br />
+			136	Cuerpo de socorro andino.<br />
+			137	Búsqueda y salvamento marítimo.<br />
+			138	Rescate aéreo.<br />
+			139	Informaciones policiales.<br />
+
+		</p>
+</div>
+
+<div class="imemerg">
+	<img  src="imagenes/emergencia.png">
+</div>
 
 <h2 class="subtitulo">Últimas Catástrofes Identificadas</h2>
 
