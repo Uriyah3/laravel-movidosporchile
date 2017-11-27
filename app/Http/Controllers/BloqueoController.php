@@ -9,6 +9,16 @@ use App\Usuario;
 
 class BloqueoController extends Controller 
 {
+
+
+	public function destroy(Usuario $usuario)
+	{
+		$Usuario->delete();
+
+		return redirect( url('bloqueos'));
+
+	}
+
 	//mostrar todos los usuarios
 	public function index()
 	{
