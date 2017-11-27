@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gasto;
 
 class GastoController extends Controller
 {
@@ -13,9 +14,14 @@ class GastoController extends Controller
     }
 
 
+
+    //mostrar todos los gastos
     public function index()
     {
-    	return view('gastos.index');
+        $gastos = Gasto::with('usuario')->orderBy('fecha', 'desc')->paginate(10);
+
+
+    	return view('gastos.index',compact('gastos'));
     }
 
 
