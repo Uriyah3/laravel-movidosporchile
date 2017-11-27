@@ -10,4 +10,8 @@
 </p>
 
 <img class="fundaciones mx-auto d-block" src="imagenes/fundaciones.png">
+
+
+
+
 @endsection
