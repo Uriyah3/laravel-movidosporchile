@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Voluntario;
 use App\Voluntariado;
 use Illuminate\Http\Request;
@@ -43,7 +44,12 @@ class VoluntarioController extends Controller
      */
     public function store(Request $request, Voluntariado $voluntariado)
     {
-        //
+        $voluntario = new Voluntario;
+        $voluntario->usuario_id = Auth::id();
+        $voluntario->voluntariado_id = $voluntariado->id;
+        $voluntario->save();
+
+        return redirect( url('voluntariados') );
     }
 
     /**
@@ -81,7 +87,7 @@ class VoluntarioController extends Controller
     public function update(Request $request, Voluntariado $voluntariado, Voluntario $voluntario)
     {
         //
-    } 
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -92,8 +98,8 @@ class VoluntarioController extends Controller
      */
     public function destroy(Voluntariado $voluntariado, Voluntario $voluntario)
     {
-         $voluntariado->delete();
-         return redirect( url('voluntario'));
+         $voluntario->delete();
+         return redirect( url('voluntariados') );
 
     }
 }

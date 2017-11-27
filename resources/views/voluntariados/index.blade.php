@@ -62,16 +62,16 @@
 					@if(Auth::check())
 						@if(Auth::user()->rol->nombre == "Usuario")
 							@if($voluntariado->voluntario->pluck('usuario_id')->contains(Auth::id()) )
-								<button class="btn octicon btn-danger btn-xs" data-title="Desinscribirse" data-toggle="modal" data-target="#desinscribirse" data-id="{{ $voluntariado->id }}" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios/{$voluntariado->voluntario->where('usuario_id', Auth::id())->first()->id}") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
+								<button class="btn octicon btn-danger btn-xs" data-title="Desinscribirse" data-toggle="modal" data-target="#desinscribirse" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios/{$voluntariado->voluntario->where('usuario_id', Auth::id())->first()->id}") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
 							@else
-								<button class="btn octicon btn-success btn-xs" data-title="Inscribirse" data-toggle="modal" data-target="#inscribirse" data-id="{{ $voluntariado->id }}" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios/store") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
+								<button class="btn octicon btn-success btn-xs" data-title="Inscribirse" data-toggle="modal" data-target="#inscribirse" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
 							@endif
 						@endif
 						@if(Auth::user()->rol->nombre == "Gobierno" || (Auth::user()->rol->nombre == "Organización" && Auth::id() == $voluntariado->medida->usuario_id))
 							<a class="btn octicon btn-warning btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/edit") }}"><img class="octicon" src="{{ URL::asset('icons/pencil.svg') }}"></a>
 						@endif
 						@if(Auth::user()->rol->nombre == "Gobierno")
-							<button class="btn octicon btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-id="{{ $voluntariado->id }}" data-url="{{ url('voluntariados', $voluntariado->id) }}"><img class="octicon" src="{{ URL::asset('icons/trashcan.svg') }}"></button>
+							<button class="btn octicon btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-url="{{ url('voluntariados', $voluntariado->id) }}"><img class="octicon" src="{{ URL::asset('icons/trashcan.svg') }}"></button>
 						@endif
 					@endif
 				</td>
@@ -150,14 +150,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="desinscribirse">¿Borrar este voluntariado?</h5>
+					<h5 class="modal-title" id="desinscribirse">Cancelar inscripción</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
 
-					<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Estás seguro que deseas eliminar esta medida?</div>
+					<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Está seguro que desea cancelar su inscripción?</div>
 
 				</div>
 				<div class="modal-footer">
