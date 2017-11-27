@@ -29,7 +29,7 @@
 				<th>Actividad</th>
 				<th>Comuna</th>
 				<th>Inicio</th>
-				<th>Termino</th>
+				<th>Término</th>
 				<th>Progreso</th>
 				<th>Acciones</th>
 			</tr>

@@ -17,7 +17,7 @@
 				<th>Usuario</th>
 				<th>Fecha</th>
 				<th>Monto</th>
-				<th>proposito</th>
+				<th>Propósito</th>
 		</tr>
 		</thead>
 		<tbody>

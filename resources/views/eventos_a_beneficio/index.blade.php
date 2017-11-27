@@ -8,7 +8,7 @@
 @section('content')
 <div class="row">
 	<div class="col">
-		<h1 class="titulo">Evento A Beneficio</h1>
+		<h1 class="titulo">Evento a Beneficio</h1>
 	</div>
 	@if(Auth::check() && Auth::user()->rol->nombre == "Organización")
 	<div class="col">

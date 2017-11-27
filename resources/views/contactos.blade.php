@@ -10,20 +10,20 @@
 		<div class="col">
 			<div class="form-group">
 				<label for="nombre">Nombre:</label>
-				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="leonardo">
+				<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
 			</div>
 		</div>
 		<div class="col">
 			<div class="form-group">
 				<label for="apellido">Apellido:</label>
-				<input type="text" class="form-control" id="apellido" name="apellido" placeholder=" farkas">
+				<input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
 			</div>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<label for="email">Email:</label>
-		<input type="email" class="form-control" id="email" name="email" placeholder="juanido.peres@gmail.com">
+		<input type="email" class="form-control" id="email" name="email" placeholder="movidosxchile@mxc.cl">
 	</div>
 
 	<div class="form-group">
@@ -32,7 +32,7 @@
 	</div>
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<button type="submit" class="btn btn-primary">Enviar</button>
 	</div>
 
 </form>
