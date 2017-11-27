@@ -25,7 +25,11 @@ Route::resources([
 	'centros_de_acopio' => 'CentroAcopioController',
 	'donaciones' => 'DonacionController',
 	'eventos_a_beneficio' => 'EventoABeneficioController',
-	'voluntariados' => 'VoluntariadoController'
+	'voluntariados' => 'VoluntariadoController',
+	'centros_de_acopio.comentarios' => 'ComentarioCentroAcopioController',
+	'donaciones.comentarios' => 'ComentarioDonacionController',
+	'eventos_a_beneficio.comentarios' => 'ComentarioEventoABeneficioController',
+	'voluntariados.comentarios' => 'ComentarioVoluntariadoController'
 ]);
 
 /*
