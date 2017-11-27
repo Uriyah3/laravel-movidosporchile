@@ -187,7 +187,6 @@
 			$(function() {
 				$('#delete').on("show.bs.modal", function (e) {
 					$("#deleteLabel").html($(e.relatedTarget).data('title'));
-					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
 					$("#deleteForm").attr('action', ($(e.relatedTarget).data('url')));
 				});
 			});
@@ -198,14 +197,12 @@
 			$(function() {
 				$('#inscribirse').on("show.bs.modal", function (e) {
 					$("#inscribirseLabel").html($(e.relatedTarget).data('title'));
-					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
 					$("#inscribirseForm").attr('action', ($(e.relatedTarget).data('url')));
 				});
 			});
 			$(function() {
 				$('#desinscribirse').on("show.bs.modal", function (e) {
 					$("#desinscribirseLabel").html($(e.relatedTarget).data('title'));
-					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
 					$("#desinscribirseForm").attr('action', ($(e.relatedTarget).data('url')));
 				});
 			});
