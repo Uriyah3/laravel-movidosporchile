@@ -5,7 +5,7 @@
   <nav class="navbar navbar-expand-md fixed-top bg-white navbar-light"  >
 
     <a class="navbar-brand logo" href="/">
-      <img src="imagenes/logo.png"  height="40" alt="Movidos X Chile">
+      <img src="{{ URL::asset('imagenes/logo.png') }}"  height="40" alt="Movidos X Chile">
     </a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
