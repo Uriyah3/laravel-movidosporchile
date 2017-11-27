@@ -6,7 +6,7 @@
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
-@endsection 
+@endsection
 
 @section('content')
 <div class="row">
@@ -62,9 +62,9 @@
 					@if(Auth::check())
 						@if(Auth::user()->rol->nombre == "Usuario")
 							@if($voluntariado->voluntario->pluck('usuario_id')->contains(Auth::id()) )
-								<a class="btn octicon btn-success btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/voluntarios/{$voluntariado->voluntario->where('usuario_id', Auth::id())->first()->id}") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></a>
+								<button class="btn octicon btn-danger btn-xs" data-title="Desinscribirse" data-toggle="modal" data-target="#desinscribirse" data-id="{{ $voluntariado->id }}" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios/{$voluntariado->voluntario->where('usuario_id', Auth::id())->first()->id}") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
 							@else
-								<a class="btn octicon btn-success btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/voluntarios/store") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></a>
+								<button class="btn octicon btn-success btn-xs" data-title="Inscribirse" data-toggle="modal" data-target="#inscribirse" data-id="{{ $voluntariado->id }}" data-url="{{ url("voluntariados/{$voluntariado->id}/voluntarios/store") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></button>
 							@endif
 						@endif
 						@if(Auth::user()->rol->nombre == "Gobierno" || (Auth::user()->rol->nombre == "Organización" && Auth::id() == $voluntariado->medida->usuario_id))
@@ -84,49 +84,132 @@
 {{$voluntariados->links()}}
 
 @if(Auth::check())
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="delete">¿Borrar este voluntariado?</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
+	@if(Auth::user()->rol->nombre == "Gobierno")
+	<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="delete">¿Borrar este voluntariado?</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
 
-				<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Estás seguro que deseas eliminar esta medida?</div>
+					<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Estás seguro que deseas eliminar esta medida?</div>
 
-			</div>
-			<div class="modal-footer">
-				<form id="deleteForm" method="POST" style="margin-bottom: 0em">
-					{{ csrf_field() }}
-					<input type="hidden" name="_method" value="DELETE">
-					<div class="form-group">
-						<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Si</button>
-						<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> No</button>
-					</div>
-				</form>
+				</div>
+				<div class="modal-footer">
+					<form id="deleteForm" method="POST" style="margin-bottom: 0em">
+						{{ csrf_field() }}
+						<input type="hidden" name="_method" value="DELETE">
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Si</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> No</button>
+						</div>
+					</form>
 
+				</div>
 			</div>
+			<!-- /.modal-content -->
 		</div>
-		<!-- /.modal-content -->
+		<!-- /.modal-dialog -->
 	</div>
-	<!-- /.modal-dialog -->
-</div>
+	@endif
+	@if(Auth::user()->rol->nombre == "Usuario")
+	<div class="modal fade" id="inscribirse" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="inscribirse">Confimar participación</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="alert alert-success"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}" width="24px"> Confirme su inscripción en este voluntariado.</div>
+
+				</div>
+				<div class="modal-footer">
+					<form id="inscribirseForm" method="POST" style="margin-bottom: 0em">
+						{{ csrf_field() }}
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Participar</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> Cancelar</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<div class="modal fade" id="desinscribirse" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="desinscribirse">¿Borrar este voluntariado?</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Estás seguro que deseas eliminar esta medida?</div>
+
+				</div>
+				<div class="modal-footer">
+					<form id="desinscribirseForm" method="POST" style="margin-bottom: 0em">
+						{{ csrf_field() }}
+						<input type="hidden" name="_method" value="DELETE">
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Desinscribirse</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> Cancelar</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	@endif
 @endif
 @endsection
 
-@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
+@if(Auth::check())
 	@section('scripts')
-	<script type="text/javascript">
-		$(function() {
-			$('#delete').on("show.bs.modal", function (e) {
-				$("#deleteLabel").html($(e.relatedTarget).data('title'));
-				$("#voluntariado-id").html($(e.relatedTarget).data('id'));
-				$("#deleteForm").attr('action', ($(e.relatedTarget).data('url')));
+	@if(Auth::user()->rol->nombre == "Gobierno")
+		<script type="text/javascript">
+			$(function() {
+				$('#delete').on("show.bs.modal", function (e) {
+					$("#deleteLabel").html($(e.relatedTarget).data('title'));
+					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
+					$("#deleteForm").attr('action', ($(e.relatedTarget).data('url')));
+				});
 			});
-		});
-	</script>
+		</script>
+	@endif
+	@if(Auth::user()->rol->nombre == "Usuario")
+		<script type="text/javascript">
+			$(function() {
+				$('#inscribirse').on("show.bs.modal", function (e) {
+					$("#inscribirseLabel").html($(e.relatedTarget).data('title'));
+					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
+					$("#inscribirseForm").attr('action', ($(e.relatedTarget).data('url')));
+				});
+			});
+			$(function() {
+				$('#desinscribirse').on("show.bs.modal", function (e) {
+					$("#desinscribirseLabel").html($(e.relatedTarget).data('title'));
+					$("#voluntariado-id").html($(e.relatedTarget).data('id'));
+					$("#desinscribirseForm").attr('action', ($(e.relatedTarget).data('url')));
+				});
+			});
+		</script>
+	@endif
 	@endsection
 @endif
