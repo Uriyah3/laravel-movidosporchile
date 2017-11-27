@@ -19,7 +19,11 @@ class VoluntariadoController extends Controller
      */
     public function index()
     {
-        $voluntariados = Voluntariado::aprobado()->with('medida', 'locacion.comuna', 'actividad_voluntariado')->withCount('voluntario')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        if(Auth::check() && Auth::user()->rol->nombre == "Gobierno") {
+            $voluntariados = Voluntariado::with('medida', 'locacion.comuna', 'actividad_voluntariado')->withCount('voluntario')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        } else {
+            $voluntariados = Voluntariado::aprobado()->with('medida', 'locacion.comuna', 'actividad_voluntariado')->withCount('voluntario')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        }
 
         return view('voluntariados.index', compact('voluntariados'));
     }
@@ -83,8 +87,10 @@ class VoluntariadoController extends Controller
      */
     public function edit(Voluntariado $voluntariado)
     {
-        $medida = $voluntariado->medida()->first();
-        return view('voluntariados.edit', compact('voluntariado', 'medida'));
+        $regiones = Region::all();
+        $actividadesVoluntariado = ActividadVoluntariado::all();
+
+        return view('voluntariados.edit', compact('voluntariado', 'regiones', 'actividadesVoluntariado'));
     }
 
     /**
@@ -96,7 +102,10 @@ class VoluntariadoController extends Controller
      */
     public function update(Request $request, Voluntariado $voluntariado)
     {
-        //
+        $voluntariado->locacion->update(request(['comuna_id']));
+        $voluntariado->medida->update(request(['usuario_id', 'objetivos', 'descripcion', 'aprobada']));
+        $voluntariado->update(request(['medida_id', 'locacion_id', 'actividad_voluntariado_id', 'fecha_inicio', 'fecha_termino', 'cantidad_voluntarios']));
+        return redirect(url('voluntariados'));
     }
 
     /**
@@ -107,6 +116,7 @@ class VoluntariadoController extends Controller
      */
     public function destroy(Voluntariado $voluntariado)
     {
-        //
+        $voluntariado->delete();
+        return redirect( url('voluntariados') );
     }
 }

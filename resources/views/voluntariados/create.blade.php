@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="css/perfil.css">
+{{ Html::style('css/perfil.css') }}
 @section('style')
 
 @section('sidebar')

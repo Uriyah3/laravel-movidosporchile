@@ -1,5 +1,8 @@
 @extends('layouts.master')
-<link rel="stylesheet" type="text/css" href="css/perfil.css">
+
+@section('style')
+{{ Html::style('css/perfil.css') }}
+@section('style')
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
@@ -23,15 +26,18 @@
 <br />
 
 <div class="table-responsive">
-	<table class="table table-striped">
+	<table id="mytable" class="table table-striped">
 		<thead>
 			<tr>
+				@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
+					<th width="6%">Aprobada</th>
+				@endif
 				<th>Actividad</th>
 				<th>Comuna</th>
 				<th>Inicio</th>
 				<th>Término</th>
 				<th>Progreso</th>
-				<th>Acciones</th>
+				<th width="12%">Acciones</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -39,16 +45,36 @@
 			@php ($progreso= $voluntariado->voluntario_count / $voluntariado->cantidad_voluntarios * 100.0)
 			@if($progreso < 100.0)
 			<tr>
-				<td>{{ $voluntariado->actividad_voluntariado->nombre }}</td>
-				<td>{{ $voluntariado->locacion->comuna->nombre }}</td>
-				<td>{{ $voluntariado->fecha_inicio }}</td>
-				<td>{{ $voluntariado->fecha_termino }}</td>
-				<td>
+				@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
+					<td class="text-center">{{ $voluntariado->medida->aprobada == true ? "Si" : "No" }}</td>
+				@endif
+				<td class="text-center">{{ $voluntariado->actividad_voluntariado->nombre }}</td>
+				<td class="text-center">{{ $voluntariado->locacion->comuna->nombre }}</td>
+				<td class="text-center">{{ $voluntariado->fecha_inicio }}</td>
+				<td class="text-center">{{ $voluntariado->fecha_termino }}</td>
+				<td class="text-center">
 					<div class="progress">
 						<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" aria-valuenow="{{ $progreso }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $progreso }}%"></div>
 					</div>
 				</td>
-				<td>Información Participar</td>
+				<td class="text-center">
+					<a class="btn octicon btn-info btn-xs" href="{{ url('voluntariados', $voluntariado->id) }}" role="button"><img class="octicon" src="{{ URL::asset('icons/file.svg') }}"></a>
+					@if(Auth::check())
+						@if(Auth::user()->rol->nombre == "Usuario")
+							@if($voluntariado->voluntario->pluck('usuario_id')->contains(Auth::id()) )
+								<a class="btn octicon btn-success btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/voluntarios/{$voluntariado->voluntario->where('usuario_id', Auth::id())->first()->id}") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></a>
+							@else
+								<a class="btn octicon btn-success btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/voluntarios/store") }}"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}"></a>
+							@endif
+						@endif
+						@if(Auth::user()->rol->nombre == "Gobierno" || (Auth::user()->rol->nombre == "Organización" && Auth::id() == $voluntariado->medida->usuario_id))
+							<a class="btn octicon btn-warning btn-xs" href="{{ url("voluntariados/{$voluntariado->id}/edit") }}"><img class="octicon" src="{{ URL::asset('icons/pencil.svg') }}"></a>
+						@endif
+						@if(Auth::user()->rol->nombre == "Gobierno")
+							<button class="btn octicon btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-id="{{ $voluntariado->id }}" data-url="{{ url('voluntariados', $voluntariado->id) }}"><img class="octicon" src="{{ URL::asset('icons/trashcan.svg') }}"></button>
+						@endif
+					@endif
+				</td>
 			</tr>
 			@endif
 			@endforeach
@@ -56,4 +82,51 @@
 	</table>
 </div>
 {{$voluntariados->links()}}
+
+@if(Auth::check())
+<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="delete">¿Borrar este voluntariado?</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<div class="alert alert-danger"><img class="octicon" src="{{ URL::asset('icons/alert.svg') }}" width="24px"> ¿Estás seguro que deseas eliminar esta medida?</div>
+
+			</div>
+			<div class="modal-footer">
+				<form id="deleteForm" method="POST" style="margin-bottom: 0em">
+					{{ csrf_field() }}
+					<input type="hidden" name="_method" value="DELETE">
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Si</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> No</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+@endif
 @endsection
+
+@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
+	@section('scripts')
+	<script type="text/javascript">
+		$(function() {
+			$('#delete').on("show.bs.modal", function (e) {
+				$("#deleteLabel").html($(e.relatedTarget).data('title'));
+				$("#voluntariado-id").html($(e.relatedTarget).data('id'));
+				$("#deleteForm").attr('action', ($(e.relatedTarget).data('url')));
+			});
+		});
+	</script>
+	@endsection
+@endif
