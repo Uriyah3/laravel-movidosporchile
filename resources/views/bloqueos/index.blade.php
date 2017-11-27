@@ -3,9 +3,10 @@
  
 
 @section('content')
+<!--
 <form action="/bloqueos" method="POST">
-	{{ csrf_field() }}	
-		<h1 class="titulo">Bloque de usuarios</h1>
+	{{ csrf_field() }}-->	
+		<h1 class="titulo">Bloqueo de usuarios</h1>
 		<form action="/donacion.create">
 
 		  Seleccione un usuario:<br>
