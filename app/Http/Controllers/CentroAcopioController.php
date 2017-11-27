@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\CentroAcopio;
+use App\Medida;
+use App\Locacion;
+use App\Region;
+use App\Estado;
 use Illuminate\Http\Request;
 
 class CentroAcopioController extends Controller
@@ -26,7 +31,9 @@ class CentroAcopioController extends Controller
      */
     public function create()
     {
-        //
+        $regiones = Region::all();
+        $estados = Estado::all();
+        return view('centros_de_acopio.create', compact('regiones', 'estados'));
     }
 
     /**
@@ -37,7 +44,21 @@ class CentroAcopioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'objetivos' => 'required|string',
+            'estado_id' => 'required',
+            'fecha_inicio' => 'required|date',
+            'fecha_termino' => 'required|date|after:fecha_inicio'
+        ]);
+
+        $user = Auth::user();
+        $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
+        $request['usuario_id'] = $user['id'];
+
+        $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
+        EventoABeneficio::create(request(['medida_id', 'locacion_id', 'estado_id', 'fecha_inicio', 'fecha_termino']));
+
+        return redirect( url('donaciones') );
     }
 
     /**

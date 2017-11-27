@@ -9,47 +9,34 @@
 @endsection
 
 @section('content')
-<h1 class="titulo">Agregar Voluntariado</h1>
-<form action="/voluntariados" method="POST">
+<h1 class="titulo">Agregar Centro de Acopio</h1>
+<form action="/centros_de_acopio" method="POST">
 	{{ csrf_field() }}
 
 	@include('locaciones.create')
 
 	<div class="form-row">
 		<div class="col">
-			<div class="form-group{{ $errors->has('actividad_voluntariado_id') ? ' has-error' : '' }}">
-				<label for="actividad_voluntariado_id">Actividad:</label>
-				<select class="form-control" name="actividad_voluntariado_id" value="{{ old('actividad_voluntariado_id') }}" required>
-					@foreach($actividadesVoluntariado as $actividadVoluntariado)
-					<option value="{{$actividadVoluntariado->id}}">{{$actividadVoluntariado->nombre}}</option>
+			<div class="form-group{{ $errors->has('estado_id') ? ' has-error' : '' }}">
+				<label for="estado_id">Estado:</label>
+				<select class="form-control" name="estado_id" value="{{ old('estado_id') }}" required>
+					@foreach($estados as $estado)
+					<option value="{{$estado->id}}">{{$estado->nombre}}</option>
 					@endforeach
 				</select>
-				@if ($errors->has('actividad_voluntariado_id'))
+
+				@if ($errors->has('estado_id'))
 				<span class="help-block">
-					<strong>{{ $errors->first('actividad_voluntariado_id') }}</strong>
+					<strong>{{ $errors->first('estado_id') }}</strong>
 				</span>
 				@endif
 			</div>
 		</div>
-
-		<div class="col">
-			<div class="form-group{{ $errors->has('cantidad_voluntarios') ? ' has-error' : '' }}">
-				<label for="cantidad_voluntarios">Voluntarios requeridos:</label>
-				<input type="number" class="form-control" id="cantidad_voluntarios" name="cantidad_voluntarios" value="{{ old('cantidad_voluntarios') }}" required>
-				@if ($errors->has('cantidad_voluntarios'))
-				<span class="help-block">
-					<strong>{{ $errors->first('cantidad_voluntarios') }}</strong>
-				</span>
-				@endif
-			</div>
-		</div>
-	</div>
-
-	<div class="form-row">
 		<div class="col">
 			<div class="form-group{{ $errors->has('fecha_inicio') ? ' has-error' : '' }}">
 				<label for="fecha_inicio">Fecha de inicio:</label>
 				<input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" value="{{ old('fecha_inicio') }}" required>
+
 				@if ($errors->has('fecha_inicio'))
 				<span class="help-block">
 					<strong>{{ $errors->first('fecha_inicio') }}</strong>
@@ -62,6 +49,7 @@
 			<div class="form-group{{ $errors->has('fecha_termino') ? ' has-error' : '' }}">
 				<label for="fecha_termino">Fecha de termino:</label>
 				<input type="date" class="form-control" id="fecha_termino" name="fecha_termino" value="{{ old('fecha_termino') }}" required>
+
 				@if ($errors->has('fecha_termino'))
 				<span class="help-block">
 					<strong>{{ $errors->first('fecha_termino') }}</strong>

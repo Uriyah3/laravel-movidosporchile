@@ -51,7 +51,7 @@
 				<td class="font-weight-bold">Voluntarios inscritos</td>
 				<td>{{ $voluntariado->voluntario_count }}</td>
 			</tr>
-			@if(Auth::check() && Auth::user()->rol != 'Usuario')
+			@if(Auth::check() && Auth::user()->rol->nombre != 'Usuario')
 			<tr>
 				<td class="font-weight-bold">Fecha Creación</td>
 				<td>{{ $voluntariado->created_at }}</td>

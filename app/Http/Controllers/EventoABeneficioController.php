@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\EventoABeneficio;
+use App\Region;
+use App\Locacion;
+use App\Medida;
 use Illuminate\Http\Request;
 
 class EventoABeneficioController extends Controller
@@ -14,7 +18,7 @@ class EventoABeneficioController extends Controller
      */
     public function index()
     {
-        $eventoAbeneficios = EventoABeneficio::aprobado()->simplePaginate(10);
+        $eventoAbeneficios = EventoABeneficio::aprobado()->orderBy('fecha', 'desc')->simplePaginate(10);
 
         return view('eventos_a_beneficio.index', compact('eventoAbeneficios'));
     }
@@ -26,7 +30,9 @@ class EventoABeneficioController extends Controller
      */
     public function create()
     {
-        //
+        $regiones = Region::all();
+
+        return view('eventos_a_beneficio.create', compact('regiones'));
     }
 
     /**
@@ -37,7 +43,22 @@ class EventoABeneficioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'objetivos' => 'required|string',
+            'fecha' => 'required|date',
+            'horario_inicio' => 'required|date_format:H:i',
+            'horario_termino' => 'required|date_format:H:i|after:horario_inicio',
+            'actividades' => 'required|string'
+        ]);
+
+        $user = Auth::user();
+        $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
+        $request['usuario_id'] = $user['id'];
+
+        $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
+        EventoABeneficio::create(request(['medida_id', 'locacion_id', 'actividades', 'fecha', 'horario_inicio', 'horario_termino']));
+
+        return redirect( url('eventos_a_beneficio') );
     }
 
     /**

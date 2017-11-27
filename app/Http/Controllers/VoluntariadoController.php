@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Locacion;
 use App\Voluntariado;
 use App\Medida;
+use App\Region;
+use App\ActividadVoluntariado;
 use Illuminate\Http\Request;
 
 class VoluntariadoController extends Controller
@@ -16,7 +19,7 @@ class VoluntariadoController extends Controller
      */
     public function index()
     {
-        $voluntariados = Voluntariado::aprobado()->with('medida', 'locacion.comuna', 'actividad_voluntariado')->withCount('voluntario')->orderBy('created_at', 'desc')->simplePaginate(10);
+        $voluntariados = Voluntariado::aprobado()->with('medida', 'locacion.comuna', 'actividad_voluntariado')->withCount('voluntario')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
 
         return view('voluntariados.index', compact('voluntariados'));
     }
@@ -28,7 +31,10 @@ class VoluntariadoController extends Controller
      */
     public function create()
     {
-        return view('voluntariados.create');
+        $regiones = Region::all();
+        $actividadesVoluntariado = ActividadVoluntariado::all();
+
+        return view('voluntariados.create', compact('regiones', 'actividadesVoluntariado'));
     }
 
     /**
@@ -41,7 +47,6 @@ class VoluntariadoController extends Controller
     {
         $this->validate(request(), [
             'objetivos' => 'required|string',
-            'descripcion' => 'required|string',
             'actividad_voluntariado_id' => 'required',
             'fecha_inicio' => 'required|date',
             'fecha_termino' => 'required|date|after:fecha_inicio',

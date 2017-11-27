@@ -11,7 +11,7 @@ class RegionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $regiones = ["Arica y parinacota","Antofagasta","Tarapaca","Atacama","Coquimbo","Valparaiso","RM","O higgins","Maule","Bio-Bio","la araucana","Los rios","Los lagos","Aysen","Magallanes"];
+        $regiones = ["Arica y Parinacota", "Tarapacá", "Antofagasta", "Atacama", "Coquimbo", "Valparaíso", "Libertador General Bernardo O'Higgins", "Maule", "BioBío", "La Araucanía", "Los Ríos", "Los Lagos", "Aisén del General Carlos Ibáñez del Campo", "Magallanes y Antártica Chilena", "Región Metropolitana de Santiago"];
         foreach ($regiones as $region) {
         	factory(App\Region::class)->create(['nombre' => $region]);
         }

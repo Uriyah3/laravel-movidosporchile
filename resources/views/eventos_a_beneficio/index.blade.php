@@ -1,12 +1,21 @@
 @extends('layouts.master')
-<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
+<link rel="stylesheet" type="text/css" href="css/perfil.css">
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
 
 @section('content')
-<h1 class="titulo">Evento a Beneficio</h1>
+<div class="row">
+	<div class="col">
+		<h1 class="titulo">Evento A Beneficio</h1>
+	</div>
+	@if(Auth::check() && Auth::user()->rol->nombre == "Organización")
+	<div class="col">
+		<a class="float-md-right btn btn-info" href="{{ url('eventos_a_beneficio/create') }}" role="button">Crear Evento A Beneficio</a>
+	</div>
+	@endif
+</div>
 
 <p>
 	Movidos x Chile y sus Organizaciones planifican diversos eventos a beneficios para la recaudación de fondos. A continuación, se hace entrega de las localizaciones de estos lugares con sus respectivas actividades y fecha a realizar.

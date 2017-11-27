@@ -1,13 +1,21 @@
 @extends('layouts.master')
-<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
+<link rel="stylesheet" type="text/css" href="css/perfil.css">
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
 
 @section('content')
-<h1 class="titulo">Voluntariados</h1>
-
+<div class="row">
+	<div class="col">
+		<h1 class="titulo">Voluntariados</h1>
+	</div>
+	@if(Auth::check() && Auth::user()->rol->nombre == "Organización")
+	<div class="col">
+		<a class="float-md-right btn btn-info" href="{{ url('voluntariados/create') }}" role="button">Crear Voluntariado</a>
+	</div>
+	@endif
+</div>
 <p>
 	Movidos x Chile solicita la ayuda de una cantidad de personas para realizar una serie de trabajos, los cuales se encuentran detallados a continuación, con su respectivo progreso.
 </p>

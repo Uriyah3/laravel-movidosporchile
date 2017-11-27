@@ -1,19 +1,21 @@
 @extends('layouts.master')
-<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
+<link rel="stylesheet" type="text/css" href="css/perfil.css">
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
 
 @section('content')
-
-	<h1 class="Titulo">Donaciones Monetarias</h1>
-	<!--
-	<form action="/donacion.create">
-		  Monto:<br>
-		  <input type="text" name="monto" ><br><br>
-		  <input type="submit">
-	</form>-->
+<div class="row">
+	<div class="col">
+		<h1 class="titulo">Donaciones Monetarias</h1>
+	</div>
+	@if(Auth::check() && Auth::user()->rol->nombre == "Organización")
+	<div class="col">
+		<a class="float-md-right btn btn-info" href="{{ url('donaciones/create') }}" role="button">Crear Medida Donación</a>
+	</div>
+	@endif
+</div>
 
 	<p>
 		Movidos x Chile y sus Organizaciones se encuentran siempre disponibles para ir en apoyo hacia las personas damnificadas en las localidades más afectadas por las catástrofes, haciendo un llamado a a la solidaridad de todos los chilenos. <br />

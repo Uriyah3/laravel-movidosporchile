@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class CentroAcopio extends Model
 {
+    protected $guarded = [];
+
+
     public function scopeAprobado($query){
         return $query->whereHas('medida', function ($innerQuery) {
             $innerQuery->where('aprobada', '=', true);
