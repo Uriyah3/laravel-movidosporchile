@@ -32,6 +32,7 @@
 <div class="sesion">
   <input type="button" value="Registrarse" class="reg" onclick = "location='/register'"/>
 </div>
+
 @endsection
 
 
