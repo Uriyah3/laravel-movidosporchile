@@ -30,7 +30,7 @@ thead{
 	color: #2E86C1;
 }
 
-.lista2 {
+#lista2 {
     counter-reset: li; 
     list-style: none; 
     *list-style: decimal; 
@@ -40,11 +40,11 @@ thead{
     text-shadow: 0 1px 0 rgba(255,255,255,.5);
 }
 
-.lista2 ol {
+#lista2 ol {
     margin: 0 0 0 2em; 
 }
 
-.lista2 li{
+#lista2 li{
     position: relative;
     display: block;
     padding: .4em .4em .4em 2em;
@@ -57,15 +57,15 @@ thead{
     transition: all .3s ease-out;   
 }
 
-.lista2 li:hover{
+#lista2 li:hover{
     background: #eee;
 }
 
-.lista2 li:hover:before{
+#lista2 li:hover:before{
     transform: rotate(360deg);  
 }
 
-.lista2 li:before{
+#lista2 li:before{
     content: counter(li);
     counter-increment: li;
     position: absolute; 
