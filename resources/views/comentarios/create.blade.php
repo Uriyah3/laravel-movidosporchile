@@ -56,7 +56,7 @@
 	<!-- /.modal-dialog -->
 </div>
 
-@section('scripts')
+@section('scripts2')
 <script type="text/javascript">
 			$(function() {
 				$('#comentar').on("show.bs.modal", function (e) {

@@ -2,7 +2,7 @@
 
 @section('style')
 {{ Html::style('css/perfil.css') }}
-@section('style')
+@endsection
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')

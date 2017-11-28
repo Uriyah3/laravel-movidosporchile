@@ -111,49 +111,49 @@
 
 
 @if(Auth::check() && Auth::user()->rol->nombre == "Organización")
-	<div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="finalizar">Finalizar participación</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-
-					<div class="alert alert-success"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}" width="24px"> Confirme que este usuario ha finalizado su tarea.</div>
-
-				</div>
-				<div class="modal-footer">
-					<form id="finalizarForm" method="POST" style="margin-bottom: 0em">
-						{{ csrf_field() }}
-    				{{ method_field('PATCH') }}
-						<div class="form-group">
-							<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Finalizar</button>
-							<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> Cancelar</button>
-						</div>
-					</form>
-
-				</div>
+<div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="finalizar">Finalizar participación</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
-			<!-- /.modal-content -->
+			<div class="modal-body">
+
+				<div class="alert alert-success"><img class="octicon" src="{{ URL::asset('icons/person.svg') }}" width="24px"> Confirme que este usuario ha finalizado su tarea.</div>
+
+			</div>
+			<div class="modal-footer">
+				<form id="finalizarForm" method="POST" style="margin-bottom: 0em">
+					{{ csrf_field() }}
+					{{ method_field('PATCH') }}
+					<div class="form-group">
+						<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Finalizar</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> Cancelar</button>
+					</div>
+				</form>
+
+			</div>
 		</div>
-		<!-- /.modal-dialog -->
+		<!-- /.modal-content -->
 	</div>
-	@endif
+	<!-- /.modal-dialog -->
+</div>
+@endif
 
 @endsection
 
 @if(Auth::check() && Auth::user()->rol->nombre == "Organización")
-	@section('scripts')
-		<script type="text/javascript">
-			$(function() {
-				$('#finalizar').on("show.bs.modal", function (e) {
-					$("#finalizarLabel").html($(e.relatedTarget).data('title'));
-					$("#finalizarForm").attr('action', ($(e.relatedTarget).data('url')));
-				});
-			});
-		</script>
-	@endsection
+@section('scripts')
+<script type="text/javascript">
+	$(function() {
+		$('#finalizar').on("show.bs.modal", function (e) {
+			$("#finalizarLabel").html($(e.relatedTarget).data('title'));
+			$("#finalizarForm").attr('action', ($(e.relatedTarget).data('url')));
+		});
+	});
+</script>
+@endsection
 @endif
