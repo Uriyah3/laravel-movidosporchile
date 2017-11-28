@@ -28,19 +28,7 @@ class VoluntariadoController extends Controller
         return view('voluntariados.index', compact('voluntariados'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $regiones = Region::all();
-        $actividadesVoluntariado = ActividadVoluntariado::all();
-
-        return view('voluntariados.create', compact('regiones', 'actividadesVoluntariado'));
-    }
-
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -78,6 +66,20 @@ class VoluntariadoController extends Controller
         $voluntariado = Voluntariado::where('id', $voluntariadoId)->withCount('voluntario')->first();
         return view('voluntariados.show', compact('voluntariado'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $regiones = Region::all();
+        $actividadesVoluntariado = ActividadVoluntariado::all();
+
+        return view('voluntariados.create', compact('regiones', 'actividadesVoluntariado'));
+    }
+ 
 
     /**
      * Show the form for editing the specified resource.

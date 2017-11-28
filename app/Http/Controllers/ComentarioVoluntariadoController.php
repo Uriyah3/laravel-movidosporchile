@@ -39,8 +39,18 @@ class ComentarioVoluntariadoController extends Controller
      */
     public function store(Request $request, Voluntariado $voluntariado)
     {
-        //
+        $this->validate(request(),[
+            'descripcion' => 'required|string',
+        ]);
+
+        $request['usuario_id'] = Auth::id();
+        $Request['medida_id'] = $voluntariado->medida->id;
+
+        Comentario::create(Request(['medida_id','usuario_id','descripcion']));
+
+        return redirect( url()->previous());
     }
+
 
     /**
      * Display the specified resource.
@@ -88,6 +98,7 @@ class ComentarioVoluntariadoController extends Controller
      */
     public function destroy(Voluntariado $voluntariado, Comentario $comentario)
     {
-        //
+         $comentario->delete();
+        return redirect( url()->previous());
     }
 }

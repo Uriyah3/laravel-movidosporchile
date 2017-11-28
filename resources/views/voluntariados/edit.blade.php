@@ -7,7 +7,7 @@
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
-
+ 
 @section('content')
 <h1 class="titulo">Editar Voluntariado</h1>
 <form action="{{url('voluntariados', $voluntariado->id)}}" method="POST">
@@ -15,7 +15,7 @@
     {{ method_field('PATCH') }}
 
 	@include('locaciones.edit')
-
+ 
 	<div class="form-row">
 		<div class="col">
 			<div class="form-group{{ $errors->has('actividad_voluntariado_id') ? ' has-error' : '' }}">

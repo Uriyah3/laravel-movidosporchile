@@ -23,17 +23,7 @@ class EventoABeneficioController extends Controller
         return view('eventos_a_beneficio.index', compact('eventoAbeneficios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $regiones = Region::all();
-
-        return view('eventos_a_beneficio.create', compact('regiones'));
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -72,6 +62,18 @@ class EventoABeneficioController extends Controller
         //
     }
 
+/**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $regiones = Region::all();
+
+        return view('eventos_a_beneficio.create', compact('regiones'));
+    }
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,7 +82,9 @@ class EventoABeneficioController extends Controller
      */
     public function edit(EventoABeneficio $eventoABeneficio)
     {
-        //
+        $regiones = Region::all();
+
+        return view('eventos_a_beneficio.edit', compact('regiones'));
     }
 
     /**

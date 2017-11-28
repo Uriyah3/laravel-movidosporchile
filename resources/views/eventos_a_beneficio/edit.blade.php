@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.master') 
 
 @section('style')
 <link rel="stylesheet" type="text/css" href="css/perfil.css">
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<h1 class="titulo">Agregar Evento A Beneficio</h1>
+<h1 class="titulo">Editar Evento A Beneficio</h1>
 <form action="/eventos_a_beneficio" method="POST">
 	{{ csrf_field() }}
 
@@ -66,7 +66,7 @@
 	@include('medidas.create')
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Crear Evento a beneficio</button>
+		<button type="submit" class="btn btn-primary">Guardar Evento a beneficio</button>
 	</div>
 </form>
 @endsection

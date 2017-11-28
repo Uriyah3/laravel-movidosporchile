@@ -62,7 +62,7 @@
 	@include('medidas.create')
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Crear voluntariado</button>
+		<button type="submit" class="btn btn-primary">Crear Centro de acopio</button>
 	</div>
 </form>
 @endsection

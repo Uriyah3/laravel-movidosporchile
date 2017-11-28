@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Auth;
@@ -22,15 +22,7 @@ class DonacionController extends Controller
         return view('donaciones.index', compact('donaciones'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('donaciones.create');
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -72,6 +64,20 @@ class DonacionController extends Controller
         //
     }
 
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+
+         $medida = Medida::all();
+        
+
+        return view('donaciones.create', compact('medida'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,7 +86,10 @@ class DonacionController extends Controller
      */
     public function edit(Donacion $donacion)
     {
-        //
+        $medida = Medida::all();
+        
+
+        return view('donaciones.edit', compact('medida'));
     }
 
     /**

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+ 
 @section('style')
 <link rel="stylesheet" type="text/css" href="css/perfil.css">
 @section('style')
@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<h1 class="titulo">Agregar Donación</h1>
+<h1 class="titulo">Editar Donación</h1>
 <form action="/donaciones" method="POST">
 	{{ csrf_field() }}
  
@@ -106,7 +106,7 @@
 	@include('medidas.create')
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-primary">Crear Donación</button>
+		<button type="submit" class="btn btn-primary">Editar Donación</button>
 	</div>
 </form>
 @endsection

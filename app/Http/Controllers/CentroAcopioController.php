@@ -24,17 +24,7 @@ class CentroAcopioController extends Controller
         return view('centros_de_acopio.index', compact('centrosDeAcopio'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $regiones = Region::all();
-        $estados = Estado::all();
-        return view('centros_de_acopio.create', compact('regiones', 'estados'));
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -71,7 +61,20 @@ class CentroAcopioController extends Controller
     {
         //
     }
+    
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $regiones = Region::all();
+        $estados = Estado::all();
+        return view('centros_de_acopio.create', compact('regiones', 'estados'));
+    }
 
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -80,7 +83,9 @@ class CentroAcopioController extends Controller
      */
     public function edit(CentroAcopio $centroAcopio)
     {
-        //
+         $regiones = Region::all();
+        $estados = Estado::all();
+        return view('centros_de_acopio.edit', compact('regiones', 'estados'));
     }
 
     /**

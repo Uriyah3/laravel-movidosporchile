@@ -39,7 +39,16 @@ class ComentarioDonacionController extends Controller
      */
     public function store(Request $request, Donacion $donacion)
     {
-        //
+         $this->validate(request(),[
+            'descripcion' => 'required|string',
+        ]);
+
+        $request['usuario_id'] = Auth::id();
+        $Request['medida_id'] = $donacion->medida->id;
+
+        Comentario::create(Request(['medida_id','usuario_id','descripcion']));
+
+        return redirect( url()->previous());
     }
 
     /**
@@ -88,6 +97,7 @@ class ComentarioDonacionController extends Controller
      */
     public function destroy(Donacion $donacion, Comentario $comentario)
     {
-        //
+        $comentario->delete();
+        return redirect( url()->previous());
     }
 }

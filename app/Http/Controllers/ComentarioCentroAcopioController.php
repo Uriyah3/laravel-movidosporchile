@@ -39,7 +39,16 @@ class ComentarioCentroAcopioController extends Controller
      */
     public function store(Request $request, CentroAcopio $centroAcopio)
     {
-        //
+         $this->validate(request(),[
+            'descripcion' => 'required|string',
+        ]);
+
+        $request['usuario_id'] = Auth::id();
+        $Request['medida_id'] = $centroAcopio->medida->id;
+
+        Comentario::create(Request(['medida_id','usuario_id','descripcion']));
+
+        return redirect( url()->previous());
     }
 
     /**
@@ -88,6 +97,7 @@ class ComentarioCentroAcopioController extends Controller
      */
     public function destroy(CentroAcopio $centroAcopio, Comentario $comentario)
     {
-        //
+        $comentario->delete();
+        return redirect( url()->previous());
     }
 }
