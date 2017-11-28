@@ -77,6 +77,9 @@
 				<td class="text-center">
 					<a class="btn octicon btn-info btn-xs" href="{{ url('donaciones', $donacion->id) }}" role="button"><img class="octicon" src="{{ URL::asset('icons/file.svg') }}"></a>
 					@if(Auth::check())
+						@if(Auth::user()->rol->nombre == "Usuario")
+							<button class="btn octicon btn-success btn-xs" data-title="Donar" data-toggle="modal" data-target="#donar" data-url="{{ url("donaciones/{$donacion->id}/depositos") }}"><img class="octicon" src="{{ URL::asset('icons/credit-card.svg') }}"></button>
+						@endif
 						@if(Auth::user()->rol->nombre == "Gobierno" || (Auth::user()->rol->nombre == "Organización" && Auth::id() == $donacion->medida->usuario_id))
 							<a class="btn octicon btn-warning btn-xs" href="{{ url("donaciones/{$donacion->id}/edit") }}"><img class="octicon" src="{{ URL::asset('icons/pencil.svg') }}"></a>
 						@endif
@@ -127,6 +130,37 @@
 		<!-- /.modal-dialog -->
 	</div>
 	@endif
+	@if(Auth::user()->rol->nombre == "Usuario")
+	<div class="modal fade" id="donar" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="donar">Aporte monetario</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<form id="donarForm" method="POST" style="margin-bottom: 0em">
+					{{ csrf_field() }}
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="monto">Monto:</label>
+							<input type="numeric" class="form-control" id="monto" name="monto" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<div class="form-group">
+							<button type="submit" class="btn btn-success" ><img class="octicon" src="{{ URL::asset('icons/check.svg') }}" height="18px"> Donar</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal"><img class="octicon" src="{{ URL::asset('icons/x.svg') }}" height="18px"> Cancelar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	@endif
 @endif
 @endsection
 
@@ -138,6 +172,16 @@
 				$('#delete').on("show.bs.modal", function (e) {
 					$("#deleteLabel").html($(e.relatedTarget).data('title'));
 					$("#deleteForm").attr('action', ($(e.relatedTarget).data('url')));
+				});
+			});
+		</script>
+	@endif
+	@if(Auth::user()->rol->nombre == "Usuario")
+		<script type="text/javascript">
+			$(function() {
+				$('#donar').on("show.bs.modal", function (e) {
+					$("#donarLabel").html($(e.relatedTarget).data('title'));
+					$("#donarForm").attr('action', ($(e.relatedTarget).data('url')));
 				});
 			});
 		</script>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\CentroAcopio;
 use App\Medida;
+use App\Medicion;
 use App\Locacion;
 use App\Region;
 use App\Estado;
@@ -24,8 +25,9 @@ class CentroAcopioController extends Controller
         } else {
             $centrosDeAcopio = CentroAcopio::aprobado()->withCount('bien')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
         }
+        $mediciones = Medicion::all();
 
-        return view('centros_de_acopio.index', compact('centrosDeAcopio'));
+        return view('centros_de_acopio.index', compact('centrosDeAcopio', 'mediciones'));
     }
 
 

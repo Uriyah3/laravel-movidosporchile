@@ -1,9 +1,13 @@
 @extends('layouts.master-sidebarless')
 
+@section('style')
+{{ Html::style('css/perfil.css') }}
+@endsection
+
 @section('content')
-<h1>Añadir catástrofe</h1>
+<h1 class="titulo">Añadir catástrofe</h1>
 <form action="/catastrofes" method="POST">
-	{{ csrf_field() }}  
+	{{ csrf_field() }}
 	@include('locaciones.create')
 
 	<div class="form-group">

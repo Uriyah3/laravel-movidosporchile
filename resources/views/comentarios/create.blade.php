@@ -16,7 +16,7 @@
 
 					<div class="form-group">
 						<label for="descripcion">Comentario:</label>
-						<textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="¿Qué opinas de la medida?"></textarea>
+						<textarea class="form-control" id="descripcion" name="descripcion" rows="3" placeholder="¿Qué opinas de la medida?" required></textarea>
 					</div>
 
 			</div>

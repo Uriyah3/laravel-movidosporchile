@@ -12,6 +12,7 @@ class Deposito extends Model
      * @var bool
      */
     public $timestamps = false;
+    protected $guarded = [];
 
     //
     public function donacion(){

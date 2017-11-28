@@ -12,6 +12,7 @@ class Bien extends Model
      * @var bool
      */
     public $timestamps = false;
+    protected $guarded = [];
 
     //
     public function centro_acopio(){
