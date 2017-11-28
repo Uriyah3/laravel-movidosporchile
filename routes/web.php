@@ -124,10 +124,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/enviar_tweet', function()
-{
-    return Twitter::postTweet(['status' => 'Mi primer tweet desde Laravel', 'format' => 'json']);
-});
+ 
+
 
 
 Route::get('/bloqueos', 'BloqueoController@index');

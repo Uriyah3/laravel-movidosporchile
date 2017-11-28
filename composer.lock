@@ -4,8 +4,62 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ccf2e98e6cfeaf9dd776ede2f94cada",
+    "content-hash": "cbb782c23ceff887862e90bd5da6d440",
     "packages": [
+        {
+            "name": "abraham/twitteroauth",
+            "version": "0.7.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/abraham/twitteroauth.git",
+                "reference": "c6f9e692552dd037b2324ed0dfa28a4e60875acf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/abraham/twitteroauth/zipball/c6f9e692552dd037b2324ed0dfa28a4e60875acf",
+                "reference": "c6f9e692552dd037b2324ed0dfa28a4e60875acf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.6 || ^7.0"
+            },
+            "require-dev": {
+                "phpmd/phpmd": "~2.6",
+                "phpunit/phpunit": "~5.7",
+                "squizlabs/php_codesniffer": "~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Abraham\\TwitterOAuth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abraham Williams",
+                    "email": "abraham@abrah.am",
+                    "homepage": "https://abrah.am",
+                    "role": "Developer"
+                }
+            ],
+            "description": "The most popular PHP library for use with the Twitter OAuth REST API.",
+            "homepage": "https://twitteroauth.com",
+            "keywords": [
+                "Twitter API",
+                "Twitter oAuth",
+                "api",
+                "oauth",
+                "rest",
+                "social",
+                "twitter"
+            ],
+            "time": "2017-06-30T22:02:01+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -407,17 +461,108 @@
             "time": "2015-04-20T18:58:01+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.5.21",
+            "name": "kylewm/brevity",
+            "version": "0.2.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "6321069a75723d88103526903d3192f0b231544a"
+                "url": "https://github.com/kylewm/brevity-php.git",
+                "reference": "9700a3ca666ff9486bd8bed322d7096ef78b6580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/6321069a75723d88103526903d3192f0b231544a",
-                "reference": "6321069a75723d88103526903d3192f0b231544a",
+                "url": "https://api.github.com/repos/kylewm/brevity-php/zipball/9700a3ca666ff9486bd8bed322d7096ef78b6580",
+                "reference": "9700a3ca666ff9486bd8bed322d7096ef78b6580",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Kylewm\\Brevity": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC0"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Mahan",
+                    "email": "kyle+brevityphp@kylewm.com"
+                }
+            ],
+            "description": "A small utility to count characters and shorten posts to tweet-length.",
+            "time": "2017-11-25T19:51:26+00:00"
+        },
+        {
+            "name": "laravel-notification-channels/twitter",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-notification-channels/twitter.git",
+                "reference": "4d2a964dd8392db26aab9bdeaba045ee5c664dc3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-notification-channels/twitter/zipball/4d2a964dd8392db26aab9bdeaba045ee5c664dc3",
+                "reference": "4d2a964dd8392db26aab9bdeaba045ee5c664dc3",
+                "shasum": ""
+            },
+            "require": {
+                "abraham/twitteroauth": "^0.7.2",
+                "illuminate/notifications": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+                "kylewm/brevity": "^0.2.9",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "^0.9.5",
+                "orchestra/testbench": "~3.3|~3.4",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\Twitter\\TwitterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\Twitter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christoph Rumpel",
+                    "email": "c.rumpel@kabsi.at",
+                    "homepage": "http://christoph-rumpel.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This package makes it easy to send notifications via Twitter with Laravel 5.4",
+            "homepage": "https://github.com/laravel-notification-channels/twitter",
+            "time": "2017-09-02T13:57:26+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.5.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "2404af887ca8272d721628a99bbc721ac3b692e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/2404af887ca8272d721628a99bbc721ac3b692e7",
+                "reference": "2404af887ca8272d721628a99bbc721ac3b692e7",
                 "shasum": ""
             },
             "require": {
@@ -537,7 +682,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-11-14T15:08:13+00:00"
+            "time": "2017-11-27T15:29:55+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2126,92 +2271,6 @@
             "time": "2017-11-07T14:16:22+00:00"
         },
         {
-            "name": "themattharris/tmhoauth",
-            "version": "0.8.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/themattharris/tmhOAuth.git",
-                "reference": "455552d6c57549632644b6c9ac9204766be2b5ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/themattharris/tmhOAuth/zipball/455552d6c57549632644b6c9ac9204766be2b5ee",
-                "reference": "455552d6c57549632644b6c9ac9204766be2b5ee",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "tmhOAuth": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "themattharris",
-                    "email": "matt@themattharris.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "An OAuth library written in PHP by @themattharris",
-            "keywords": [
-                "oauth",
-                "twitter"
-            ],
-            "time": "2014-08-06T22:29:35+00:00"
-        },
-        {
-            "name": "thujohn/twitter",
-            "version": "2.2.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thujohn/twitter.git",
-                "reference": "ff414bdadba3f1570ca211355e5359ec266552d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thujohn/twitter/zipball/ff414bdadba3f1570ca211355e5359ec266552d8",
-                "reference": "ff414bdadba3f1570ca211355e5359ec266552d8",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*|5.*",
-                "php": ">=5.5.0",
-                "themattharris/tmhoauth": "0.8.4"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Thujohn\\Twitter": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "thujohn",
-                    "email": "jonathan.thuau@gmail.com"
-                }
-            ],
-            "description": "Twitter API for Laravel",
-            "keywords": [
-                "laravel",
-                "laravel4",
-                "laravel5",
-                "twitter"
-            ],
-            "time": "2017-04-27T09:00:04+00:00"
-        },
-        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.0",
             "source": {
@@ -2788,29 +2847,35 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.1.1",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "2d3d238c433cf69caeb4842e97a3223a116f94b2"
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/2d3d238c433cf69caeb4842e97a3223a116f94b2",
-                "reference": "2d3d238c433cf69caeb4842e97a3223a116f94b2",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/66465776cfc249844bde6d117abff1d22e06c2da",
+                "reference": "66465776cfc249844bde6d117abff1d22e06c2da",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "phpdocumentor/reflection-common": "^1.0@dev",
+                "phpdocumentor/reflection-common": "^1.0.0",
                 "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.4"
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": [
@@ -2829,7 +2894,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-08-30T18:51:59+00:00"
+            "time": "2017-11-27T17:38:31+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -3007,16 +3072,16 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.4.4",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "3d478c5f9e8bb02b484a3fdc82693a460d7ee268"
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
-                "reference": "3d478c5f9e8bb02b484a3fdc82693a460d7ee268",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/730b01bc3e867237eaac355e06a36b85dd93a8b4",
+                "reference": "730b01bc3e867237eaac355e06a36b85dd93a8b4",
                 "shasum": ""
             },
             "require": {
@@ -3050,7 +3115,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2017-11-27T07:49:00+00:00"
+            "time": "2017-11-27T13:52:08+00:00"
         },
         {
             "name": "phpunit/php-text-template",

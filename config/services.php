@@ -29,10 +29,19 @@ return [
         'secret' => env('SPARKPOST_SECRET'),
     ],
 
+	
+
     'stripe' => [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+'twitter' => [
+    'consumer_key'    => getenv('rTopsDfKPjVomwhGtLgCfMgEt'),
+    'consumer_secret' => getenv('8gPKOW3n7yHq1tSVOypwEXx8XTIglEsqi85mam4edMBA10Ojwh'),
+    'access_token'    => getenv('212658326-RF1wIGpbSRvXxKUCHaUq1Q0oufFm7xc0vf2PtmCq'),
+    'access_secret'   => getenv('=Y9kZBAtP23peb6BYjBuq9zZ8u1n9zoLoGc3It9c2fv6F1')
+],
+
 
 ];

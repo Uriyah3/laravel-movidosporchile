@@ -36,7 +36,11 @@ class CatastrofeController extends Controller
 
         $catastrofe = Catastrofe::create(
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
+        
 
+        
+        $catastrofe->notifty(new PostPublished());
+        
         if($catastrofe->save()){
             return redirect( url('catastrofes') );
         }
