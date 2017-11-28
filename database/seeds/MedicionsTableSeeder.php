@@ -11,7 +11,7 @@ class MedicionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $mediciones = ["medicion1","medicion2","medicion3","medicion4"];
+        $mediciones = ["Kilogramos","Litros","Unidades","Otro"];
         foreach ($mediciones as $medicion) {
         	factory(App\Medicion::class)->create(['nombre' => $medicion]);
         }

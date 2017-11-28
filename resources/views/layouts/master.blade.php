@@ -18,6 +18,8 @@
 
   <!-- Custom styles for specific pages -->
   @yield('style')
+  @yield('style2')
+  @yield('style3')
 </head>
 <body>
 

@@ -8,18 +8,18 @@ use Auth;
 use App\RegistroActividad;
 use App\Usuario;
 use App\TipoActividad;
- 
- 
+
+
 class RegistroActividadController extends Controller
 {
 
- 
-    
+
+
 
 	//mostrar todo el registro de actividades del usuario activo
 	public function index()
 	{
-		
+
 		$registroActividades = RegistroActividad::where('usuario_id','=',Auth::id())->orderBy('created_at','desc')->paginate(7);
 
 		$usuarios = Usuario::where('id','=',Auth::id())->first();
@@ -36,13 +36,13 @@ class RegistroActividadController extends Controller
         $this->validate(request(), [
             'tipo_actividad_id' => 'required',
             'usuario_id' => 'required',
-            'create_at' => 'required',
-            'modified_at' => 'requiered'
+            'created_at' => 'required',
+            'updated_at' => 'requiered'
         ]);
 
-       
+
         $registroActividades = RegistroActividad::create(
-            request(['usuario_id','tipo_actividad_id','created_at','modified_at']));
+            request(['usuario_id','tipo_actividad_id','created_at','updated_at']));
 
         if($registroActividades-> save()){
             return view('actividades.index');

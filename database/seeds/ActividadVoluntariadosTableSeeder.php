@@ -1,5 +1,7 @@
 <?php
 
+
+
 use Illuminate\Database\Seeder;
 
 class ActividadVoluntariadosTableSeeder extends Seeder
@@ -11,7 +13,7 @@ class ActividadVoluntariadosTableSeeder extends Seeder
      */
     public function run()
     {
-        $actividades = ["actividad1", "actividad2", "actividad3"];
+        $actividades = ["Ambiental", "Comunitario", "Cultural", "Deportivo", "Educativo", "Internacional", "Ocio y tiempo libre", "Protección civil", "Socio-sanitario"];
         foreach ($actividades as $actividad) {
         	factory(App\ActividadVoluntariado::class)->create(['nombre' => $actividad]);
         }

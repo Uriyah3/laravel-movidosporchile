@@ -23,7 +23,7 @@ CREATE TABLE usuario (
 	telefono int,
 	email	varchar(120) NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL,
+	updated_at timestamp DEFAULT NULL,
 	deleted_at timestamp DEFAULT NULL
 );
 
@@ -97,7 +97,7 @@ CREATE TABLE evento_a_beneficio (
 	horario_termino time NOT NULL,
 	actividades text NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	updated_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE registro_actividad (
@@ -105,7 +105,7 @@ CREATE TABLE registro_actividad (
 	usuario_id int NOT NULL,
 	tipo_actividad_id int NOT NULL,
 	created_at timestamp NOT NULL,
-	modified_at timestamp NOT NULL
+	updated_at timestamp NOT NULL
 );
 
 CREATE TABLE tipo_actividad (
@@ -122,7 +122,7 @@ CREATE TABLE voluntariado (
 	fecha_termino date NOT NULL,
 	cantidad_voluntarios int NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	updated_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE actividad_voluntariado (
@@ -136,7 +136,7 @@ CREATE TABLE voluntario (
 	voluntariado_id int NOT NULL,
 	finalizado boolean NOT NULL DEFAULT FALSE,
 	created_at timestamp NOT NULL,
-	modified_at timestamp NOT NULL
+	updated_at timestamp NOT NULL
 );
 
 CREATE TABLE rnv (
@@ -147,7 +147,7 @@ CREATE TABLE rnv (
 	email	varchar(120) NOT NULL,
 	disponible boolean NOT NULL,
 	created_at timestamp NOT NULL,
-	modified_at timestamp NOT NULL
+	updated_at timestamp NOT NULL
 );
 
 CREATE TABLE centro_acopio (
@@ -158,7 +158,7 @@ CREATE TABLE centro_acopio (
 	fecha_inicio date NOT NULL,
 	fecha_termino date NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	updated_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE estado (
@@ -191,7 +191,7 @@ CREATE TABLE donacion (
 	fecha_inicio date NOT NULL,
 	fecha_termino date NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	updated_at timestamp DEFAULT NULL
 );
 
 CREATE TABLE deposito (
@@ -216,7 +216,7 @@ CREATE TABLE comentario (
 	usuario_id int NOT NULL,
 	descripcion text NOT NULL,
 	created_at timestamp DEFAULT NULL,
-	modified_at timestamp DEFAULT NULL
+	updated_at timestamp DEFAULT NULL
 );
 
 --

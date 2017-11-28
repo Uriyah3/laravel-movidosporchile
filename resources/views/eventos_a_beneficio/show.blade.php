@@ -58,7 +58,7 @@
 			</tr>
 			<tr>
 				<td class="font-weight-bold">Fecha última modificación</td>
-				<td>{{ $voluntariado->modified_at }}</td>
+				<td>{{ $voluntariado->updated_at }}</td>
 			</tr>
 			@endif
 		</tbody>

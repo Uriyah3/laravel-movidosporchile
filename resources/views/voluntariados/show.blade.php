@@ -2,7 +2,7 @@
 
 @section('style')
 {{ Html::style('css/perfil.css') }}
-@section('style')
+@endsection
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
@@ -62,7 +62,7 @@
 			</tr>
 			<tr>
 				<td class="font-weight-bold">Fecha última modificación</td>
-				<td>{{ $voluntariado->modified_at }}</td>
+				<td>{{ $voluntariado->updated_at }}</td>
 			</tr>
 			@endif
 		</tbody>
@@ -104,6 +104,11 @@
 	</table>
 </div>
 @endif
+
+<br />
+
+@includeWhen($voluntariado->medida->comentario->count() > 0, 'comentarios.index', ['comentarios' => paginate($voluntariado->medida->comentario->sortByDesc('created_at'))->withPath("/voluntariados/{$voluntariado->id}")])
+
 
 @if(Auth::check() && Auth::user()->rol->nombre == "Organización")
 	<div class="modal fade" id="finalizar" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
