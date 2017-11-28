@@ -1,11 +1,13 @@
 @extends('layouts.master') 
 
-<link rel="stylesheet" type="text/css" href="css/comentario.css">
+@section('style')
+{{ Html::style('css/perfil.css') }}
+@section('style')
 
 @section('content')
 
 
-	<h2>Comentarios medida </h2>
+	<h2 class="subtitulo">Comentarios</h2>
 			
 		<div class="table-responsive">
 
@@ -14,7 +16,7 @@
    		<tr>
 				<th>Usuario</th>
 				<th>Comentario</th>
-				<th>Fecha comentario</th>
+				<th>Fecha Comentario</th>
 				
 		</tr>
 		</thead>

@@ -20,9 +20,21 @@
 
 .boton{
 	background-color: #2E86C1;
-	border-radius: 3px;
+	border-radius: 5px;
 	padding: 5px 10px;
 	font-weight: bold;
 	color: white;
-	font-size: 10px;
+	font-size: 15px;
 }
+
+body{
+	background: url(../imagenes/fondo1.png);
+	background-repeat: no-repeat; 
+	background-attachment: fixed; 
+	background-position: center;
+}
+
+.subtitulo{
+	color: #2E86C1;
+}
+
