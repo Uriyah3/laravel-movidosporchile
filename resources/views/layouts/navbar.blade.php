@@ -49,14 +49,14 @@
           </li>
         @endif
 
-        @if(Auth::check() && Auth::user()->rol == "organizacion")
+        @if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
           <li class="nav-item">
-            <a class="nav-link" href="{{ url('/catastrofes/create') }}">Subir Catástrofe</a>
+            <a class="nav-link" href="{{ url('catastrofes/create') }}">Subir Catástrofe</a>
           </li>
         @endif
 
         <li class="nav-item">
-          <a class="nav-link" href="gastos">Gastos generados</a>
+          <a class="nav-link" href="{{ url('gastos') }}">Gastos generados</a>
         </li>
       </ul>
     </div>

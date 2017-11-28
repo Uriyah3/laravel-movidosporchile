@@ -11,7 +11,7 @@ class TipoActividadsTableSeeder extends Seeder
      */
     public function run()
     {
-        $actividades = ["Ayuda","Coordinaccion","Administracion"];
+        $actividades = ["Ayuda","Coordinaccion","Administracion", "Crear catástrofe", "Ingresar comentario", "Participar en medida"];
         foreach ($actividades as $actividad) {
         	factory(App\TipoActividad::class)->create(['nombre' => $actividad]);
         }

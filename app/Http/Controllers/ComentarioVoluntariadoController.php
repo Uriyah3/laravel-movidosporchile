@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Comentario;
 use App\Voluntariado;
 use Illuminate\Http\Request;
@@ -39,16 +40,15 @@ class ComentarioVoluntariadoController extends Controller
      */
     public function store(Request $request, Voluntariado $voluntariado)
     {
-        $this->validate(request(),[
+        $this->validate(request(), [
             'descripcion' => 'required|string',
         ]);
 
         $request['usuario_id'] = Auth::id();
-        $Request['medida_id'] = $voluntariado->medida->id;
+        $request['medida_id'] = $voluntariado->medida->id;
 
-        Comentario::create(Request(['medida_id','usuario_id','descripcion']));
-
-        return redirect( url()->previous());
+        Comentario::create(request(['medida_id','usuario_id','descripcion']));
+        return redirect( url()->previous() );
     }
 
 

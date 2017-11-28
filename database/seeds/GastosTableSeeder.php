@@ -11,6 +11,6 @@ class GastosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Gasto::class, 10)->create();
+        factory(App\Gasto::class, 20)->create();
     }
 }

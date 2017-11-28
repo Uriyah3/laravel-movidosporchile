@@ -11,6 +11,6 @@ class RnvsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Rnv::class, 5)->create();
+        factory(App\Rnv::class, 50)->create();
     }
 }

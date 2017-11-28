@@ -2,11 +2,11 @@
 
 @section('style')
 {{ Html::style('css/perfil.css') }}
-@section('style')
+@endsection
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
-@endsection 
+@endsection
 
 @section('content')
 <div class="row">
@@ -22,6 +22,12 @@
 <p>
 	Movidos x Chile solicita la ayuda de una cantidad de personas para realizar una serie de trabajos, los cuales se encuentran detallados a continuación, con su respectivo progreso.
 </p>
+
+<div class="registrado">
+	<p>
+		Si desea participar como voluntario en alguna de las actividades propuestas, es importante que se encuentre registrado dentro del sistema.
+	</p>
+</div>
 
 <br />
 
@@ -43,7 +49,7 @@
 		<tbody>
 			@foreach($voluntariados as $voluntariado)
 			@php ($progreso= $voluntariado->voluntario_count / $voluntariado->cantidad_voluntarios * 100.0)
-			@if($progreso < 100.0)
+			@if($progreso < 100.0 || (Auth::check() && Auth::user()->rol->nombre == "Gobierno"))
 			<tr>
 				@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
 					<td class="text-center">{{ $voluntariado->medida->aprobada == true ? "Si" : "No" }}</td>

@@ -18,12 +18,16 @@ class EventoABeneficioController extends Controller
      */
     public function index()
     {
-        $eventoAbeneficios = EventoABeneficio::aprobado()->orderBy('fecha', 'desc')->simplePaginate(10);
+        if(Auth::check() && Auth::user()->rol->nombre == "Gobierno") {
+            $eventoAbeneficios = EventoABeneficio::orderBy('fecha', 'desc')->simplePaginate(10);
+        } else {
+            $eventoAbeneficios = EventoABeneficio::aprobado()->orderBy('fecha', 'desc')->simplePaginate(10);
+        }
 
         return view('eventos_a_beneficio.index', compact('eventoAbeneficios'));
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -41,9 +45,8 @@ class EventoABeneficioController extends Controller
             'actividades' => 'required|string'
         ]);
 
-        $user = Auth::user();
         $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
-        $request['usuario_id'] = $user['id'];
+        $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
         EventoABeneficio::create(request(['medida_id', 'locacion_id', 'actividades', 'fecha', 'horario_inicio', 'horario_termino']));
@@ -57,9 +60,10 @@ class EventoABeneficioController extends Controller
      * @param  \App\EventoABeneficio  $eventoABeneficio
      * @return \Illuminate\Http\Response
      */
-    public function show(EventoABeneficio $eventoABeneficio)
+    public function show($eventoABeneficioId)
     {
-        //
+        $eventoABeneficio = EventoABeneficio::where('id', $eventoABeneficioId)->first();
+        return view('eventos_a_beneficio.show', compact('eventoABeneficio'));
     }
 
 /**
@@ -73,18 +77,19 @@ class EventoABeneficioController extends Controller
 
         return view('eventos_a_beneficio.create', compact('regiones'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\EventoABeneficio  $eventoABeneficio
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventoABeneficio $eventoABeneficio)
+    public function edit($eventoABeneficioId)
     {
+        $eventoABeneficio = EventoABeneficio::where('id', $eventoABeneficioId)->first();
         $regiones = Region::all();
 
-        return view('eventos_a_beneficio.edit', compact('regiones'));
+        return view('eventos_a_beneficio.edit', compact('eventoABeneficio', 'regiones'));
     }
 
     /**
@@ -94,9 +99,13 @@ class EventoABeneficioController extends Controller
      * @param  \App\EventoABeneficio  $eventoABeneficio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventoABeneficio $eventoABeneficio)
+    public function update(Request $request, $eventoABeneficioId)
     {
-        //
+        $eventoABeneficio = EventoABeneficio::where('id', $eventoABeneficioId)->first();
+        $eventoABeneficio->locacion->update(request(['comuna_id']));
+        $eventoABeneficio->medida->update(request(['usuario_id', 'objetivos', 'descripcion', 'aprobada']));
+        $eventoABeneficio->update(request(['medida_id', 'locacion_id', 'actividades', 'fecha', 'horario_inicio', 'horario_termino']));
+        return redirect(url('eventos_a_beneficio'));
     }
 
     /**
@@ -105,8 +114,10 @@ class EventoABeneficioController extends Controller
      * @param  \App\EventoABeneficio  $eventoABeneficio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EventoABeneficio $eventoABeneficio)
+    public function destroy($eventoABeneficioId)
     {
-        //
+        $eventoABeneficio = EventoABeneficio::where('id', $eventoABeneficioId)->first();
+        $eventoABeneficio->delete();
+        return redirect( url('eventos_a_beneficio') );
     }
 }

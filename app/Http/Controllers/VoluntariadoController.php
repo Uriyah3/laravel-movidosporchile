@@ -28,7 +28,7 @@ class VoluntariadoController extends Controller
         return view('voluntariados.index', compact('voluntariados'));
     }
 
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -79,7 +79,7 @@ class VoluntariadoController extends Controller
 
         return view('voluntariados.create', compact('regiones', 'actividadesVoluntariado'));
     }
- 
+
 
     /**
      * Show the form for editing the specified resource.

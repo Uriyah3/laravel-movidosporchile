@@ -12,8 +12,6 @@ Route::get('/organizacion', function (){
 	return view('organizacionIndex');
 });
 
-
-
 Route::post('/catastrofes', 'CatastrofeController@store');
 Route::get('/catastrofes', 'CatastrofeController@index');
 Route::get('/catastrofes/create', 'CatastrofeController@create');
@@ -30,8 +28,12 @@ Route::resources([
 	'donaciones.comentarios' => 'ComentarioDonacionController',
 	'eventos_a_beneficio.comentarios' => 'ComentarioEventoABeneficioController',
 	'voluntariados.comentarios' => 'ComentarioVoluntariadoController',
-	'voluntariados.voluntarios' => 'VoluntarioController'
+	'voluntariados.voluntarios' => 'VoluntarioController',
+	'centros_de_acopio.bienes' => 'BienController',
+	'donaciones.depositos' => 'DepositoController'
 ]);
+
+Route::delete('/usuarios/{id}', 'UsuarioController@destroy');
 
 /*
 Route::post('/medidas', 'MedidaController@store');

@@ -11,16 +11,8 @@
 <div class="def">
 	<h2 class="subtitulo">¿Qué es una Catástrofe Natural?</h2>
 	<br />
-	<p>Una catástrofe natural es cualquier suceso inesperado causado por la naturaleza, cuyas manifestaciones en forma de daños materiales y/o personales son de magnitudes enormes, alterando el orden regular de las cosas. Estos desastres naturales pueden ser:<br/ ><!--
-		<ul>
-		  <li>Inundación.</li>
-		  <li>Terremoto.</li>
-		  <li>Tsunamis.</li>
-		  <li>Erupciones Volcánicas.</li>
-		  <li>Incendios Forestales.</li>
-		  <li>Movimientos de masa: avalancha, corrimiento de tierra.</li>
-		  <li>Fenómenos atmosféricos: ola de calor, granizo, sequía, huracán, tormenta, ventisca, tormenta eléctrica o de arena, tornado.</li>
-		</ul>-->
+	<p>Una catástrofe natural es cualquier suceso inesperado causado por la naturaleza, cuyas manifestaciones en forma de daños materiales y/o personales son de magnitudes enormes, alterando el orden regular de las cosas. Estos desastres naturales pueden ser:<br/ >
+	
 		<ol id="lista2">
 		    <li>Inundación.</li>
 		    <li>Terremoto.</li>

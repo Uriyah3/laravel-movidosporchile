@@ -1,5 +1,5 @@
 <?php
- 
+
 namespace App\Http\Controllers;
 
 use Auth;
@@ -17,12 +17,16 @@ class DonacionController extends Controller
      */
     public function index()
     {
-        $donaciones = Donacion::aprobado()->simplePaginate(10);
+        if(Auth::check() && Auth::user()->rol->nombre == "Gobierno") {
+            $donaciones = Donacion::orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        } else {
+            $donaciones = Donacion::aprobado()->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        }
 
         return view('donaciones.index', compact('donaciones'));
     }
 
-   
+
 
     /**
      * Store a newly created resource in storage.
@@ -30,7 +34,7 @@ class DonacionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) 
+    public function store(Request $request)
     {
         $this->validate(request(), [
             'objetivos' => 'required|string',
@@ -43,9 +47,8 @@ class DonacionController extends Controller
             'fecha_termino' => 'required|date|after:fecha_inicio'
         ]);
 
-        $user = Auth::user();
         $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
-        $request['usuario_id'] = $user['id'];
+        $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
         EventoABeneficio::create(request(['medida_id', 'locacion_id', 'titular', 'rut_destinatario', 'nombre_banco', 'tipo_cuenta', 'cuenta', 'fecha_inicio', 'fecha_termino']));
@@ -56,12 +59,17 @@ class DonacionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Donacion  $donacion
+     * @param  \App\Donacion ID $donacionId
      * @return \Illuminate\Http\Response
      */
-    public function show(Donacion $donacion)
+    public function show($donacionId)
     {
-        //
+        $donacion = Donacion::where('id', $donacionId)->withCount('deposito')->first();
+        $monto = 0;
+        foreach ($donacion->deposito as $valor) {
+            $monto = $monto + $valor->monto;
+        }
+        return view('donaciones.show', compact('donacion', 'monto'));
     }
 
      /**
@@ -71,11 +79,7 @@ class DonacionController extends Controller
      */
     public function create()
     {
-
-         $medida = Medida::all();
-        
-
-        return view('donaciones.create', compact('medida'));
+        return view('donaciones.create');
     }
 
     /**
@@ -84,12 +88,10 @@ class DonacionController extends Controller
      * @param  \App\Donacion  $donacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donacion $donacion)
+    public function edit($donacionId)
     {
-        $medida = Medida::all();
-        
-
-        return view('donaciones.edit', compact('medida'));
+        $donacion = Donacion::where('id', $donacionId)->first();
+        return view('donaciones.edit', compact('donacion'));
     }
 
     /**
@@ -99,9 +101,12 @@ class DonacionController extends Controller
      * @param  \App\Donacion  $donacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donacion $donacion)
+    public function update(Request $request, $donacionId)
     {
-        //
+        $donacion = Donacion::where('id', $donacionId)->first();
+        $donacion->medida->update(request(['usuario_id', 'objetivos', 'descripcion', 'aprobada']));
+        $donacion->update(request(['medida_id', 'locacion_id', 'titular', 'rut_destinatario', 'nombre_banco', 'tipo_cuenta', 'cuenta', 'fecha_inicio', 'fecha_termino']));
+        return redirect(url('donaciones'));
     }
 
     /**
@@ -110,8 +115,10 @@ class DonacionController extends Controller
      * @param  \App\Donacion  $donacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donacion $donacion)
+    public function destroy($donacionId)
     {
-        //
+        $donacion = Donacion::where('id', $donacionId)->first();
+        $donacion->delete();
+        return redirect( url('donaciones') );
     }
 }

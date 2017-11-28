@@ -1,5 +1,7 @@
 @extends('layouts.master-sidebarless')
-<link rel="stylesheet" type="text/css" href="css/perfil.css"> 
+@section('style')
+{{ Html::style('css/perfil.css') }}
+@endsection
 
 @section('content')
 	<br />
@@ -36,5 +38,5 @@
 	</table>
 </div>
 {{$gastos->links()}}
-	
+
 @endsection
