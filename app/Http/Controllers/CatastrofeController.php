@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Auth; 
 use App\Catastrofe;
 use App\Locacion;
@@ -38,8 +37,7 @@ class CatastrofeController extends Controller
             request(['usuario_id','tipo_catastrofe_id','locacion_id','descripcion','fecha_catastrofe']));
         
 
-        
-        $catastrofe->notifty(new PostPublished());
+           $catastrofe->notify(new PostCatastrofe());
         
         if($catastrofe->save()){
             return redirect( url('catastrofes') );

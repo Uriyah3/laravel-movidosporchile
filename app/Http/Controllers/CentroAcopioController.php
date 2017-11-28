@@ -10,6 +10,7 @@ use App\Locacion;
 use App\Region;
 use App\Estado;
 use Illuminate\Http\Request;
+use App\Notifications\MedidaPublicada;
 
 class CentroAcopioController extends Controller
 {
@@ -52,7 +53,8 @@ class CentroAcopioController extends Controller
         $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
-        EventoABeneficio::create(request(['medida_id', 'locacion_id', 'estado_id', 'fecha_inicio', 'fecha_termino']));
+        $centro = CentroAcopio::create(request(['medida_id', 'locacion_id', 'estado_id', 'fecha_inicio', 'fecha_termino']));
+        $centro->notify(new MedidaPublicada());
 
         return redirect( url('donaciones') );
     }

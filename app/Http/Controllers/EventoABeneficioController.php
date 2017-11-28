@@ -8,6 +8,7 @@ use App\Region;
 use App\Locacion;
 use App\Medida;
 use Illuminate\Http\Request;
+use App\Notifications\MedidaPublicada;
 
 class EventoABeneficioController extends Controller
 {
@@ -49,7 +50,8 @@ class EventoABeneficioController extends Controller
         $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
-        EventoABeneficio::create(request(['medida_id', 'locacion_id', 'actividades', 'fecha', 'horario_inicio', 'horario_termino']));
+        $evento = EventoABeneficio::create(request(['medida_id', 'locacion_id', 'actividades', 'fecha', 'horario_inicio', 'horario_termino']));
+        $evento->notify(new MedidaPublicada());
 
         return redirect( url('eventos_a_beneficio') );
     }

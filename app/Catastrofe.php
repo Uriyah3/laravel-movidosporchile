@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Catastrofe extends Model
 {
+    use Notifiable; 
     /**
      * Indicates if the model should be timestamped.
      *

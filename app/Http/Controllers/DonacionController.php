@@ -7,6 +7,7 @@ use App\Donacion;
 use App\Locacion;
 use App\Medida;
 use Illuminate\Http\Request;
+use App\Notifications\MedidaPublicada;
 
 class DonacionController extends Controller
 {
@@ -51,7 +52,8 @@ class DonacionController extends Controller
         $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
-        EventoABeneficio::create(request(['medida_id', 'locacion_id', 'titular', 'rut_destinatario', 'nombre_banco', 'tipo_cuenta', 'cuenta', 'fecha_inicio', 'fecha_termino']));
+        $donacion = Donacion::create(request(['medida_id', 'locacion_id', 'titular', 'rut_destinatario', 'nombre_banco', 'tipo_cuenta', 'cuenta', 'fecha_inicio', 'fecha_termino']));
+        $donacion->notify(new MedidaPublicada());
 
         return redirect( url('donaciones') );
     }

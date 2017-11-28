@@ -49,7 +49,7 @@ class VoluntarioController extends Controller
         $voluntario->voluntariado_id = $voluntariado->id;
         $voluntario->save();
 
-        return redirect( url('voluntariados') );
+        return redirect( url()->previous() );
     }
 
     /**
@@ -86,7 +86,10 @@ class VoluntarioController extends Controller
      */
     public function update(Request $request, Voluntariado $voluntariado, Voluntario $voluntario)
     {
-        //
+        $voluntario->finalizado = true;
+        $voluntario->update();
+
+        return redirect( url()->previous() );
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Medida;
 use App\Region;
 use App\ActividadVoluntariado;
 use Illuminate\Http\Request;
+use App\Notifications\MedidaPublicada;
 
 class VoluntariadoController extends Controller
 {
@@ -50,7 +51,9 @@ class VoluntariadoController extends Controller
         $request['usuario_id'] = $user['id'];
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
-        Voluntariado::create(request(['medida_id', 'locacion_id', 'actividad_voluntariado_id', 'fecha_inicio', 'fecha_termino', 'cantidad_voluntarios']));
+        $voluntariado = Voluntariado::create(request(['medida_id', 'locacion_id', 'actividad_voluntariado_id', 'fecha_inicio', 'fecha_termino', 'cantidad_voluntarios']));
+
+        $voluntariado->notify(new MedidaPublicada());
 
         return redirect( url('voluntariados') );
     }

@@ -37,10 +37,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 'twitter' => [
-    'consumer_key'    => getenv('rTopsDfKPjVomwhGtLgCfMgEt'),
-    'consumer_secret' => getenv('8gPKOW3n7yHq1tSVOypwEXx8XTIglEsqi85mam4edMBA10Ojwh'),
-    'access_token'    => getenv('212658326-RF1wIGpbSRvXxKUCHaUq1Q0oufFm7xc0vf2PtmCq'),
-    'access_secret'   => getenv('=Y9kZBAtP23peb6BYjBuq9zZ8u1n9zoLoGc3It9c2fv6F1')
+    'consumer_key'    => getenv('TWITTER_CONSUMER_KEY'),
+    'consumer_secret' => getenv('TWITTER_CONSUMER_SECRET'),
+    'access_token'    => getenv('TWITTER_ACCESS_TOKEN'),
+    'access_secret'   => getenv('TWITTER_ACCESS_TOKEN_SECRET')
 ],
 
 
