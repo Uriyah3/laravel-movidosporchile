@@ -89,7 +89,7 @@ class EventoABeneficioController extends Controller
         $eventoABeneficio = EventoABeneficio::where('id', $eventoABeneficioId)->first();
         $regiones = Region::all();
 
-        return view('eventos_a_beneficio.create', compact('eventoABeneficio', 'regiones'));
+        return view('eventos_a_beneficio.edit', compact('eventoABeneficio', 'regiones'));
     }
 
     /**

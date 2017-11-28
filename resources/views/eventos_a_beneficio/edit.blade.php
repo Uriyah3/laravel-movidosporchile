@@ -10,11 +10,11 @@
 
 @section('content')
 <h1 class="titulo">Editar Evento A Beneficio</h1>
-<form action="{{url('voluntariados', $eventoABeneficio->id)}}" method="POST">
+<form action="{{url('eventos_a_beneficio', $eventoABeneficio->id)}}" method="POST">
 	{{ csrf_field() }}
     {{ method_field('PATCH') }}
 
-	@include('locaciones.edit')
+	@include('locaciones.edit', ['locacion' => $eventoABeneficio->locacion])
 
 	<div class="form-row">
 		<div class="col">
@@ -56,7 +56,7 @@
 
 	<div class="form-group{{ $errors->has('actividades') ? ' has-error' : '' }}">
 		<label for="actividades">Actividades:</label>
-		<textarea class="form-control" id="actividades" name="actividades" rows="2" value="{{ old('actividades', $eventoABeneficio->actividades) }}" required></textarea>
+		<textarea class="form-control" id="actividades" name="actividades" rows="2" required>{{ old('actividades', $eventoABeneficio->actividades) }}</textarea>
 		@if ($errors->has('actividades'))
 		<span class="help-block">
 			<strong>{{ $errors->first('actividades') }}</strong>
@@ -64,7 +64,7 @@
 		@endif
 	</div>
 
-	@include('medidas.edit')
+	@include('medidas.edit', ['medida' => $eventoABeneficio->medida])
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Guardar Evento a beneficio</button>

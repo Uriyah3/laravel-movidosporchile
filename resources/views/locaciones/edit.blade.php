@@ -2,7 +2,7 @@
 	<div class="col">
 		<div class="form-group{{ $errors->has('region_id') ? ' has-error' : '' }}">
 			<label for="region_id">Region:</label>
-			<select class="form-control" name="region_id" id="region_id" value="{{ old('region_id', $voluntariado->locacion->comuna->provincia->region_id) }}" required>
+			<select class="form-control" name="region_id" id="region_id" value="{{ old('region_id', $locacion->comuna->provincia->region_id) }}" required>
 				@foreach($regiones as $region)
 				<option value="{{$region->id}}">{{$region->nombre}}</option>
 				@endforeach
@@ -19,7 +19,7 @@
 	<div class="col">
 		<div class="form-group{{ $errors->has('provincia_id') ? ' has-error' : '' }}">
 			<label for="provincia_id">Provincia:</label>
-			<select class="form-control" name="provincia_id" id="provincia_id" value="{{ old('provincia_id', $voluntariado->locacion->comuna->provincia_id) }}" required>
+			<select class="form-control" name="provincia_id" id="provincia_id" value="{{ old('provincia_id', $locacion->comuna->provincia_id) }}" required>
 
 			</select>
 
@@ -34,7 +34,7 @@
 	<div class="col">
 		<div class="form-group{{ $errors->has('comuna_id') ? ' has-error' : '' }}">
 			<label for="comuna_id">Comuna:</label>
-			<select class="form-control" name="comuna_id" id="comuna_id" value="{{ old('comuna_id', $voluntariado->locacion->comuna_id) }}" required>
+			<select class="form-control" name="comuna_id" id="comuna_id" value="{{ old('comuna_id', $locacion->comuna_id) }}" required>
 
 			</select>
 
@@ -51,9 +51,9 @@
 @section('scripts')
 <script>
 	$(function () {
-		var region_id = {{ old('region_id', $voluntariado->locacion->comuna->provincia->region_id) }};
-		var provincia_id = {{ old('provincia_id', $voluntariado->locacion->comuna->provincia_id) }};
-		var comuna_id = {{ old('comuna_id', $voluntariado->locacion->comuna_id) }};
+		var region_id = {{ old('region_id', $locacion->comuna->provincia->region_id) }};
+		var provincia_id = {{ old('provincia_id', $locacion->comuna->provincia_id) }};
+		var comuna_id = {{ old('comuna_id', $locacion->comuna_id) }};
 
 		$('#region_id').val(region_id).prop('selected', true);
 		$('#provincia_id').val(provincia_id).prop('selected', true);

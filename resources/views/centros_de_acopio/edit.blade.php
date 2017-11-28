@@ -14,7 +14,7 @@
 	{{ csrf_field() }}
     {{ method_field('PATCH') }}
 
-	@include('locaciones.create')
+	@include('locaciones.edit', ['locacion' => $centroAcopio->locacion])
 
 	<div class="form-row">
 		<div class="col">
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 
-	@include('medidas.create')
+	@include('medidas.edit', ['medida' => $centroAcopio->medida])
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Editar Centro de acopio</button>

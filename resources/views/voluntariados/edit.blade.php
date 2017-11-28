@@ -7,15 +7,15 @@
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
- 
+
 @section('content')
 <h1 class="titulo">Editar Voluntariado</h1>
 <form action="{{url('voluntariados', $voluntariado->id)}}" method="POST">
 	{{ csrf_field() }}
     {{ method_field('PATCH') }}
 
-	@include('locaciones.edit')
- 
+	@include('locaciones.edit', ['locacion' => $voluntariado->locacion])
+
 	<div class="form-row">
 		<div class="col">
 			<div class="form-group{{ $errors->has('actividad_voluntariado_id') ? ' has-error' : '' }}">
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 
-	@include('medidas.edit')
+	@include('medidas.edit', ['medida' => $voluntariado->medida])
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Guardar cambios</button>
