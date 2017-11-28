@@ -2,7 +2,7 @@
 
 @section('style')
 <link rel="shortcut icon" type="image/x-icon" href="imagenes/icono.png">
-<link rel="stylesheet" type="text/css" href="css/loginReg.css">
+{{ Html::style('css/loginReg.css') }}
 @endsection
 
 @section('content')

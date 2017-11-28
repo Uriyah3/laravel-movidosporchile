@@ -7,7 +7,7 @@
 @section('sidebar')
 @include('layouts.sidebarUsuario')
 @endsection
-
+ 
 @section('content')
 <h1 class="titulo">Agregar Voluntariado</h1>
 <form action="/voluntariados" method="POST">

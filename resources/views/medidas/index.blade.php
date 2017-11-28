@@ -1,5 +1,8 @@
 @extends('layouts.master')
-<link rel="stylesheet" type="text/css" href="css/medida.css">
+
+@section('style')
+{{ Html::style('css/medida.css') }}
+@endsection
 
 @section('sidebar')
     @include('layouts.sidebarUsuario')

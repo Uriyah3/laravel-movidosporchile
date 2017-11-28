@@ -19,22 +19,16 @@ class CentroAcopioController extends Controller
      */
     public function index()
     {
-        $centrosDeAcopio = CentroAcopio::aprobado()->simplePaginate(10);
+        if(Auth::check() && Auth::user()->rol->nombre == "Gobierno") {
+            $centrosDeAcopio = CentroAcopio::withCount('bien')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        } else {
+            $centrosDeAcopio = CentroAcopio::aprobado()->withCount('bien')->orderBy('fecha_inicio', 'desc')->simplePaginate(10);
+        }
 
         return view('centros_de_acopio.index', compact('centrosDeAcopio'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        $regiones = Region::all();
-        $estados = Estado::all();
-        return view('centros_de_acopio.create', compact('regiones', 'estados'));
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -51,9 +45,9 @@ class CentroAcopioController extends Controller
             'fecha_termino' => 'required|date|after:fecha_inicio'
         ]);
 
-        $user = Auth::user();
+
         $request['locacion_id'] = factory(Locacion::class)->create(['comuna_id' => $request['comuna_id']])->id;
-        $request['usuario_id'] = $user['id'];
+        $request['usuario_id'] = Auth::id();
 
         $request['medida_id'] = Medida::create(request(['usuario_id', 'objetivos', 'descripcion']))->id;
         EventoABeneficio::create(request(['medida_id', 'locacion_id', 'estado_id', 'fecha_inicio', 'fecha_termino']));
@@ -64,13 +58,27 @@ class CentroAcopioController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\CentroAcopio  $centroAcopio
+     * @param  \App\CentroAcopio ID $centroAcopioID
      * @return \Illuminate\Http\Response
      */
-    public function show(CentroAcopio $centroAcopio)
+    public function show($centroAcopioId)
     {
-        //
+        $centroAcopio = CentroAcopio::where('id', $centroAcopioId)->withCount('bien')->first();
+        return view('centros_de_acopio.show', compact('centroAcopio'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $regiones = Region::all();
+        $estados = Estado::all();
+        return view('centros_de_acopio.create', compact('regiones', 'estados'));
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -78,9 +86,12 @@ class CentroAcopioController extends Controller
      * @param  \App\CentroAcopio  $centroAcopio
      * @return \Illuminate\Http\Response
      */
-    public function edit(CentroAcopio $centroAcopio)
+    public function edit($centroAcopioId)
     {
-        //
+        $centroAcopio = CentroAcopio::where('id', $centroAcopioId)->first();
+        $regiones = Region::all();
+        $estados = Estado::all();
+        return view('centros_de_acopio.edit', compact('centroAcopio', 'regiones', 'estados'));
     }
 
     /**
@@ -90,9 +101,13 @@ class CentroAcopioController extends Controller
      * @param  \App\CentroAcopio  $centroAcopio
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CentroAcopio $centroAcopio)
+    public function update(Request $request, $centroAcopioId)
     {
-        //
+        $centroAcopio = CentroAcopio::where('id', $centroAcopioId)->first();
+        $centroAcopio->locacion->update(request(['comuna_id']));
+        $centroAcopio->medida->update(request(['usuario_id', 'objetivos', 'descripcion', 'aprobada']));
+        $centroAcopio->update(request(['medida_id', 'locacion_id', 'estado_id', 'fecha_inicio', 'fecha_termino']));
+        return redirect(url('centros_de_acopio'));
     }
 
     /**
@@ -101,8 +116,10 @@ class CentroAcopioController extends Controller
      * @param  \App\CentroAcopio  $centroAcopio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CentroAcopio $centroAcopio)
+    public function destroy($centroAcopioId)
     {
-        //
+        $centroAcopio = CentroAcopio::where('id', $centroAcopioId)->first();
+        $centroAcopio->delete();
+        return redirect( url('centros_de_acopio') );
     }
 }

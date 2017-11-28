@@ -14,7 +14,7 @@
 	{{ csrf_field() }}
     {{ method_field('PATCH') }}
 
-	@include('locaciones.edit')
+	@include('locaciones.edit', ['locacion' => $voluntariado->locacion])
 
 	<div class="form-row">
 		<div class="col">
@@ -72,7 +72,7 @@
 		</div>
 	</div>
 
-	@include('medidas.edit')
+	@include('medidas.edit', ['medida' => $voluntariado->medida])
 
 	<div class="form-group">
 		<button type="submit" class="btn btn-primary">Guardar cambios</button>

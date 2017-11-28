@@ -39,7 +39,17 @@ class ComentarioEventoABeneficioController extends Controller
      */
     public function store(Request $request, EventoABeneficio $eventoABeneficio)
     {
-        //
+
+        $this->validate(request(),[
+            'descripcion' => 'required|string',
+        ]);
+
+        $request['usuario_id'] = Auth::id();
+        $Request['medida_id'] = $eventoABeneficio->medida->id;
+
+        Comentario::create(Request(['medida_id','usuario_id','descripcion']));
+
+        return redirect( url()->previous());
     }
 
     /**
@@ -88,6 +98,7 @@ class ComentarioEventoABeneficioController extends Controller
      */
     public function destroy(EventoABeneficio $eventoABeneficio, Comentario $comentario)
     {
-        //
+        $comentario->delete();
+        return redirect( url()->previous());
     }
 }
