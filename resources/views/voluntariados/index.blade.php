@@ -23,6 +23,12 @@
 	Movidos x Chile solicita la ayuda de una cantidad de personas para realizar una serie de trabajos, los cuales se encuentran detallados a continuación, con su respectivo progreso.
 </p>
 
+<div class="registrado">
+	<p>
+		Si desea participar como voluntario en alguna de las actividades propuestas, es importante que se encuentre registrado dentro del sistema.
+	</p>
+</div>
+
 <br />
 
 <div class="table-responsive">

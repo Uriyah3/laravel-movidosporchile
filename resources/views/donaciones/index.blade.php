@@ -42,5 +42,6 @@
 	<dd>movidosxchile@mxc.cl</dd>
 </dl>
 
+<img class="bci" src="imagenes/bci.png">
 
 @endsection
