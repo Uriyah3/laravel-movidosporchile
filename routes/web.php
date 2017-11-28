@@ -33,6 +33,8 @@ Route::resources([
 	'donaciones.depositos' => 'DepositoController'
 ]);
 
+Route::delete('/usuarios/{id}', 'UsuarioController@destroy');
+
 /*
 Route::post('/medidas', 'MedidaController@store');
 Route::get('/medidas', 'MedidaController@index');

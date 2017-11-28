@@ -6,7 +6,7 @@
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
-@endsection 
+@endsection
 
 @section('content')
 <div class="row">
@@ -49,7 +49,7 @@
 		<tbody>
 			@foreach($voluntariados as $voluntariado)
 			@php ($progreso= $voluntariado->voluntario_count / $voluntariado->cantidad_voluntarios * 100.0)
-			@if($progreso < 100.0)
+			@if($progreso < 100.0 || (Auth::check() && Auth::user()->rol->nombre == "Gobierno"))
 			<tr>
 				@if(Auth::check() && Auth::user()->rol->nombre == "Gobierno")
 					<td class="text-center">{{ $voluntariado->medida->aprobada == true ? "Si" : "No" }}</td>

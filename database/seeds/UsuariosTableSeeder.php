@@ -11,7 +11,7 @@ class UsuariosTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Usuario::class, 12)->create();
+        factory(App\Usuario::class, 22)->create();
         // Crear usuarios de prueba.
         factory(App\Usuario::class)->create([
         	'rol_id' => 4,
