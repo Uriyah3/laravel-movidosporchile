@@ -1,8 +1,8 @@
 @extends('layouts.master')
- 
+
 @section('style')
-<link rel="stylesheet" type="text/css" href="css/perfil.css">
-@section('style')
+{{ Html::style('css/perfil.css') }}
+@endsection
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')
@@ -12,7 +12,7 @@
 <h1 class="titulo">Editar Donación</h1>
 <form action="/donaciones" method="POST">
 	{{ csrf_field() }}
- 
+
 	<div class="form-row">
 		<div class="col">
 			<div class="form-group{{ $errors->has('titular') ? ' has-error' : '' }}">

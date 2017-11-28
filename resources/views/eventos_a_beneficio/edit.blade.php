@@ -1,8 +1,8 @@
-@extends('layouts.master') 
+@extends('layouts.master')
 
 @section('style')
-<link rel="stylesheet" type="text/css" href="css/perfil.css">
-@section('style')
+{{ Html::style('css/perfil.css') }}
+@endsection
 
 @section('sidebar')
 @include('layouts.sidebarUsuario')

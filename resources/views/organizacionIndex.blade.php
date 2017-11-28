@@ -1,5 +1,7 @@
 @extends('layouts.master-sidebarless')
-<link rel="stylesheet" type="text/css" href="css/organizacion.css">
+@section('style')
+{{ Html::style('css/organizacion.css') }}
+@endsection
 
 @section('content')
 <h1 class="titulo">¿Quiénes somos?</h1>

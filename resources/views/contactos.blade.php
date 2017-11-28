@@ -1,6 +1,8 @@
 @extends('layouts.master-sidebarless')
-<link rel="stylesheet" type="text/css" href="css/contacto.css">
 
+@section('style')
+{{ Html::style('css/contacto.css') }}
+@endsection
 
 @section('content')
 <h1 class="titulo">Contacto</h1>
