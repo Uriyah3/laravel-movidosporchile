@@ -24,7 +24,7 @@ class UsuariosTableSeeder extends Seeder
         ]);
 
         factory(App\Usuario::class)->create([
-        	'rol_id' => 2,
+        	'rol_id' => 3,
 			'username' => 'isamar',
 			'rut' => 12312312,
 			'dv' => '3',

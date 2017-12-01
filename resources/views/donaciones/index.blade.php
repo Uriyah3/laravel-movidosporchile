@@ -28,6 +28,10 @@
 
 	<br />
 
+<div class="row">
+	<div class="col-md-2">
+
+
 <dl>
 	<dt>Nombre</dt>
 	<dd>Movidos x Chile</dd>
@@ -44,9 +48,12 @@
 	<dt>E-mail</dt>
 	<dd>movidosxchile@mxc.cl</dd>
 </dl>
+</div>
 
-
+	<div class="col-md-10">
 <img class="bci" src="imagenes/bci.png">
+</div>
+</div>
 
 <br />
 <h2 class="subtitulo">Aportes monetarios</h2>
